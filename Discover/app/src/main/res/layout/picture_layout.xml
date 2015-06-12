@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFCCCCCC"
+        android:orientation="vertical"
+        tools:context=".PictureActivity"
+        android:layout_alignParentEnd="false"
+        android:gravity="bottom"
+        android:padding="10dp"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Anleitung"
+            android:id="@+id/creativeTaskText" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:id="@+id/picture"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitCenter" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:id="@+id/cameraButton"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/camera"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:onClick="startCamera" />
+
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal">
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Pinnwand"
+                    android:id="@+id/pinnwandButtonNote"
+                    android:background="#87c3d8"
+                    android:textColor="#ffffff"
+                    android:onClick="Pinnwand"
+                    android:layout_marginRight="10dp" />
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anpinnen_Button"
+                    android:id="@+id/pinnenButtonPicture"
+                    android:background="#87c3d8"
+                    android:textColor="#ffffff"
+                    android:onClick="StartPinnenPicture"
+                    android:layout_marginLeft="10dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

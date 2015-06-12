@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:layout_x="0px"
+        android:layout_y="25px"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:layout_below="@+id/InfoUeberschrift"
+        android:layout_alignLeft="@+id/InfoUeberschrift"
+        android:layout_alignStart="@+id/InfoUeberschrift"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="80dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:scrollbars = "vertical"
+            android:text=""
+            android:id="@+id/InfoText"
+            android:clickable="false"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/InfoImage" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Headline"
+        android:id="@+id/InfoUeberschrift"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="43dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="25dp"
+        android:textSize="25dp" />
+
+    <Button
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
+        android:text="@string/buttonPinnwand"
+        android:id="@+id/zumPinboardButton"
+        android:textColor="#ffffff"
+        android:background="#87c3d8"
+        android:onClick="StartPinboard"
+        android:layout_alignTop="@+id/QuizButton"
+        android:layout_alignLeft="@+id/scrollView"
+        android:layout_alignStart="@+id/scrollView" />
+
+    <Button
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
+        android:text="@string/zumQuizButton"
+        android:id="@+id/QuizButton"
+        android:layout_marginBottom="25dp"
+        android:onClick="StartQuiz"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#87c3d8"
+        android:textColor="#ffffff" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/imageDone"
+        android:src="@drawable/point_grey"
+        android:layout_alignTop="@+id/pointPinnwand"
+        android:layout_toLeftOf="@+id/pointPinnwand"
+        android:layout_marginRight="5dp" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/pointQuiz"
+        android:layout_alignTop="@+id/InfoUeberschrift"
+        android:layout_alignRight="@+id/QuizButton"
+        android:layout_alignEnd="@+id/QuizButton"
+        android:src="@drawable/point_grey"
+        android:layout_marginLeft="5dp" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/pointPinnwand"
+        android:src="@drawable/point_grey"
+        android:layout_alignTop="@+id/pointQuiz"
+        android:layout_toLeftOf="@+id/pointQuiz"
+        android:layout_toStartOf="@+id/pointQuiz" />
+
+</RelativeLayout>

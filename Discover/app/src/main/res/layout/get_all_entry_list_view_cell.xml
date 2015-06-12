@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listViewImg"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/load"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/listViewNote"
+         android:textSize="24sp"
+         android:layout_gravity="center_horizontal"
+         android:layout_below="@+id/listViewImg"
+         android:layout_alignParentStart="false"
+         android:layout_marginLeft="20dp"
+         android:layout_marginBottom="10dp"
+         android:layout_marginTop="10dp" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/heartImage"
+        android:src="@drawable/heart"
+        android:layout_alignLeft="@+id/listViewNote"
+        android:layout_below="@+id/listViewNote"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="0"
+        android:id="@+id/listViewLikes"
+        android:layout_alignBottom="@+id/heartImage"
+        android:layout_toRightOf="@+id/heartImage"
+        android:layout_toEndOf="@+id/heartImage"
+        android:layout_marginLeft="10dp" />
+
+    <!--<ImageButton
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/likeButton"
+        android:layout_alignBottom="@+id/listViewLikes"
+        android:layout_toLeftOf="@+id/listViewLikes"
+        android:layout_toStartOf="@+id/listViewLikes"
+        android:src="@drawable/cool" />-->
+</RelativeLayout>

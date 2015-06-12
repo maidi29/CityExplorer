@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/pointsTextString"
+        android:id="@+id/pointsText"
+        android:layout_below="@+id/uploadPointsText"
+        android:layout_alignLeft="@+id/listView"
+        android:layout_alignStart="@+id/listView"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/pointsTextString"
+        android:id="@+id/summary"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/uploadPointsText"
+        android:layout_alignStart="@+id/uploadPointsText"
+        android:textSize="30dp"
+        android:layout_marginRight="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/pointsTextString"
+        android:id="@+id/uploadPointsText"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_below="@+id/summary"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:id="@+id/listView"
+        android:layout_below="@+id/pointsText"
+        android:layout_alignLeft="@+id/uploadPointsText"
+        android:layout_alignStart="@+id/uploadPointsText"
+        android:layout_marginTop="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="20dp" />
+</RelativeLayout>

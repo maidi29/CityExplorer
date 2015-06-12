@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFCCCCCC"
+        android:orientation="vertical"
+        tools:context=".NoteActivity"
+        android:layout_alignParentEnd="false"
+        android:gravity="bottom"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/TaskText2"
+            android:id="@+id/creativeTaskText" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/noteEditText" />
+
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal">
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Pinnwand"
+                    android:id="@+id/pinnwandButtonNote"
+                    android:background="#87c3d8"
+                    android:textColor="#ffffff"
+                    android:onClick="Pinnwand"
+                    android:layout_marginRight="10dp" />
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anpinnen_Button"
+                    android:id="@+id/pinnenButtonNote"
+                    android:background="#87c3d8"
+                    android:textColor="#ffffff"
+                    android:onClick="StartPinnen"
+                    android:layout_marginLeft="10dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

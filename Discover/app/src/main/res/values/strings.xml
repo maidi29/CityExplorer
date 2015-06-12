@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">City Explorer</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Quest1">Welche dieser Statuen sind nicht auf der alten Mainbrücke?</string>
+    <string name="Title1">Mainbruecke</string>
+    <string name="Text1">Die Alte Mainbruecke ist die älteste Bruecke über den Main in Wuerzburg. Das Bauwerk war bis 1886 Würzburgs einziger Flussübergang. Die Bruecke, Teil der Ost-West-Passage, verbindet bei Mainkilometer 252,32 die Altstadt am rechten Mainufer mit der gegenüberliegenden Festung Marienberg.</string>
+    <string name="Title2">Residenz</string>
+    <string name="Text2">Die Würzburger Residenz ist ein barocker Residenzbau am Rande der Innenstadt von Würzburg, dessen Bau 1719 begonnen wurde und bis 1744 vollendet war. Die Innenausstattung wurde im Jahr 1781 fertiggestellt
+Sie diente bis zur Auflösung der geistlichen Territorien durch die Säkularisation als Sitz der Wuerzburger Fuerstbischoefe. Das Schloss zählt zu den Hauptwerken des süddeutschen Barock und ist im europäischen Kontext als einer der bedeutendsten Residenzbauten des Spätbarock anzusehen, es steht somit in einer Reihe mit Schoenbrunn in Wien und Schloss Versailles bei Paris. Die UNESCO hat das Bauwerk einschließlich des Residenzplatzes und der Nebengebauude 1981 in den Rang eines Weltkulturerbes erhoben.
+Die UNESCO begründet die Aufnahme ins Welterbe damit, die Wuerzburger Residenz sei das einheitlichste und außergewöhnlichste aller Barockschlösser, einzigartig durch ihre Originalitaet, ihr ehrgeiziges Bauprogramm und die internationale Zusammensetzung des Baubueros, eine Synthese des europaeischen Barock. Sie veranschauliche zudem einen der strahlendsten Fuerstenhoefe Europas.
+Das 1979 bis 1987 rekonstruierte Spiegelkabinett, eines der Paradezimmer des Kaisers, sei das vollkommenste Raumkunstwerk des Rokoko.</string>
+    <string name="Title3">Kiliansdom</string>
+    <string name="Text3">Der St. Kiliansdom zu Würzburg ist eine römisch-katholische Kirche in Würzburg, die dem Heiligen Kilian geweiht ist. Der Dom ist die Bischofskirche des Bistums Würzburg. Mit seiner Doppelturmfassade und einer Gesamtlänge von 105 Metern ist er das viertgrößte romanische Kirchengebäude Deutschlands und ein Hauptwerk deutscher Baukunst zur Zeit der salischen Kaiser.</string>
+    <string name="zumQuizButton">Quiz</string>
+    <string name="buttonPinnwand">Pinnwand</string>
+    <string name="mainactivity_help">Gehe in die Nähe einer der Markierungen um sie auswählen zu können.</string>
+    <string name="pointsTextString">Deine Punktzahl:</string>
+    <string name="anpinnen_Button">Anpinnen</string>
+    <string name="start_new">New</string>
+    <string name="brush">Brush</string>
+    <string name="erase">Erase</string>
+    <string name="save">Save</string>
+    <string name="paint">Paint</string>
+    <string name="sml">Small</string>
+    <string name="med">Medium</string>
+    <string name="lrg">Large</string>
+    <string name="TaskText2">Suche dir eine der Statuen der alten Mainbrücke aus und formuliere aus, was diese Person wohl gerade angesicht des Treibsn auf der Mainbrücke denkt. Vergiss nichtmitzuteilen die Gedanken welcher Statue du formulierst.</string>
+    <string name="badesQuizText">"Erfolgreich abgeschlossene Quizzes: "</string>
+    <string name="badesPinnwandText">"Kreative Beiträge an der Pinnwand: "</string>
+    <string name="badgesSummaryText">"Gesamtpunktzahl: "</string>
+    <string name="dialogTitleBrush">Stiftgröße:</string>
+    <string name="dialogTitleEraser">Radiergummigröße:</string>
+    <string name="dialogNewTitle">Neue Zeichnung</string>
+    <string name="dialogNewQuestion">Eine neue Zeichnung anfangen?</string>
+    <string name="dialogNewYes">Ja</string>
+    <string name="dialogNewCancel">Abbrechen</string>
+    <string name="dialogSaveTitle">Zeichnung speichern</string>
+    <string name="dialogSaveQuestion">Zeichnung auf dem Gerät speichern?</string>
+    <string name="dialogSaveYes">Ja</string>
+    <string name="dialogSavedToast">Zeichnung erfolgreich gespeichert!</string>
+    <string name="dialogNotSavedToast">Zeichnung konnte nicht gespeichert werden</string>
+    <string name="dialogSaveCancel">Abbrechen</string>
+</resources>

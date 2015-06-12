@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yourapp="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/action_help"
+        android:icon="@drawable/ic_action_help"
+        android:title="@string/mainactivity_help"
+        yourapp:showAsAction="ifRoom"/>
+    <item android:id="@+id/action_badges"
+        android:icon="@drawable/ic_action_badges"
+        android:title="Schau dir deinen Punktestand an"
+        yourapp:showAsAction="ifRoom"/>
+</menu>
