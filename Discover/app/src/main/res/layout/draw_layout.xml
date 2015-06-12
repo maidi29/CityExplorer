@@ -9,7 +9,16 @@
         android:background="#FFCCCCCC"
         android:orientation="vertical"
         tools:context=".DrawActivity" >
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wie würde dein Fresko zum Thema &quot;4 Erdteile&quot; aussehen?"
+            android:id="@+id/taskTextView"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textSize="16dp"
+            android:textIsSelectable="false" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="50dp"
@@ -204,7 +213,8 @@
                     android:background="#87c3d8"
                     android:textColor="#ffffff"
                     android:onClick="Pinnwand"
-                    android:layout_marginRight="10dp" />
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="20dp" />
                 <Button
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
@@ -213,7 +223,8 @@
                     android:background="#87c3d8"
                     android:textColor="#ffffff"
                     android:onClick="StartPinnen"
-                    android:layout_marginLeft="10dp" />
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="20dp" />
             </LinearLayout>
         </LinearLayout>
 

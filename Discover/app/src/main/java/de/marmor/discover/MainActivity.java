@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
@@ -98,6 +99,10 @@ public class MainActivity extends ActionBarActivity {
                 .position(new LatLng(49.793349, 9.932558))
                 .title(getString(R.string.Title3))
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker)));
+        /*Marker marker4 = googleMap.addMarker(new MarkerOptions()
+            .position(new LatLng(49.794438, 9.94746))
+            .title("Mareike")
+            .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker)));*/
 
         DbHelper dbh  = new DbHelper(context);
         cursor = dbh.getScore(dbh);
@@ -149,11 +154,19 @@ public class MainActivity extends ActionBarActivity {
             public void onInfoWindowClick(Marker marker) {
 
                 LatLng markerPosition = marker.getPosition();
-                markerPosition.
                 myLocation = locationManager.getLastKnownLocation(provider);
-                Intent intent = new Intent(MainActivity.this, Discover.class);
-                intent.putExtra("MarkerID", marker.getTitle());
-                startActivity(intent);
+                Location markerLoc = new Location("marker");
+                markerLoc.setLatitude(markerPosition.latitude);
+                markerLoc.setLongitude(markerPosition.longitude);
+                float meters = myLocation.distanceTo(markerLoc);
+
+                //if (meters < 200 || marker.getIcon() == BitmapDescriptorFactory.fromResource(R.drawable.markerdone)) {
+                    Intent intent = new Intent(MainActivity.this, Discover.class);
+                    intent.putExtra("MarkerID", marker.getTitle());
+                    startActivity(intent);
+                /*} else {
+                    Toast.makeText(getBaseContext(),"Gehe zur/zum "+ marker.getTitle()+" um diesen Marker zu oeffnen.", Toast.LENGTH_LONG).show();
+                }*/
             }
         });
     }
@@ -189,8 +202,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig)
-    {
+    public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         lockScreenRotation(Configuration.ORIENTATION_PORTRAIT);
     }
@@ -206,10 +218,6 @@ public class MainActivity extends ActionBarActivity {
         intent.addCategory(Intent.CATEGORY_HOME);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
-    }
-
-    public static void distanceBetween (double startLatitude, double startLongitude, double endLatitude, double endLongitude, float[] results) {
-
     }
 
 }
