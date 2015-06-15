@@ -153,13 +153,13 @@ public class MainActivity extends ActionBarActivity {
                 markerLoc.setLongitude(markerPosition.longitude);
                 float meters = myLocation.distanceTo(markerLoc);
 
-                //if (meters < 200 || marker.getIcon() == BitmapDescriptorFactory.fromResource(R.drawable.markerdone)) {
+                if (meters < 200 /*|| marker (new MarkerOptions.getIcon() == BitmapDescriptorFactory.fromResource(R.drawable.markerdone)*/) {
                     Intent intent = new Intent(MainActivity.this, Discover.class);
                     intent.putExtra("MarkerID", marker.getTitle());
                     startActivity(intent);
-                /*} else {
+                } else {
                     Toast.makeText(getBaseContext(),"Gehe zur/zum "+ marker.getTitle()+" um diesen Marker zu oeffnen.", Toast.LENGTH_LONG).show();
-                }*/
+                }
             }
         });
     }

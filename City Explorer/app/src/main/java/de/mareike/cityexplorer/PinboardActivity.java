@@ -31,7 +31,8 @@ public class PinboardActivity extends ActionBarActivity{
     String markerID;
     String entryID;
     Context context = this;
-    ImageView heart;
+    GetAllEntrysListViewAdapter.ListCell listCell;
+
     //ImageButton likeButton;
 
     @Override
@@ -39,8 +40,9 @@ public class PinboardActivity extends ActionBarActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pinboard_layout);
 
+        listCell = new GetAllEntrysListViewAdapter.ListCell();
         getALlEntrysListView = (ListView) findViewById(R.id.getAllEntrysListView);
-        heart = (ImageView) findViewById(R.id.heartImage);
+        //heart = (ImageView) findViewById(R.id.heartImage);
         //likeButton = (ImageButton) findViewById(R.id.likeButton);
 
         if (savedInstanceState == null) {
