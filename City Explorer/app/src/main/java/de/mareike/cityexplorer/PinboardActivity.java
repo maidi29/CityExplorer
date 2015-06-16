@@ -10,8 +10,10 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -32,8 +34,7 @@ public class PinboardActivity extends ActionBarActivity{
     String entryID;
     Context context = this;
     GetAllEntrysListViewAdapter.ListCell listCell;
-
-    //ImageButton likeButton;
+    ImageView likeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +43,7 @@ public class PinboardActivity extends ActionBarActivity{
 
         listCell = new GetAllEntrysListViewAdapter.ListCell();
         getALlEntrysListView = (ListView) findViewById(R.id.getAllEntrysListView);
-        //heart = (ImageView) findViewById(R.id.heartImage);
-        //likeButton = (ImageButton) findViewById(R.id.likeButton);
+        //listCell.likeButton = (ImageButton) findViewById(R.id.likeButton);
 
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
@@ -62,6 +62,9 @@ public class PinboardActivity extends ActionBarActivity{
 
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                likeButton = (ImageView) view.findViewById(R.id.heartImage);
+                likeButton.setImageResource(R.drawable.heart_filled);
+                //create database entry
 
                 try {
 

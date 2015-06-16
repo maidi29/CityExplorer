@@ -68,7 +68,7 @@ public class GetAllEntrysListViewAdapter extends BaseAdapter {
             cell.likes = (TextView) convertView.findViewById(R.id.listViewLikes);
             cell.note = (TextView) convertView.findViewById(R.id.listViewNote);
             cell.img = (ImageView) convertView.findViewById(R.id.listViewImg);
-            cell.likeButton = (ImageButton) convertView.findViewById(R.id.heartImage);
+            cell.likeButton = (ImageView) convertView.findViewById(R.id.heartImage);
 
             convertView.setTag(cell);
 
@@ -122,7 +122,7 @@ public class GetAllEntrysListViewAdapter extends BaseAdapter {
         private TextView likes;
         private TextView note;
         private ImageView img;
-        public ImageButton likeButton;
+        public ImageView likeButton;
         public boolean touched;
 
     }
