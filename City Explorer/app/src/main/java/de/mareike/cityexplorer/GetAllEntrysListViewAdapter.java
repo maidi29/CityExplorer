@@ -3,6 +3,7 @@ package de.mareike.cityexplorer;
 
 import android.app.Activity;
 import android.content.Context;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -32,6 +33,9 @@ public class GetAllEntrysListViewAdapter extends BaseAdapter {
     private JSONArray dataArray;
     private Activity activity;
     private static LayoutInflater inflater = null;
+    public Cursor cursor;
+    DbHelper dbh;
+    PinboardActivity pinboard = new PinboardActivity();
 
     private static final String baseUrlForImage = "http://www.creepyhollow.bplaced.net/CityExplorer/CEimages/";
 
@@ -42,9 +46,21 @@ public class GetAllEntrysListViewAdapter extends BaseAdapter {
         inflater = (LayoutInflater)this.activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
+    public GetAllEntrysListViewAdapter(Context context, Cursor cursor) {
+        super();
+        cursor = cursor;
+        DbHelper dbh  = new DbHelper(context);
+       inflater=LayoutInflater.from(context);
+    }
+
     @Override
     public int getCount() {
-        return this.dataArray.length();
+        if (this.dataArray != null) {
+            return this.dataArray.length();
+        }
+        else {
+            return 0;
+        }
     }
 
     @Override
@@ -68,7 +84,7 @@ public class GetAllEntrysListViewAdapter extends BaseAdapter {
             cell.likes = (TextView) convertView.findViewById(R.id.listViewLikes);
             cell.note = (TextView) convertView.findViewById(R.id.listViewNote);
             cell.img = (ImageView) convertView.findViewById(R.id.listViewImg);
-            cell.likeButton = (ImageView) convertView.findViewById(R.id.heartImage);
+            cell.likeImage = (ImageView) convertView.findViewById(R.id.heartImage);
 
             convertView.setTag(cell);
 
@@ -79,7 +95,7 @@ public class GetAllEntrysListViewAdapter extends BaseAdapter {
 
         try {
             JSONObject jsonObject = this.dataArray.getJSONObject(position);
-            cell.likes.setText("Likes: "+ jsonObject.getString("likes"));
+            cell.likes.setText(jsonObject.getString("likes"));
             cell.note.setText(jsonObject.getString("note"));
 
             String img = jsonObject.getString("image");
@@ -110,6 +126,20 @@ public class GetAllEntrysListViewAdapter extends BaseAdapter {
                 }
 
             }.execute(urlForImageInServer);
+
+            /*cursor = dbh.getLike(dbh);
+            cursor.moveToFirst();
+            String markerID = pinboard.markerID;
+            if (cursor.moveToFirst()) {
+                do {
+                    if (cursor.getString(0).equals(markerID) && Integer.parseInt(cursor.getString(1))== position && Integer.parseInt(cursor.getString(2)) == 1) {
+                        cell.likeImage.setImageResource(R.drawable.heart_filled);
+                    }
+                }
+                while(cursor.moveToNext());
+            }
+            cursor.close();*/
+
         }
         catch (JSONException e) {
             e.printStackTrace();
@@ -122,10 +152,8 @@ public class GetAllEntrysListViewAdapter extends BaseAdapter {
         private TextView likes;
         private TextView note;
         private ImageView img;
-        public ImageView likeButton;
+        public ImageView likeImage;
         public boolean touched;
 
     }
-
-
 }

@@ -28,6 +28,7 @@ public class NoteActivity extends ActionBarActivity{
     EditText noteEditText;
     String note;
     Context context = this;
+    String calling = "activity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,7 @@ public class NoteActivity extends ActionBarActivity{
     }
 
     public void StartPinnen (View view) {
+        calling = "upload";
         note = noteEditText.getText().toString();
         final List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("note", note));
@@ -91,12 +93,14 @@ public class NoteActivity extends ActionBarActivity{
 
         Intent intent = new Intent(NoteActivity.this,PinboardActivity.class);
         intent.putExtra("MarkerID", markerID);
+        intent.putExtra("calling", calling);
         startActivity(intent);
     }
 
     public void Pinnwand (View view) {
         Intent intent = new Intent(NoteActivity.this,PinboardActivity.class);
         intent.putExtra("MarkerID", markerID);
+        intent.putExtra("calling", calling);
         startActivity(intent);
     }
 

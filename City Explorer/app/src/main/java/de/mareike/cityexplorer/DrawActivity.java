@@ -36,6 +36,7 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
     Button pinnenButton;
     String markerID;
     Context context = this;
+    String calling = "activity";
 
     private DrawingView drawView;
     private ImageButton currPaint, drawBtn, eraseBtn, newBtn, saveBtn;
@@ -223,6 +224,7 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
 
 
     public void StartPinnen (View view) {
+        calling = "upload";
         drawView.setDrawingCacheEnabled(true);
         final Bitmap image = Bitmap
                 .createBitmap(drawView.getDrawingCache());
@@ -268,12 +270,14 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
 
         Intent intent = new Intent(DrawActivity.this,PinboardActivity.class);
         intent.putExtra("MarkerID", markerID);
+        intent.putExtra("calling", calling);
         startActivity(intent);
     }
 
     public void Pinnwand (View view) {
         Intent intent = new Intent(DrawActivity.this,PinboardActivity.class);
         intent.putExtra("MarkerID", markerID);
+        intent.putExtra("calling", calling);
         startActivity(intent);
     }
 

@@ -5,9 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
@@ -32,9 +34,11 @@ public class PinboardActivity extends ActionBarActivity{
     private JSONArray jsonArray;
     String markerID;
     String entryID;
-    Context context = this;
     GetAllEntrysListViewAdapter.ListCell listCell;
     ImageView likeButton;
+    Context context = this;
+    Cursor cursor;
+    String calling;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +53,14 @@ public class PinboardActivity extends ActionBarActivity{
             Bundle extras = getIntent().getExtras();
             if(extras == null) {
                 markerID= null;
+                calling = "activity";
             } else {
                 markerID= extras.getString("MarkerID");
+                calling = extras.getString("calling");
             }
         } else {
             markerID = (String) savedInstanceState.getSerializable("MarkerID");
+            calling = (String) savedInstanceState.getSerializable("calling");
         }
 
         new getAllEntrysTask().execute(new ApiConnector());
@@ -63,42 +70,48 @@ public class PinboardActivity extends ActionBarActivity{
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 likeButton = (ImageView) view.findViewById(R.id.heartImage);
-                likeButton.setImageResource(R.drawable.heart_filled);
-                //create database entry
 
-                try {
-
-                    JSONObject entryClicked = jsonArray.getJSONObject(position);
-                    entryID = entryClicked.getString("id");
-
-                    final List<NameValuePair> params = new ArrayList<NameValuePair>();
-                    params.add(new BasicNameValuePair("id", entryID));
-                    params.add(new BasicNameValuePair("markerID", markerID));
-
-                    new AsyncTask<ApiConnector, Long, Boolean>() {
-                        @Override
-                        protected Boolean doInBackground(ApiConnector... apiConnectors) {
-                            return apiConnectors[0].like(params);
-
+                DbHelper dbh = new DbHelper(context);
+                cursor = dbh.getLike(dbh);
+                cursor.moveToFirst();
+                if (cursor.moveToFirst()) {
+                    do {
+                        Log.d("Debug", "LongItemClick on " + position);
+                        Log.d("Database", "Inhalt: " + cursor.getString(0) + cursor.getString(1) + cursor.getString(1));
+                        if (cursor.getString(0).equals(markerID) && Integer.parseInt(cursor.getString(1)) == position && Integer.parseInt(cursor.getString(2)) == 1) {
+                            dbh.updateLike(dbh, markerID, position, Integer.parseInt(cursor.getString(2)), 0);
+                            Log.d("Debug", "Dislike");
+                            cursor.close();
+                            return true;
                         }
-                    }.execute(new ApiConnector());
-
-                    finish();
-                    startActivity(getIntent());
-                    //heart.setImageResource(R.drawable.heart_filled);
-
+                        if (cursor.getString(0).equals(markerID) && Integer.parseInt(cursor.getString(1)) == position && Integer.parseInt(cursor.getString(2)) == 0) {
+                            Log.d("Debug", "Change Dislike to Like");
+                            dbh.updateLike(dbh, markerID, position, Integer.parseInt(cursor.getString(2)), 1);
+                            likeUpload(position);
+                            cursor.close();
+                            return true;
+                        } else {
+                            Log.d("Debug", "Neuer Like");
+                            dbh.addLike(dbh, markerID, position, 1);
+                            likeUpload(position);
+                            cursor.close();
+                            return true;
+                        }
+                    } while (cursor.moveToNext());
+                } else {
+                    Log.d("Debug", "Erster Eintrag");
+                    dbh.addLike(dbh, markerID, position, 1);
+                    likeUpload(position);
+                    cursor.close();
+                    return true;
                 }
-                catch (JSONException e){
-                    e.printStackTrace();
-                }
-                return true;
             }
         });
     }
 
     public  void setListAdapter(JSONArray jsonArray) {
         this.jsonArray = jsonArray;
-        this.getALlEntrysListView.setAdapter(new GetAllEntrysListViewAdapter(jsonArray,this));
+        this.getALlEntrysListView.setAdapter(new GetAllEntrysListViewAdapter(jsonArray, this));
     }
 
     private class getAllEntrysTask extends AsyncTask<ApiConnector,Long,JSONArray> {
@@ -127,9 +140,42 @@ public class PinboardActivity extends ActionBarActivity{
 
     @Override
     public void onBackPressed () {
-        Intent intent = new Intent(PinboardActivity.this,Discover.class);
-        intent.putExtra("MarkerID", markerID);
-        startActivity(intent);
+        if (calling.equals("activity")) {
+            finish();
+        }
+        else if(calling.equals("upload")) {
+            Intent intent = new Intent(PinboardActivity.this, Discover.class);
+            intent.putExtra("MarkerID", markerID);
+            startActivity(intent);
+        }
+    }
+
+    public void likeUpload (int position){
+        try {
+
+            JSONObject entryClicked = jsonArray.getJSONObject(position);
+            entryID = entryClicked.getString("id");
+
+            final List<NameValuePair> params = new ArrayList<NameValuePair>();
+            params.add(new BasicNameValuePair("id", entryID));
+            params.add(new BasicNameValuePair("markerID", markerID));
+
+            new AsyncTask<ApiConnector, Long, Boolean>() {
+                @Override
+                protected Boolean doInBackground(ApiConnector... apiConnectors) {
+                    return apiConnectors[0].like(params);
+
+                }
+            }.execute(new ApiConnector());
+
+            finish();
+            startActivity(getIntent());
+            //heart.setImageResource(R.drawable.heart_filled);
+
+        }
+        catch (JSONException e){
+            e.printStackTrace();
+        }
     }
 
 }

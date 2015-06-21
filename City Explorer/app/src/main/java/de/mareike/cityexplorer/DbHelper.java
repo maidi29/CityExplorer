@@ -12,7 +12,7 @@ import java.util.List;
 
 public class DbHelper extends SQLiteOpenHelper {
     //Versionsnummer um die Database bei jeder Aenderung zu upgraden
-    private static final int DATABASE_VERSION = 13;
+    private static final int DATABASE_VERSION = 15;
     // Database Name
     private static final String DATABASE_NAME = "CE";
 
@@ -33,6 +33,12 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String KEY_OPTA= "opta"; //option a
     private static final String KEY_OPTB= "optb"; //option b
     private static final String KEY_OPTC= "optc"; //option c
+
+    private static final String TABLE_LIKES = "likes";
+    private static final String LIKES_ID = "likes_id";
+    private static final String LIKES_MARKERID = "likes_markerid";
+    private static final String LIKES_POSITION = "likes_position";
+    private static final String LIKES_LIKE = "likes_like";
 
     private SQLiteDatabase dbase;
 
@@ -66,6 +72,13 @@ public class DbHelper extends SQLiteOpenHelper {
                 + KEY_OPTC+" TEXT)";
         db.execSQL(sql);
         addQuestions();
+
+        String likes = "CREATE TABLE IF NOT EXISTS " + TABLE_LIKES + " ( "
+                + LIKES_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + LIKES_MARKERID + " TEXT, "
+                + LIKES_POSITION + " INTEGER, "
+                + LIKES_LIKE + " INTEGER) ";
+        db.execSQL(likes);
         //db.close();
     }
 
@@ -192,6 +205,32 @@ public class DbHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectQuery, null);
         row=cursor.getCount();
         return row;
+    }
+
+
+    public void addLike (DbHelper dbh, String markerID, Integer position, Integer like) {
+        dbase = dbh.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(LIKES_MARKERID, markerID);
+        cv.put(LIKES_POSITION, position);
+        cv.put(LIKES_LIKE, like);
+        dbase.insert(TABLE_LIKES, null, cv);
+    }
+
+    public void updateLike (DbHelper dbh, String markerID, Integer position, Integer like, Integer newLike) {
+        dbase = dbh.getWritableDatabase();
+        String selection = LIKES_POSITION+ " LIKE ? AND "+ LIKES_MARKERID + " LIKE ? ";
+        String args[] = {like.toString(), markerID};
+        ContentValues values = new ContentValues();
+        values.put (LIKES_LIKE, newLike);
+        dbase.update(TABLE_LIKES, values, selection, args);
+    }
+
+    public Cursor getLike(DbHelper dbh) {
+        dbase = dbh.getReadableDatabase();
+        String columns[] = {LIKES_MARKERID, LIKES_POSITION, LIKES_LIKE};
+        Cursor cursor = dbase.query(TABLE_LIKES, columns, null, null, null, null, null);
+        return cursor;
     }
 }
 

@@ -48,6 +48,7 @@ public class PictureActivity extends ActionBarActivity {
     private Activity activity;
     Context context = this;
     Uri uriImage;
+    String calling = "activity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,6 +135,7 @@ public class PictureActivity extends ActionBarActivity {
     }
 
     public void StartPinnenPicture (View view) {
+        calling = "upload";
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inSampleSize = 1;
         final Bitmap image = BitmapFactory.decodeFile(imageFile.getAbsolutePath(), options);
@@ -179,12 +181,14 @@ public class PictureActivity extends ActionBarActivity {
 
         Intent intent = new Intent(PictureActivity.this,PinboardActivity.class);
         intent.putExtra("MarkerID", markerID);
+        intent.putExtra("calling", calling);
         startActivity(intent);
     }
 
     public void Pinnwand (View view) {
         Intent intent = new Intent(PictureActivity.this,PinboardActivity.class);
         intent.putExtra("MarkerID", markerID);
+        intent.putExtra("calling", calling);
         startActivity(intent);
     }
 
