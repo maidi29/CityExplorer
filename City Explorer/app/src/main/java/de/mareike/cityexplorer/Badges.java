@@ -6,8 +6,13 @@ import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import de.mareike.cityexplorer.R;
 
@@ -36,6 +41,15 @@ public class Badges extends ActionBarActivity{
         summary = (TextView) findViewById(R.id.summary);
         lv = (ListView) findViewById(R.id.listView);
 
+        String[] values = new String[] { "Erster Punkt - Erster Schritt", "Quizzer - 3 Punkte durch Quizzes verdient", "Kreativer Kopf - 3 Punkte durch Pinnwand-Uploads verdient",
+                "Würzburg-Kenner - alle Marker in Würzburg abgehakt" };
+
+        final ArrayList<String> list = new ArrayList<String>();
+        for (int i = 0; i < values.length; ++i) {
+            list.add(values[i]);
+        }
+        final StableArrayAdapter adapter = new StableArrayAdapter(this,
+                android.R.layout.simple_list_item_1, list);
         lv.setAdapter(adapter);
 
         dbh  = new DbHelper(context);
@@ -79,6 +93,32 @@ public class Badges extends ActionBarActivity{
     private void lockScreenRotation(int orientation)
     {
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
+
+
+    private class StableArrayAdapter extends ArrayAdapter<String> {
+
+        HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();
+
+        public StableArrayAdapter(Context context, int textViewResourceId,
+                                  List<String> objects) {
+            super(context, textViewResourceId, objects);
+            for (int i = 0; i < objects.size(); ++i) {
+                mIdMap.put(objects.get(i), i);
+            }
+        }
+
+        @Override
+        public long getItemId(int position) {
+            String item = getItem(position);
+            return mIdMap.get(item);
+        }
+
+        @Override
+        public boolean hasStableIds() {
+            return true;
+        }
+
     }
 
 
