@@ -37,7 +37,6 @@ public class PinboardActivity extends ActionBarActivity{
     GetAllEntrysListViewAdapter.ListCell listCell;
     ImageView likeButton;
     Context context = this;
-    Cursor cursor;
     String calling;
 
     @Override
@@ -72,25 +71,26 @@ public class PinboardActivity extends ActionBarActivity{
                 likeButton = (ImageView) view.findViewById(R.id.heartImage);
 
                 DbHelper dbh = new DbHelper(context);
-                cursor = dbh.getLike(dbh);
+                Cursor cursor = dbh.getLike(dbh);
                 cursor.moveToFirst();
                 if (cursor.moveToFirst()) {
                     do {
                         Log.d("Debug", "LongItemClick on " + position);
-                        Log.d("Database", "Inhalt: " + cursor.getString(0) + cursor.getString(1) + cursor.getString(1));
+                        Log.d("Database", "Inhalt: " + cursor.getString(0) + cursor.getString(1) + cursor.getString(2));
                         if (cursor.getString(0).equals(markerID) && Integer.parseInt(cursor.getString(1)) == position && Integer.parseInt(cursor.getString(2)) == 1) {
                             dbh.updateLike(dbh, markerID, position, Integer.parseInt(cursor.getString(2)), 0);
                             Log.d("Debug", "Dislike");
                             cursor.close();
                             return true;
                         }
-                        if (cursor.getString(0).equals(markerID) && Integer.parseInt(cursor.getString(1)) == position && Integer.parseInt(cursor.getString(2)) == 0) {
+                        else if (cursor.getString(0).equals(markerID) && Integer.parseInt(cursor.getString(1)) == position && Integer.parseInt(cursor.getString(2)) == 0) {
                             Log.d("Debug", "Change Dislike to Like");
                             dbh.updateLike(dbh, markerID, position, Integer.parseInt(cursor.getString(2)), 1);
                             likeUpload(position);
                             cursor.close();
                             return true;
-                        } else {
+                        }
+                        else {
                             Log.d("Debug", "Neuer Like");
                             dbh.addLike(dbh, markerID, position, 1);
                             likeUpload(position);
@@ -105,6 +105,7 @@ public class PinboardActivity extends ActionBarActivity{
                     cursor.close();
                     return true;
                 }
+
             }
         });
     }

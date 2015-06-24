@@ -6,6 +6,7 @@ import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import de.mareike.cityexplorer.R;
@@ -15,12 +16,14 @@ public class Badges extends ActionBarActivity{
     Context context = this;
     DbHelper dbh;
     Cursor cursor;
+    BadgesListViewAdapter adapter;
     Cursor c;
     int points;
     int uploadPoints;
     TextView pointsText;
     TextView uploadPointsText;
     TextView summary;
+    ListView lv;
     int sum;
 
     @Override
@@ -31,6 +34,9 @@ public class Badges extends ActionBarActivity{
         pointsText = (TextView)findViewById(R.id.pointsText);
         uploadPointsText = (TextView) findViewById(R.id.uploadPointsText);
         summary = (TextView) findViewById(R.id.summary);
+        lv = (ListView) findViewById(R.id.listView);
+
+        lv.setAdapter(adapter);
 
         dbh  = new DbHelper(context);
         cursor = dbh.getScore(dbh);

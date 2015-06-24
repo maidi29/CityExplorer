@@ -12,7 +12,7 @@ import java.util.List;
 
 public class DbHelper extends SQLiteOpenHelper {
     //Versionsnummer um die Database bei jeder Aenderung zu upgraden
-    private static final int DATABASE_VERSION = 15;
+    private static final int DATABASE_VERSION = 18;
     // Database Name
     private static final String DATABASE_NAME = "CE";
 
@@ -232,5 +232,6 @@ public class DbHelper extends SQLiteOpenHelper {
         Cursor cursor = dbase.query(TABLE_LIKES, columns, null, null, null, null, null);
         return cursor;
     }
+
 }
 
