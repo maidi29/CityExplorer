@@ -34,11 +34,11 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String KEY_OPTB= "optb"; //option b
     private static final String KEY_OPTC= "optc"; //option c
 
-    private static final String TABLE_LIKES = "likes";
-    private static final String LIKES_ID = "likes_id";
-    private static final String LIKES_MARKERID = "likes_markerid";
-    private static final String LIKES_POSITION = "likes_position";
-    private static final String LIKES_LIKE = "likes_like";
+    public static final String TABLE_LIKES = "likes";
+    public static final String LIKES_ID = "likes_id";
+    public static final String LIKES_MARKERID = "likes_markerid";
+    public static final String LIKES_POSITION = "likes_position";
+    public static final String LIKES_LIKE = "likes_like";
 
     private SQLiteDatabase dbase;
 
@@ -225,13 +225,5 @@ public class DbHelper extends SQLiteOpenHelper {
         values.put (LIKES_LIKE, newLike);
         dbase.update(TABLE_LIKES, values, selection, args);
     }
-
-    public Cursor getLike(DbHelper dbh) {
-        dbase = dbh.getReadableDatabase();
-        String columns[] = {LIKES_MARKERID, LIKES_POSITION, LIKES_LIKE};
-        Cursor cursor = dbase.query(TABLE_LIKES, columns, null, null, null, null, null);
-        return cursor;
-    }
-
 }
 

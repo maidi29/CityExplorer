@@ -58,7 +58,6 @@ public class ResultActivity extends Activity {
             @Override
             public void onClick(View v) {
                 DbHelper dbh = new DbHelper(context);
-
                 Cursor cursor = getScore(dbh);
                 cursor.moveToFirst();
                 if (cursor.moveToFirst()) {

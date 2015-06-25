@@ -138,5 +138,33 @@ public class ApiConnector {
         return false;
     }
 
+    public Boolean dislike (List<NameValuePair> params) {
+        String url = "http://www.creepyhollow.bplaced.net/CityExplorer/dislike.php";
+
+        HttpEntity httpEntity = null;
+
+        try
+        {
+            DefaultHttpClient httpClient = new DefaultHttpClient();  // Default HttpClient
+            HttpPost httpPost = new HttpPost(url);
+            httpPost.setEntity(new UrlEncodedFormEntity(params));
+
+            HttpResponse httpResponse = httpClient.execute(httpPost);
+            httpEntity = httpResponse.getEntity();
+
+            String entityResponse = EntityUtils.toString(httpEntity);
+            Log.e("Entity Response: ", entityResponse);
+
+            return true;
+
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 
 }

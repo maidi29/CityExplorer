@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -38,6 +39,9 @@ public class PinboardActivity extends ActionBarActivity{
     ImageView likeButton;
     Context context = this;
     String calling;
+    private SQLiteDatabase dbase;
+    DbHelper dbh = new DbHelper(context);
+    public String pos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,27 +74,28 @@ public class PinboardActivity extends ActionBarActivity{
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 likeButton = (ImageView) view.findViewById(R.id.heartImage);
 
-                DbHelper dbh = new DbHelper(context);
-                Cursor cursor = dbh.getLike(dbh);
+                pos = ""+ position;
+                Cursor cursor = getLikes(dbh);
                 cursor.moveToFirst();
                 if (cursor.moveToFirst()) {
                     do {
                         Log.d("Debug", "LongItemClick on " + position);
                         Log.d("Database", "Inhalt: " + cursor.getString(0) + cursor.getString(1) + cursor.getString(2));
-                        if (cursor.getString(0).equals(markerID) && Integer.parseInt(cursor.getString(1)) == position && Integer.parseInt(cursor.getString(2)) == 1) {
+                        if (Integer.parseInt(cursor.getString(2)) == 1) {
                             dbh.updateLike(dbh, markerID, position, Integer.parseInt(cursor.getString(2)), 0);
+                            dislike(position);
                             Log.d("Debug", "Dislike");
                             cursor.close();
                             return true;
                         }
-                        else if (cursor.getString(0).equals(markerID) && Integer.parseInt(cursor.getString(1)) == position && Integer.parseInt(cursor.getString(2)) == 0) {
+                        else if (Integer.parseInt(cursor.getString(2)) == 0) {
                             Log.d("Debug", "Change Dislike to Like");
                             dbh.updateLike(dbh, markerID, position, Integer.parseInt(cursor.getString(2)), 1);
                             likeUpload(position);
                             cursor.close();
                             return true;
                         }
-                        else {
+                        else{
                             Log.d("Debug", "Neuer Like");
                             dbh.addLike(dbh, markerID, position, 1);
                             likeUpload(position);
@@ -105,10 +110,10 @@ public class PinboardActivity extends ActionBarActivity{
                     cursor.close();
                     return true;
                 }
-
             }
         });
     }
+
 
     public  void setListAdapter(JSONArray jsonArray) {
         this.jsonArray = jsonArray;
@@ -177,6 +182,42 @@ public class PinboardActivity extends ActionBarActivity{
         catch (JSONException e){
             e.printStackTrace();
         }
+    }
+
+    private void dislike(int position) {
+        try {
+
+        JSONObject entryClicked = jsonArray.getJSONObject(position);
+        entryID = entryClicked.getString("id");
+
+        final List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("id", entryID));
+        params.add(new BasicNameValuePair("markerID", markerID));
+
+        new AsyncTask<ApiConnector, Long, Boolean>() {
+            @Override
+            protected Boolean doInBackground(ApiConnector... apiConnectors) {
+                return apiConnectors[0].dislike(params);
+
+            }
+        }.execute(new ApiConnector());
+
+        finish();
+        startActivity(getIntent());
+        //heart.setImageResource(R.drawable.heart_filled);
+
+    }
+    catch (JSONException e){
+        e.printStackTrace();
+    }
+    }
+
+    public Cursor getLikes(DbHelper dbh) {
+        dbase = dbh.getReadableDatabase();
+        String columns[] = {dbh.LIKES_MARKERID, dbh.LIKES_POSITION, dbh.LIKES_LIKE};
+        String args[] = {markerID, pos};
+        Cursor cursor = dbase.query(dbh.TABLE_LIKES, columns, dbh.LIKES_MARKERID + " LIKE ? AND " + dbh.LIKES_POSITION + " LIKE ? ", args , null, null, null, null);
+        return cursor;
     }
 
 }
