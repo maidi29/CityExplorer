@@ -99,7 +99,7 @@ public class DbHelper extends SQLiteOpenHelper {
         dbase.update(SCORE_TABLE, values, selection, args);
     }
 
-    public Cursor getScore(DbHelper dbh) {
+    public Cursor getAllScores(DbHelper dbh) {
         dbase = dbh.getReadableDatabase();
         String columns[] = {COLUMN_SCORE, COLUMN_MARKERID};
         Cursor cursor = dbase.query(SCORE_TABLE, columns, null, null, null, null, null);

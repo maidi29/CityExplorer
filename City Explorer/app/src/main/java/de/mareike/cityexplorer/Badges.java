@@ -6,29 +6,31 @@ import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import org.w3c.dom.Text;
 
-import de.mareike.cityexplorer.R;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Badges extends ActionBarActivity{
 
     Context context = this;
     DbHelper dbh;
     Cursor cursor;
-    BadgesListViewAdapter adapter;
     Cursor c;
     int points;
     int uploadPoints;
     TextView pointsText;
     TextView uploadPointsText;
     TextView summary;
-    ListView lv;
+
+    List<Badge> myBadges = new ArrayList<Badge>();
     int sum;
 
     @Override
@@ -36,24 +38,13 @@ public class Badges extends ActionBarActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.badges_layout);
 
+
         pointsText = (TextView)findViewById(R.id.pointsText);
         uploadPointsText = (TextView) findViewById(R.id.uploadPointsText);
         summary = (TextView) findViewById(R.id.summary);
-        lv = (ListView) findViewById(R.id.listView);
-
-        String[] values = new String[] { "Erster Punkt - Erster Schritt", "Quizzer - 3 Punkte durch Quizzes verdient", "Kreativer Kopf - 3 Punkte durch Pinnwand-Uploads verdient",
-                "Würzburg-Kenner - alle Marker in Würzburg abgehakt" };
-
-        final ArrayList<String> list = new ArrayList<String>();
-        for (int i = 0; i < values.length; ++i) {
-            list.add(values[i]);
-        }
-        final StableArrayAdapter adapter = new StableArrayAdapter(this,
-                android.R.layout.simple_list_item_1, list);
-        lv.setAdapter(adapter);
 
         dbh  = new DbHelper(context);
-        cursor = dbh.getScore(dbh);
+        cursor = dbh.getAllScores(dbh);
         cursor.moveToFirst();
         if (cursor.moveToFirst()) {
             do {
@@ -81,6 +72,59 @@ public class Badges extends ActionBarActivity{
         pointsText.setText(getString(R.string.badesQuizText) + points);
         uploadPointsText.setText(getString(R.string.badesPinnwandText) + uploadPoints);
         summary.setText(getString(R.string.badgesSummaryText) + sum);
+
+        populateBadgeList();
+        populateListView();
+
+    }
+
+    private void populateBadgeList() {
+        if (sum >= 1) {
+            myBadges.add(new Badge("Erster Punkt", "Erster Schritt", R.drawable.badge1));
+        }
+        if (points >= 3) {
+            myBadges.add(new Badge("Quizzer", "3 Punkte durch Quizzes verdient", R.drawable.badge2));
+        }
+        if (uploadPoints >= 3) {
+            myBadges.add(new Badge("Kreativer Kopf", "3 Punkte durch Pinnwand-Uploads verdient", R.drawable.badge3));
+        }
+        if (sum >= 6) {
+            myBadges.add(new Badge("Würzburg-Kenner", "alle Marker in Würzburg abgehakt", R.drawable.badge4));
+        }
+    }
+
+    private void populateListView() {
+        ArrayAdapter<Badge> adapter = new MyListAdapter();
+        ListView list = (ListView) findViewById(R.id.listView);
+        list.setAdapter(adapter);
+    }
+
+    private class MyListAdapter extends ArrayAdapter<Badge> {
+        public MyListAdapter() {
+            super(Badges.this, R.layout.rowlayout, myBadges);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            View itemView = convertView;
+            if(itemView == null) {
+                itemView = getLayoutInflater().inflate(R.layout.rowlayout, parent, false);
+            }
+
+            Badge currentBadge = myBadges.get(position);
+
+            ImageView itemIcon = (ImageView) itemView.findViewById(R.id.item_icon);
+            itemIcon.setImageResource(currentBadge.getIconID());
+
+            TextView itemTitle = (TextView) itemView.findViewById(R.id.item_title);
+            itemTitle.setText(currentBadge.getTitle());
+
+            TextView itemSubtitle = (TextView) itemView.findViewById(R.id.item_subTitle);
+            itemSubtitle.setText(currentBadge.getSubtitle());
+
+            return itemView;
+        }
     }
 
     @Override
@@ -93,32 +137,6 @@ public class Badges extends ActionBarActivity{
     private void lockScreenRotation(int orientation)
     {
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-    }
-
-
-    private class StableArrayAdapter extends ArrayAdapter<String> {
-
-        HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();
-
-        public StableArrayAdapter(Context context, int textViewResourceId,
-                                  List<String> objects) {
-            super(context, textViewResourceId, objects);
-            for (int i = 0; i < objects.size(); ++i) {
-                mIdMap.put(objects.get(i), i);
-            }
-        }
-
-        @Override
-        public long getItemId(int position) {
-            String item = getItem(position);
-            return mIdMap.get(item);
-        }
-
-        @Override
-        public boolean hasStableIds() {
-            return true;
-        }
-
     }
 
 

@@ -98,7 +98,7 @@ public class MainActivity extends ActionBarActivity {
             .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker)));*/
 
         DbHelper dbh  = new DbHelper(context);
-        cursor = dbh.getScore(dbh);
+        cursor = dbh.getAllScores(dbh);
         cursor.moveToFirst();
         if (cursor.moveToFirst()) {
             do {

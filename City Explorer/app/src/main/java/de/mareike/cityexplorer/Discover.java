@@ -71,7 +71,7 @@ public class Discover extends ActionBarActivity {
         }
 
         DbHelper dbh  = new DbHelper(context);
-        Cursor cursor = dbh.getScore(dbh);
+        Cursor cursor = dbh.getAllScores(dbh);
         cursor.moveToFirst();
         if (cursor.moveToFirst()) {
             do {
