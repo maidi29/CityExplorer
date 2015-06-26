@@ -4,6 +4,7 @@ package de.mareike.cityexplorer;
 import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -34,24 +35,29 @@ public class GetAllEntrysListViewAdapter extends BaseAdapter {
     private Activity activity;
     private static LayoutInflater inflater = null;
     public Cursor cursor;
+    private SQLiteDatabase dbase;
     DbHelper dbh;
+    Context context;
+    String pos;
     PinboardActivity pinboard = new PinboardActivity();
+
 
     private static final String baseUrlForImage = "http://www.creepyhollow.bplaced.net/CityExplorer/CEimages/";
 
     public GetAllEntrysListViewAdapter(JSONArray jsonArray, Activity a) {
         this.dataArray = jsonArray;
         this.activity = a;
-
+        context = pinboard;
+        dbh = new DbHelper(context);
         inflater = (LayoutInflater)this.activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
-    public GetAllEntrysListViewAdapter(Context context, Cursor cursor) {
+    /*public GetAllEntrysListViewAdapter(Context context, Cursor cursor) {
         super();
         cursor = cursor;
         DbHelper dbh  = new DbHelper(context);
-       inflater=LayoutInflater.from(context);
-    }
+        inflater=LayoutInflater.from(context);
+    }*/
 
     @Override
     public int getCount() {
@@ -127,16 +133,19 @@ public class GetAllEntrysListViewAdapter extends BaseAdapter {
 
             }.execute(urlForImageInServer);
 
-            /*cursor = dbh.getLike(dbh);
+            /*pos = ""+position;
+            cursor = getLikes(dbh);
             cursor.moveToFirst();
-            String markerID = pinboard.markerID;
             if (cursor.moveToFirst()) {
                 do {
-                    if (cursor.getString(0).equals(markerID) && Integer.parseInt(cursor.getString(1))== position && Integer.parseInt(cursor.getString(2)) == 1) {
+                    if (Integer.parseInt(cursor.getString(2)) == 1) {
                         cell.likeImage.setImageResource(R.drawable.heart_filled);
                     }
                 }
                 while(cursor.moveToNext());
+            }
+            else {
+                cursor.close();
             }
             cursor.close();*/
 
@@ -156,4 +165,14 @@ public class GetAllEntrysListViewAdapter extends BaseAdapter {
         public boolean touched;
 
     }
+
+    public Cursor getLikes(DbHelper dbh) {
+        dbase = dbh.getReadableDatabase();
+        String columns[] = {dbh.LIKES_MARKERID, dbh.LIKES_POSITION, dbh.LIKES_LIKE};
+        String args[] = {pinboard.markerID, pos};
+        Cursor cursor = dbase.query(dbh.TABLE_LIKES, columns, dbh.LIKES_MARKERID + " LIKE ? AND " + dbh.LIKES_POSITION + " LIKE ? ", args , null, null, null, null);
+        return cursor;
+    }
+
+
 }
