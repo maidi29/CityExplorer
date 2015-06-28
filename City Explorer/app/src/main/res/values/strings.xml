@@ -1,35 +1,19 @@
 <resources>
     <string name="app_name">City Explorer</string>
-
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="Quest1">Welche dieser Statuen sind nicht auf der alten Mainbrücke?</string>
-    <string name="Title1">Mainbruecke</string>
-    <string name="Text1">Die Alte Mainbruecke ist die älteste Bruecke über den Main in Wuerzburg. Das Bauwerk war bis 1886 Würzburgs einziger Flussübergang. Die Bruecke, Teil der Ost-West-Passage, verbindet bei Mainkilometer 252,32 die Altstadt am rechten Mainufer mit der gegenüberliegenden Festung Marienberg.</string>
-    <string name="Title2">Residenz</string>
-    <string name="Text2">Die Würzburger Residenz ist ein barocker Residenzbau am Rande der Innenstadt von Würzburg, dessen Bau 1719 begonnen wurde und bis 1744 vollendet war. Die Innenausstattung wurde im Jahr 1781 fertiggestellt
-Sie diente bis zur Auflösung der geistlichen Territorien durch die Säkularisation als Sitz der Wuerzburger Fuerstbischoefe. Das Schloss zählt zu den Hauptwerken des süddeutschen Barock und ist im europäischen Kontext als einer der bedeutendsten Residenzbauten des Spätbarock anzusehen, es steht somit in einer Reihe mit Schoenbrunn in Wien und Schloss Versailles bei Paris. Die UNESCO hat das Bauwerk einschließlich des Residenzplatzes und der Nebengebauude 1981 in den Rang eines Weltkulturerbes erhoben.
-Die UNESCO begründet die Aufnahme ins Welterbe damit, die Wuerzburger Residenz sei das einheitlichste und außergewöhnlichste aller Barockschlösser, einzigartig durch ihre Originalitaet, ihr ehrgeiziges Bauprogramm und die internationale Zusammensetzung des Baubueros, eine Synthese des europaeischen Barock. Sie veranschauliche zudem einen der strahlendsten Fuerstenhoefe Europas.
-Das 1979 bis 1987 rekonstruierte Spiegelkabinett, eines der Paradezimmer des Kaisers, sei das vollkommenste Raumkunstwerk des Rokoko.</string>
-    <string name="Title3">Kiliansdom</string>
-    <string name="Text3">Der St. Kiliansdom zu Würzburg ist eine römisch-katholische Kirche in Würzburg, die dem Heiligen Kilian geweiht ist. Der Dom ist die Bischofskirche des Bistums Würzburg. Mit seiner Doppelturmfassade und einer Gesamtlänge von 105 Metern ist er das viertgrößte romanische Kirchengebäude Deutschlands und ein Hauptwerk deutscher Baukunst zur Zeit der salischen Kaiser.</string>
+    <string name="action_settings">Einstellungen</string>
     <string name="zumQuizButton">Quiz</string>
     <string name="buttonPinnwand">Pinnwand</string>
     <string name="mainactivity_help">Gehe in die Nähe einer der Markierungen um sie auswählen zu können.</string>
     <string name="pointsTextString">Deine Punktzahl:</string>
     <string name="anpinnen_Button">Anpinnen</string>
-    <string name="start_new">New</string>
-    <string name="brush">Brush</string>
-    <string name="erase">Erase</string>
-    <string name="save">Save</string>
-    <string name="paint">Paint</string>
-    <string name="sml">Small</string>
-    <string name="med">Medium</string>
-    <string name="lrg">Large</string>
-    <string name="TaskText2">Suche dir eine der Statuen der alten Mainbrücke aus und formuliere aus, was diese Person wohl gerade angesicht des Treibsn auf der Mainbrücke denkt. Vergiss nichtmitzuteilen die Gedanken welcher Statue du formulierst.</string>
+    <string name="start_new">Neu</string>
+    <string name="brush">Stift</string>
+    <string name="erase">Radiergummi</string>
+    <string name="save">Speichern</string>
+    <string name="paint">Farbe</string>
+    <string name="sml">Klein</string>
+    <string name="med">Mittel</string>
+    <string name="lrg">Groß</string>
     <string name="badesQuizText">"Erfolgreich abgeschlossene Quizzes: "</string>
     <string name="badesPinnwandText">"Kreative Beiträge an der Pinnwand: "</string>
     <string name="badgesSummaryText">"Gesamtpunktzahl: "</string>
@@ -45,4 +29,235 @@ Das 1979 bis 1987 rekonstruierte Spiegelkabinett, eines der Paradezimmer des Kai
     <string name="dialogSavedToast">Zeichnung erfolgreich gespeichert!</string>
     <string name="dialogNotSavedToast">Zeichnung konnte nicht gespeichert werden</string>
     <string name="dialogSaveCancel">Abbrechen</string>
+    <string name="done_Snippet">Vollständig bearbeitet</string>
+
+    <string name="Title1">Alte Mainbrücke</string>
+    <string name="Text1">Die Alte Mainbrücke ist die älteste Brücke über den Main in Würzburg. Das Bauwerk war bis 1886 Würzburgs einziger Flussübergang.\n\n
+        Die erste, romanische Steinbrücke an dieser Stelle wurde schon um 1120 unter dem Baumeister Enzelin errichtet und soll die erste Steinbrücke Deutschlands gewesen sein, zuvor gab es dort eine Fähre.\n
+        Die damalige Brücke wurde bei den Hochwassern 1342 und 1442 teilweise zerstört. Daher wurde das Bauwerk nach fast 350 Jahren Standzeit durch einen Neubau, die heutige Brücke, ersetzt.\n\n
+        Die Bogenbrücke aus Naturstein weist bei acht Öffnungen eine Gesamtlänge von 185 Metern auf.\n
+        Bis ins 18. Jahrhundert war die Brücke militärisch befestigt und fast vollständig mit Buden bebaut.\n
+        Seit Juni 1990 ist das Bauwerk für Kraftfahrzeuge gesperrt.\n\n
+        Die Statuen von Heiligen und Herrschern wurden im 18. Jahrhundert auf der Brücke errichtet. Es befinden sich dort\n\n
+        &#8226; Frankenkönig Pippin/Pipinus (Vater von Karl dem Großen)\n
+        &#8226; Der Heilige Totnan (Frankenapostel)\n\n
+        &#8226; Der Heilige Friedrich\n\n
+        &#8226; Der Heilige Kilian (Frankenabpostel)\n\n
+        &#8226; Der Heilige Joseph mit dem jungen Jesus\n
+        &#8226; Die Heilige Jungfrau Maria (als Patrona Franconiae)\n\n
+        &#8226; Der Brückenheilige Johannes von Nepomuk\n\n
+        &#8226; Der Heilige Kolonat (Frankenapostel)\n\n
+        &#8226; Der Heilige Karl Borromäus/Carolus Borromaus (Vertreter der katholischen Reform)\n\n
+        &#8226; Der Heilige Burkard/Burkardus (erster Bischof von Würzburg)\n\
+        &#8226; Kaiser Karl der Große/Carolus Magnus\n\n
+        &#8226; Der Heilige Bruno (Erbauer des Würzburger Doms)\n\n
+        Die alte Mainbrücke ist ein beliebter Treffpunkt in Würzburg um im Sommer Wein zu trinken, der direkt dort verkauft wird. Oft kann man dabei Straßenmusikanten lauschen.
+    </string>
+    <string name="image_text_1">Historische Postkartenansicht der Alten Mainbrücke aus dem Jahr 1895</string>
+    <string name="image_source_1">Quelle: http://www.wuerzburg-fotos.de/alte_mainbruecke.php</string>
+    <string name="TaskText1">Suche dir deine Lieblingsstatue aus und formuliere, was diese Person wohl gerade angesichts des aktuellen Treibens auf der Mainbrücke denkt. Vergiss nicht mitzuteilen welche Statue du dir ausgesucht hast.</string>
+
+    <string name="Title2">Residenz</string>
+    <string name="Text2">Die Würzburger Residenz ist UNESCO-Weltkulturerbe und das Hauptwerk des süddeutschen Barock und somit eines des bedeutendsten Schlösser Europas./n/n
+        Erbaut wurde sie 1720 -1744 nach den Plänen von Balthasar Neumann. Die Decke des Treppenhauses wurde vom bedeutendsten Freskenmaler der Zeit, Giovanni Tiepolo, mit dem größten zusammenhängenden Fresko der Welt (ca. 580 m2) ausgestattet. Thema des Gemäldes sind die vier (damals anerkannten) Kontinente: Europa, Amerika, Afrika und Asien./n
+        Die Residenz diente ehemals als Sitz der Würzburger Fürstbischöfe./n/n
+        Bei der Zerstörung der Stadt im 2. Weltkrieg am 16. März 1945 wurden große Teile der Residenz zerstört, die Wiederherstellung der Paradezimmer des Kaisers dauerte nahezu 40 Jahre. Die UNESCO bezeichnet das 1997 rekonstruierte Spiegelkabinett als das vollkommenste Raumkunstwerk des Rokoko./n/n
+        Der Hofgarten war durch die barocke Stadtmauer begrenzt. Zu dieser hohen Befestigungsmauer führen symmetrisch zwei rahmende Treppenanlagen hinauf, wobei auf halber Höhe eine Terrasse eingefügt wurde. Heute blühen hier hunderte von alten Rosensorten, früher waren es beschnittene Obstbäume./n/n
+        Die Residenz hat etwa 340 Räume, von denen 42 bei einer Besichtigung als Schauräume besucht werden können. Die anderen Räume werden teilweise von der Universität und vom Martin-von-Wagner-Museum genutzt.\n\n
+        Die Residenz war neben der Marienburg und der alten Mainbrücke Schauplatz des Kinofilms „Die drei Musketiere“ aus dem Jahr 2011 mit Orlando Bloom und Christoph Waltz.
+    </string>
+    <string name="image_text_2">Das Treppenhaus Fresko (19 x 30,5m) zu den vier Erdteilen von Tiepolo</string>
+    <string name="image_source_2">Quelle: http://www.wga.hu/index1.html</string>
+    <string name="TaskText2">Das größte zusammenhängende Fresko der Welt im Treppenhaus der Residenz zeigt vier Erdteile. Wie würde dein Fresko zu diesem Thema aussehen?</string>
+
+    <string name="Title3">St. Kiliansdom</string>
+    <string name="Text3">Der St. Kiliansdom zu Würzburg ist eine römisch-katholische Kirche in Würzburg, die dem Heiligen Kilian (Schutzpatron von Würzburg und Franken) geweiht ist. Der Dom ist die Bischofskirche des Bistums Würzburg.\n Mit seiner Doppelturmfassade und einer Gesamtlänge von 105 Metern ist er das viertgrößte romanische Kirchengebäude Deutschlands und ein Hauptwerk deutscher Baukunst zur Zeit der salischen Kaiser.\n\n
+        Erbaut wurde der Kiliansdom ab 1040 von Bischof Bruno. Es handelt sich um den dritten Dombau, nachdem die ersten beiden (erbaut um 787 und 855) durch Feuer ganz oder teilweise zerstört worden waren.\n\n
+        Am Querhaus angebaut befindet sich die Schönbornkapelle. Sie ist eine bedeutende Schöpfung Balthasar Neumanns. Die Schönbornkapelle diente als Grablege für die Fürstbischöfe aus dem Hause Schönborn.\n\n
+        Im Innern des Doms befinden sich eine Reihe von Kunstwerken, wie z.B. der Siebenarmige Leuchter von Andreas Moritz, die Domkanzel, der St.-Magdalenen-Altar, der Marienaltar, sowie der Taufstein aus dem Jahr 1279.\n\n
+        Nach dem Einsturz großer Teile des Doms am 20. Februar 1946 als Folge des Bombenangriffs auf Würzburg am 16. März 1945 wurde er bis 1967 wieder aufgebaut. Dabei wurde die barocke Substanz zugunsten einer Re-Romanisierung zerstört. Die Neuausstattung betont den Gegensatz zu den erhaltenen historischen Partien. So entstand eine umstrittene Kombination aus größtenteils romanischen, modernen und barocken Elementen.
+    </string>
+    <string name="image_text_3">So sah der Dom früher aus: Von außen (1904) und innen (Alter und Chorraum, 1910)</string>
+    <string name="image_source_3">Quelle: „Wuerzburg Dom 1904“ von Unbekannt - Verlag: Dr. Trenkler Co., Leipzig. Lizenziert unter Gemeinfrei über Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Wuerzburg_Dom_1904.jpg#/media/File:Wuerzburg_Dom_1904.jpg</string>
+    <string name="TaskText3">Was denkst du über die Modernisierung nach der Zerstörung des Doms im 2. Weltkrieg und die somit entstandene Kombination aus größtenteils romanischen, modernen und barocken Elementen?</string>
+
+    <string name="Title4">Alter Kranen</string>
+    <string name="Text4">Der Alte Kranen ist ein barocker Hafenkran mit Doppelausleger aus dem Jahre 1773 auf dem Kranenkai in Würzburg am rechten Mainufer. Er wurde zur Belebung des Mainhandels erbaut.\n\n
+        Das Wappen des Fürstbischofs Adam Friedrich von Seinsheim, der zur Förderung des Maingüterverkehrs selbst den Bau veranlasst hatte, flankiert von den Göttergestalten Franconia (Schutzgöttin und Personifikation Frankens) mit Rennfähnlein und Moenus (Flussgott und Fluss Main) ist in die dem Main zugewandte Kranmauer eingelassen.\n
+        Die Inschrift des Krans unter dem Wappen in Latein versprach: „accipio trado quod libet expedio“, was übersetzt bedeutet „Ich empfange, übergebe, was beliebt, [und] befördere [es]“. \n
+        (Die Schrift ist in der Form: 'aCCIpIo traDo qVoDL Vbet eXpeDIo' ausgeführt, um die Jahreszahl „1773“ aufzuzeigen: CCIIDVDLVXDI ergibt geordnet: DDDCCLXVVIII, daraus mit DD = M und VV = X die korrekte Schreibweise: MDCCLXXIII = 1773)\n\n
+        Den Zweiten Weltkrieg überstand der Alte Kranen mit seinem völlig intakten Mechanismus unbeschadet, obwohl Würzburg dabei zu mehr als 80 Prozent zerstört wurde.\n\n
+        Aufgrund der günstigen zentralen Lage direkt am Main und einer Reihe von Sitzgelegenheiten ist der Alte Kranen heute ein beliebter Treffpunkt, besonders in den Sommermonaten.
+    </string>
+    <string name="image_text_4">Würzburg, Anfang des 19. Jahrhunderts</string>
+    <string name="image_source_4"></string>
+    <string name="TaskText4">Zeige anhand eines Fotos, bis wohin du beim Hochwasser am 16.1.1920 im Wasser gestanden wärst.</string>
+
+    <string name="Title5">Marienkapelle</string>
+    <string name="Text5"></string>
+    <string name="image_text_5"></string>
+    <string name="image_source_5">Quelle: </string>
+    <string name="TaskText5"></string>
+
+    <string name="Title6">Grafeneckart</string>
+    <string name="Text6"></string>
+    <string name="image_text_6"></string>
+    <string name="image_source_6">Quelle: </string>
+    <string name="TaskText6"></string>
+
+    <string name="Title7">Festung Marienberg</string>
+    <string name="Text7"></string>
+    <string name="image_text_7"></string>
+    <string name="image_source_7">Quelle: </string>
+    <string name="TaskText7"></string>
+
+    <string name="Quest1">Was hält die Statue des Heiligen Bruno, der Erbauer des Würzburger Doms in der Hand?</string>
+    <string name="Answer1A">Buch</string>
+    <string name="Answer1B">Schwert</string>
+    <string name="Answer1C">Kreuz</string>
+    <string name="Quest2">Wie viele der Statuen der Heiliegen und Herrscher auf der Brücke beinhalten ein goldenes Element?</string>
+    <string name="Answer2A">10</string>
+    <string name="Answer2B">3</string>
+    <string name="Answer2C">6</string>
+    <string name="Quest3">Um welche Zeit wurde die heutige alte Mainbücke gebaut?</string>
+    <string name="Answer3A">1470</string>
+    <string name="Answer3B">1650</string>
+    <string name="Answer3C">1120</string>
+    <string name="Quest4">Wie viele Laternen befinden sich insgesamt auf der Brücke?</string>
+    <string name="Answer4A">22</string>
+    <string name="Answer4B">16</string>
+    <string name="Answer4C">8</string>
+    <string name="Quest5">Wie hieß der Baumeister, der die erste Steinbrücke Deutschlands errichtete?</string>
+    <string name="Answer5A">Wenczlaw</string>
+    <string name="Answer5B">Libergier</string>
+    <string name="Answer5C">Enzelin</string>
+
+    <string name="Quest6">Der Brunnen direkt vor dem Haupteingang auf dem Residenzplatz zeigt auf einem Pfeiler in der Mitte Franken in der Allegorie der Frankonia. Unter ihr befinden sich sitzend Walther von der Vogelweide (Lyriker), Tilman Riemenschneider (Bildschnitzer/-hauer und Bürgermeister von Würzburg) und Mathias Grünewald (Maler). Was hält die Frankonia in der rechten Hand?</string>
+    <string name="Answer6A">Schwert</string>
+    <string name="Answer6B">Lorbeerkranz</string>
+    <string name="Answer6C">Buch</string>
+    <string name="Quest7">Wer erstellte die Pläne für den Bau der Residenz?</string>
+    <string name="Answer7A">Balthasar Neumann</string>
+    <string name="Answer7B">Walther von Vogelweide</string>
+    <string name="Answer7C">Jakob Prandtauer</string>
+    <string name="Quest8">Wie viele Innenhöfe befinden sich im Residenz-Gebäude?</string>
+    <string name="Answer8A">3</string>
+    <string name="Answer8B">5</string>
+    <string name="Answer8C">6</string>
+    <string name="Quest9">In den bogenförmigen Laubengängen im Hofgarten hinter der Residenz befinden sich 12 der berühmten Putten von Johann Peter Wagner. Was ist wohl eine Putte?</string>
+    <string name="Answer9A">Ein plastisches Bildnis, eines Kopfes einer Person unter Hinzunahme des Halses und der Schultern</string>
+    <string name="Answer9B">Skulptur (oder Malerei) eine Kindergestalt, die meist wenig bekleidet oder nackt ist</string>
+    <string name="Answer9C">Skulptur (oder Malerei) eines Tieres</string>
+    <string name="Quest10">Wie viele weiße Bänke befinden sich um den Teich im flachen rechteckigen Garten südlich neben der Residenz?</string>
+    <string name="Answer10A">10</string>
+    <string name="Answer10B">8</string>
+    <string name="Answer10C">6</string>
+
+    <string name="Quest11">Balthasar Neumann, der auch die Pläne der Würzburger Residenz entwarf, baute an den Würzburger Dom eine Kapelle an. Wie heißt diese?</string>
+    <string name="Answer11A">Marienkapelle</string>
+    <string name="Answer11B">Schönbornkapelle</string>
+    <string name="Answer11C">St. Bruno-Kapelle</string>
+    <string name="Quest12">An der Wand hinter dem Altar befindet sich unter einer goldenen Scheibe mit einer weißen Christus-Figur. Darunter befindet sich die Skulptur eines Tieres. Es handelt sich um...</string>
+    <string name="Answer12A">einen Esel.</string>
+    <string name="Answer12B">einen Stier.</string>
+    <string name="Answer12C">ein Schaf.</string>
+    <string name="Quest13">Was befindet sich hinter der Orgel?</string>
+    <string name="Answer13A">Uhr</string>
+    <string name="Answer13B">Gemälde</string>
+    <string name="Answer13C">Fenster</string>
+    <string name="Quest14">Welches dieser Kunstwerke befindet sich im St. Kiliansdom?</string>
+    <string name="Answer14A">Die Mailänder Madonna</string>
+    <string name="Answer14B">"Johannes der Täufer" von Leonardo Da Vinci</string>
+    <string name="Answer14C">Der Siebenarmige Leuchter von Andreas Moritz</string>
+    <string name="Quest15">Wo befindet sich das Grab und der Grabstein des Würzburger Bürgermeister Tilman Riemenschneider?</string>
+    <string name="Answer15A">Außen rechts neben dem Haupteingang der Westseite</string>
+    <string name="Answer15B">Außen an der Nordseite des Kirchenschiffs</string>
+    <string name="Answer15C">In der Schönbornkapelle</string>
+
+    <string name="Quest16"></string>
+    <string name="Answer16A"></string>
+    <string name="Answer16B"></string>
+    <string name="Answer16C"></string>
+    <string name="Quest17"></string>
+    <string name="Answer17A"></string>
+    <string name="Answer17B"></string>
+    <string name="Answer17C"></string>
+    <string name="Quest18"></string>
+    <string name="Answer18A"></string>
+    <string name="Answer18B"></string>
+    <string name="Answer18C"></string>
+    <string name="Quest19"></string>
+    <string name="Answer19A"></string>
+    <string name="Answer19B"></string>
+    <string name="Answer19C"></string>
+    <string name="Quest20"></string>
+    <string name="Answer20A"></string>
+    <string name="Answer20B"></string>
+    <string name="Answer20C"></string>
+
+    <string name="Quest21"></string>
+    <string name="Answer21A"></string>
+    <string name="Answer21B"></string>
+    <string name="Answer21C"></string>
+    <string name="Quest22"></string>
+    <string name="Answer22A"></string>
+    <string name="Answer22B"></string>
+    <string name="Answer22C"></string>
+    <string name="Quest23"></string>
+    <string name="Answer23A"></string>
+    <string name="Answer23B"></string>
+    <string name="Answer23C"></string>
+    <string name="Quest24"></string>
+    <string name="Answer24A"></string>
+    <string name="Answer24B"></string>
+    <string name="Answer24C"></string>
+    <string name="Quest25"></string>
+    <string name="Answer25A"></string>
+    <string name="Answer25B"></string>
+    <string name="Answer25C"></string>
+
+    <string name="Quest26"></string>
+    <string name="Answer26A"></string>
+    <string name="Answer26B"></string>
+    <string name="Answer26C"></string>
+    <string name="Quest27"></string>
+    <string name="Answer27A"></string>
+    <string name="Answer27B"></string>
+    <string name="Answer27C"></string>
+    <string name="Quest28"></string>
+    <string name="Answer28A"></string>
+    <string name="Answer28B"></string>
+    <string name="Answer28C"></string>
+    <string name="Quest29"></string>
+    <string name="Answer29A"></string>
+    <string name="Answer29B"></string>
+    <string name="Answer29C"></string>
+    <string name="Quest30"></string>
+    <string name="Answer30A"></string>
+    <string name="Answer30B"></string>
+    <string name="Answer30C"></string>
+
+    <string name="Quest31"></string>
+    <string name="Answer31A"></string>
+    <string name="Answer31B"></string>
+    <string name="Answer31C"></string>
+    <string name="Quest32"></string>
+    <string name="Answer32A"></string>
+    <string name="Answer32B"></string>
+    <string name="Answer32C"></string>
+    <string name="Quest33"></string>
+    <string name="Answer33A"></string>
+    <string name="Answer33B"></string>
+    <string name="Answer33C"></string>
+    <string name="Quest34"></string>
+    <string name="Answer34A"></string>
+    <string name="Answer34B"></string>
+    <string name="Answer34C"></string>
+    <string name="Quest35"></string>
+    <string name="Answer35A"></string>
+    <string name="Answer35B"></string>
+    <string name="Answer35C"></string>
+
+    <string name="content_description_info_image">Information Image</string>
+
 </resources>

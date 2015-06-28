@@ -34,6 +34,13 @@ public class MainActivity extends ActionBarActivity {
     boolean mark1;
     boolean mark2;
     boolean mark3;
+    boolean mark4;
+    boolean mark5;
+    boolean mark6;
+    boolean mark7;
+    int iconDone;
+    int icon;
+
     LocationManager locationManager;
     String provider;
     Criteria criteria;
@@ -73,6 +80,9 @@ public class MainActivity extends ActionBarActivity {
 
             CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lon), 300);
             googleMap.animateCamera(cameraUpdate);*/
+
+            iconDone = R.drawable.markerdone;
+            icon = R.drawable.marker;
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -83,19 +93,33 @@ public class MainActivity extends ActionBarActivity {
         Marker marker1 = googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(49.793012, 9.926201))
                 .title(getString(R.string.Title1))
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker)));
+                .icon(BitmapDescriptorFactory.fromResource(icon)));
         Marker marker2 = googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(49.792742, 9.939118))
                 .title(getString(R.string.Title2))
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker)));
+                .icon(BitmapDescriptorFactory.fromResource(icon)));
         Marker marker3 = googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(49.793349, 9.932558))
                 .title(getString(R.string.Title3))
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker)));
-        /*Marker marker4 = googleMap.addMarker(new MarkerOptions()
-            .position(new LatLng(49.794438, 9.94746))
-            .title("Mareike")
-            .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker)));*/
+                .icon(BitmapDescriptorFactory.fromResource(icon)));
+        Marker marker4 = googleMap.addMarker(new MarkerOptions()
+                .position(new LatLng(49.794976, 9.930609))
+                .title(getString(R.string.Title4))
+                .icon(BitmapDescriptorFactory.fromResource(icon)));
+        Marker marker5 = googleMap.addMarker(new MarkerOptions()
+                .position(new LatLng(49.794958, 9.929248))
+                .title(getString(R.string.Title5))
+                .icon(BitmapDescriptorFactory.fromResource(icon)));
+        Marker marker6 = googleMap.addMarker(new MarkerOptions()
+                .position(new LatLng(49.793154, 9.928252))
+                .title(getString(R.string.Title6))
+                .icon(BitmapDescriptorFactory.fromResource(icon)));
+        Marker marker7 = googleMap.addMarker(new MarkerOptions()
+                .position(new LatLng(49.790160, 9.91847))
+                .title(getString(R.string.Title7))
+                .icon(BitmapDescriptorFactory.fromResource(icon)));
+
+
 
         DbHelper dbh  = new DbHelper(context);
         cursor = dbh.getAllScores(dbh);
@@ -114,6 +138,22 @@ public class MainActivity extends ActionBarActivity {
                         && marker3.getTitle().equals(cursor.getString(1))) {
                     mark3 = true;
                 }
+                if (Integer.parseInt(cursor.getString(0)) == 5
+                        && marker1.getTitle().equals(cursor.getString(1))){
+                    mark4 = true;
+                }
+                if (Integer.parseInt(cursor.getString(0)) == 5
+                        && marker2.getTitle().equals(cursor.getString(1))) {
+                    mark5 = true;
+                }
+                if (Integer.parseInt(cursor.getString(0)) == 5
+                        && marker3.getTitle().equals(cursor.getString(1))) {
+                    mark6 = true;
+                }
+                if (Integer.parseInt(cursor.getString(0)) == 5
+                        && marker3.getTitle().equals(cursor.getString(1))) {
+                    mark7 = true;
+                }
             }
             while(cursor.moveToNext());
         }
@@ -125,15 +165,38 @@ public class MainActivity extends ActionBarActivity {
             do {
                 if (Integer.parseInt(c.getString(0)) == 1
                         && marker1.getTitle().equals(c.getString(1)) && mark1){
-                    marker1.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.markerdone));
+                    marker1.setIcon(BitmapDescriptorFactory.fromResource(iconDone));
+                    marker1.setSnippet(getString(R.string.done_Snippet));
                 }
                 if (Integer.parseInt(c.getString(0)) == 1
                         && marker2.getTitle().equals(c.getString(1)) && mark2){
-                    marker2.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.markerdone));
+                    marker2.setIcon(BitmapDescriptorFactory.fromResource(iconDone));
+                    marker2.setSnippet(getString(R.string.done_Snippet));
                 }
                 if (Integer.parseInt(c.getString(0)) == 1
                         && marker3.getTitle().equals(c.getString(1)) && mark3){
-                    marker3.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.markerdone));
+                    marker3.setIcon(BitmapDescriptorFactory.fromResource(iconDone));
+                    marker3.setSnippet(getString(R.string.done_Snippet));
+                }
+                if (Integer.parseInt(c.getString(0)) == 1
+                        && marker4.getTitle().equals(c.getString(1)) && mark4){
+                    marker4.setIcon(BitmapDescriptorFactory.fromResource(iconDone));
+                    marker4.setSnippet(getString(R.string.done_Snippet));
+                }
+                if (Integer.parseInt(c.getString(0)) == 1
+                        && marker5.getTitle().equals(c.getString(1)) && mark5){
+                    marker5.setIcon(BitmapDescriptorFactory.fromResource(iconDone));
+                    marker5.setSnippet(getString(R.string.done_Snippet));
+                }
+                if (Integer.parseInt(c.getString(0)) == 1
+                        && marker6.getTitle().equals(c.getString(1)) && mark6){
+                    marker6.setIcon(BitmapDescriptorFactory.fromResource(iconDone));
+                    marker6.setSnippet(getString(R.string.done_Snippet));
+                }
+                if (Integer.parseInt(c.getString(0)) == 1
+                        && marker7.getTitle().equals(c.getString(1)) && mark7){
+                    marker7.setIcon(BitmapDescriptorFactory.fromResource(iconDone));
+                    marker7.setSnippet(getString(R.string.done_Snippet));
                 }
             }
             while(c.moveToNext());
@@ -153,13 +216,13 @@ public class MainActivity extends ActionBarActivity {
                 markerLoc.setLongitude(markerPosition.longitude);
                 float meters = myLocation.distanceTo(markerLoc);
 
-                //if (meters < 200 /*|| marker (new MarkerOptions.getIcon() == BitmapDescriptorFactory.fromResource(R.drawable.markerdone)*/) {
+                /*if (meters < 200 || marker.getSnippet().equals(R.string.done_Snippet)) {*/
                     Intent intent = new Intent(MainActivity.this, Discover.class);
                     intent.putExtra("MarkerID", marker.getTitle());
                     startActivity(intent);
-                //} else {
-                    //Toast.makeText(getBaseContext(),"Gehe zur/zum "+ marker.getTitle()+" um diesen Marker zu oeffnen.", Toast.LENGTH_LONG).show();
-                //}
+                /*} else {
+                    Toast.makeText(getBaseContext(),"Gehe zur/zum "+ marker.getTitle()+" um diesen Marker zu oeffnen.", Toast.LENGTH_LONG).show();
+                }*/
             }
         });
     }

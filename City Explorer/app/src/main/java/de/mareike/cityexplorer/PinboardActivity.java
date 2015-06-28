@@ -50,7 +50,7 @@ public class PinboardActivity extends ActionBarActivity{
 
         listCell = new GetAllEntrysListViewAdapter.ListCell();
         getALlEntrysListView = (ListView) findViewById(R.id.getAllEntrysListView);
-        //listCell.likeButton = (ImageButton) findViewById(R.id.likeButton);
+
 
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();

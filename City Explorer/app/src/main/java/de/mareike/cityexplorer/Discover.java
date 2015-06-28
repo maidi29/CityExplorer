@@ -20,6 +20,8 @@ public class Discover extends ActionBarActivity {
     TextView InfoUeberschrift;
     ImageView ImageDone;
     ImageView InfoImage;
+    TextView InfoImageSource;
+    TextView InfoImageText;
     ImageView pointQuiz;
     ImageView pointPinnwand;
     Button QuizButton;
@@ -38,7 +40,9 @@ public class Discover extends ActionBarActivity {
 
         InfoText = (TextView)findViewById(R.id.InfoText);
         InfoUeberschrift = (TextView)findViewById(R.id.InfoUeberschrift);
-        //InfoImage = (ImageView)findViewById(R.id.InfoImage);
+        InfoImage = (ImageView)findViewById(R.id.InfoImage);
+        InfoImageText = (TextView) findViewById(R.id.InfoImageText);
+        InfoImageSource = (TextView)findViewById(R.id.InfoImageSource);
         ImageDone =(ImageView)findViewById(R.id.imageDone);
         QuizButton = (Button)findViewById(R.id.QuizButton);
         PinboardButton = (Button)findViewById(R.id.zumPinboardButton);
@@ -60,14 +64,45 @@ public class Discover extends ActionBarActivity {
 
         if (markerID.equals(getString(R.string.Title1))){
             InfoText.setText(getString(R.string.Text1));
+            InfoImage.setImageResource(R.drawable.altemainbruecke);
+            InfoImageText.setText(getString(R.string.image_text_1));
+            InfoImageSource.setText(getString(R.string.image_source_1));
         }
-
         else if (markerID.equals(getString(R.string.Title2))){
             InfoText.setText(getString(R.string.Text2));
+            InfoImage.setImageResource(R.drawable.altemainbruecke);
+            InfoImageText.setText(getString(R.string.image_text_2));
+            InfoImageSource.setText(getString(R.string.image_source_2));
         }
-
         else if (markerID.equals(getString(R.string.Title3))){
             InfoText.setText(getString(R.string.Text3));
+            InfoImage.setImageResource(R.drawable.altemainbruecke);
+            InfoImageText.setText(getString(R.string.image_text_3));
+            InfoImageSource.setText(getString(R.string.image_source_3));
+        }
+        else if (markerID.equals(getString(R.string.Title4))){
+            InfoText.setText(getString(R.string.Text4));
+            InfoImage.setImageResource(R.drawable.altemainbruecke);
+            InfoImageText.setText(getString(R.string.image_text_4));
+            InfoImageSource.setText(getString(R.string.image_source_4));
+        }
+        else if (markerID.equals(getString(R.string.Title5))){
+            InfoText.setText(getString(R.string.Text5));
+            InfoImage.setImageResource(R.drawable.altemainbruecke);
+            InfoImageText.setText(getString(R.string.image_text_5));
+            InfoImageSource.setText(getString(R.string.image_source_5));
+        }
+        else if (markerID.equals(getString(R.string.Title6))){
+            InfoText.setText(getString(R.string.Text6));
+            InfoImage.setImageResource(R.drawable.altemainbruecke);
+            InfoImageText.setText(getString(R.string.image_text_6));
+            InfoImageSource.setText(getString(R.string.image_source_6));
+        }
+        else if (markerID.equals(getString(R.string.Title7))){
+            InfoText.setText(getString(R.string.Text7));
+            InfoImage.setImageResource(R.drawable.altemainbruecke);
+            InfoImageText.setText(getString(R.string.image_text_7));
+            InfoImageSource.setText(getString(R.string.image_source_7));
         }
 
         DbHelper dbh  = new DbHelper(context);

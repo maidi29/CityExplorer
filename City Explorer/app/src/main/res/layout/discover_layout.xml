@@ -5,8 +5,8 @@
 
 
     <ScrollView
-        android:layout_x="0px"
-        android:layout_y="25px"
+        android:layout_x="0dp"
+        android:layout_y="25dp"
         android:scrollbars="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,30 +16,36 @@
         android:layout_alignStart="@+id/InfoUeberschrift"
         android:layout_marginTop="25dp"
         android:layout_marginRight="25dp"
+        android:layout_marginEnd="25dp"
         android:layout_marginBottom="80dp">
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
-
-
         <TextView
             android:layout_width="wrap_content"
             android:scrollbars = "vertical"
             android:text=""
             android:id="@+id/InfoText"
             android:clickable="false"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:layout_height="wrap_content" />
 
             <ImageView
                 android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/InfoImage"
+                android:contentDescription="@string/content_description_info_image"
+                android:src="@drawable/altemainbruecke"
+                android:scaleType="centerCrop" />
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/InfoImage" />
-
+                android:id="@+id/InfoImageText" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/InfoImageSource"
+                android:textSize="10sp" />
         </LinearLayout>
 
     </ScrollView>

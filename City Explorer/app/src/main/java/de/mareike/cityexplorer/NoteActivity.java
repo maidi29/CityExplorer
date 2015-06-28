@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -26,6 +27,7 @@ public class NoteActivity extends ActionBarActivity{
     String markerID;
     Button pinnenButton;
     EditText noteEditText;
+    TextView creativeTaskText;
     String note;
     Context context = this;
     String calling = "activity";
@@ -37,6 +39,7 @@ public class NoteActivity extends ActionBarActivity{
 
         pinnenButton = (Button) findViewById(R.id.pinnenButtonNote);
         noteEditText = (EditText) findViewById(R.id.noteEditText);
+        creativeTaskText = (TextView) findViewById(R.id.creativeTaskText);
 
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
@@ -47,6 +50,10 @@ public class NoteActivity extends ActionBarActivity{
             }
         } else {
             markerID = (String) savedInstanceState.getSerializable("MarkerID");
+        }
+
+        if (markerID.equals(R.string.Title1)) {
+            creativeTaskText.setText(R.string.TaskText1);
         }
     }
 
