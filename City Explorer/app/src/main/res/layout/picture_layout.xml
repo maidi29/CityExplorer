@@ -9,7 +9,6 @@
         android:background="#FFCCCCCC"
         android:orientation="vertical"
         tools:context=".PictureActivity"
-        android:layout_alignParentEnd="false"
         android:gravity="bottom"
         android:padding="10dp"
         android:weightSum="1">
@@ -19,7 +18,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Anleitung"
-            android:id="@+id/creativeTaskText" />
+            android:id="@+id/taskText" />
 
         <ImageView
             android:layout_width="match_parent"

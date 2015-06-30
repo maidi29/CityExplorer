@@ -56,7 +56,7 @@ public class Badges extends ActionBarActivity{
         }
         cursor.close();
 
-        c = dbh.getUpload(dbh);
+        c = dbh.getAllUploads(dbh);
         c.moveToFirst();
         if (c.moveToFirst()) {
             do {
@@ -80,16 +80,16 @@ public class Badges extends ActionBarActivity{
 
     private void populateBadgeList() {
         if (sum >= 1) {
-            myBadges.add(new Badge("Erster Punkt", "Erster Schritt", R.drawable.badge1));
+            myBadges.add(new Badge(getString(R.string.badge1_titel), getString(R.string.badge1_subtitle), R.drawable.badge1));
         }
         if (points >= 3) {
-            myBadges.add(new Badge("Quizzer", "3 Punkte durch Quizzes verdient", R.drawable.badge2));
+            myBadges.add(new Badge(getString(R.string.badge2_titel), getString(R.string.badge2_subtitle), R.drawable.badge2));
         }
         if (uploadPoints >= 3) {
-            myBadges.add(new Badge("Kreativer Kopf", "3 Punkte durch Pinnwand-Uploads verdient", R.drawable.badge3));
+            myBadges.add(new Badge(getString(R.string.badge3_titel), getString(R.string.badge3_subtitle), R.drawable.badge3));
         }
         if (sum >= 6) {
-            myBadges.add(new Badge("Würzburg-Kenner", "alle Marker in Würzburg abgehakt", R.drawable.badge4));
+            myBadges.add(new Badge(getString(R.string.badge4_titel), getString(R.string.badge4_subtitle), R.drawable.badge4));
         }
     }
 

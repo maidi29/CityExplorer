@@ -29,7 +29,7 @@
     <string name="dialogSavedToast">Zeichnung erfolgreich gespeichert!</string>
     <string name="dialogNotSavedToast">Zeichnung konnte nicht gespeichert werden</string>
     <string name="dialogSaveCancel">Abbrechen</string>
-    <string name="done_Snippet">Vollständig bearbeitet</string>
+    <string name="done_Snippet">Zum Öffnen tippen</string>
 
     <string name="Title1">Alte Mainbrücke</string>
     <string name="Text1">Die Alte Mainbrücke ist die älteste Brücke über den Main in Würzburg. Das Bauwerk war bis 1886 Würzburgs einziger Flussübergang.\n\n
@@ -39,35 +39,35 @@
         Bis ins 18. Jahrhundert war die Brücke militärisch befestigt und fast vollständig mit Buden bebaut.\n
         Seit Juni 1990 ist das Bauwerk für Kraftfahrzeuge gesperrt.\n\n
         Die Statuen von Heiligen und Herrschern wurden im 18. Jahrhundert auf der Brücke errichtet. Es befinden sich dort\n\n
-        &#8226; Frankenkönig Pippin/Pipinus (Vater von Karl dem Großen)\n
+        &#8226; Frankenkönig Pippin/Pipinus (Vater von Karl dem Großen)\n\n
         &#8226; Der Heilige Totnan (Frankenapostel)\n\n
         &#8226; Der Heilige Friedrich\n\n
         &#8226; Der Heilige Kilian (Frankenabpostel)\n\n
-        &#8226; Der Heilige Joseph mit dem jungen Jesus\n
+        &#8226; Der Heilige Joseph mit dem jungen Jesus\n\n
         &#8226; Die Heilige Jungfrau Maria (als Patrona Franconiae)\n\n
         &#8226; Der Brückenheilige Johannes von Nepomuk\n\n
         &#8226; Der Heilige Kolonat (Frankenapostel)\n\n
         &#8226; Der Heilige Karl Borromäus/Carolus Borromaus (Vertreter der katholischen Reform)\n\n
-        &#8226; Der Heilige Burkard/Burkardus (erster Bischof von Würzburg)\n\
+        &#8226; Der Heilige Burkard/Burkardus (erster Bischof von Würzburg)\n\n
         &#8226; Kaiser Karl der Große/Carolus Magnus\n\n
         &#8226; Der Heilige Bruno (Erbauer des Würzburger Doms)\n\n
-        Die alte Mainbrücke ist ein beliebter Treffpunkt in Würzburg um im Sommer Wein zu trinken, der direkt dort verkauft wird. Oft kann man dabei Straßenmusikanten lauschen.
+        Die alte Mainbrücke ist ein beliebter Treffpunkt in Würzburg um im Sommer Wein zu trinken, der direkt dort verkauft wird. Oft kann man dabei Straßenmusikanten lauschen.\n
     </string>
-    <string name="image_text_1">Historische Postkartenansicht der Alten Mainbrücke aus dem Jahr 1895</string>
-    <string name="image_source_1">Quelle: http://www.wuerzburg-fotos.de/alte_mainbruecke.php</string>
+    <string name="image_text_1">Historische Postkartenansicht der Alten Mainbrücke aus dem Jahr 1895\n(Doppelt tippen um zu Zoomen)</string>
+    <string name="image_source_1">Bildquelle: http://www.wuerzburg-fotos.de/alte_mainbruecke.php</string>
     <string name="TaskText1">Suche dir deine Lieblingsstatue aus und formuliere, was diese Person wohl gerade angesichts des aktuellen Treibens auf der Mainbrücke denkt. Vergiss nicht mitzuteilen welche Statue du dir ausgesucht hast.</string>
 
     <string name="Title2">Residenz</string>
-    <string name="Text2">Die Würzburger Residenz ist UNESCO-Weltkulturerbe und das Hauptwerk des süddeutschen Barock und somit eines des bedeutendsten Schlösser Europas./n/n
-        Erbaut wurde sie 1720 -1744 nach den Plänen von Balthasar Neumann. Die Decke des Treppenhauses wurde vom bedeutendsten Freskenmaler der Zeit, Giovanni Tiepolo, mit dem größten zusammenhängenden Fresko der Welt (ca. 580 m2) ausgestattet. Thema des Gemäldes sind die vier (damals anerkannten) Kontinente: Europa, Amerika, Afrika und Asien./n
-        Die Residenz diente ehemals als Sitz der Würzburger Fürstbischöfe./n/n
-        Bei der Zerstörung der Stadt im 2. Weltkrieg am 16. März 1945 wurden große Teile der Residenz zerstört, die Wiederherstellung der Paradezimmer des Kaisers dauerte nahezu 40 Jahre. Die UNESCO bezeichnet das 1997 rekonstruierte Spiegelkabinett als das vollkommenste Raumkunstwerk des Rokoko./n/n
-        Der Hofgarten war durch die barocke Stadtmauer begrenzt. Zu dieser hohen Befestigungsmauer führen symmetrisch zwei rahmende Treppenanlagen hinauf, wobei auf halber Höhe eine Terrasse eingefügt wurde. Heute blühen hier hunderte von alten Rosensorten, früher waren es beschnittene Obstbäume./n/n
+    <string name="Text2">Die Würzburger Residenz ist UNESCO-Weltkulturerbe und das Hauptwerk des süddeutschen Barock und somit eines des bedeutendsten Schlösser Europas.\n\n
+        Erbaut wurde sie 1720 -1744 nach den Plänen von Balthasar Neumann. Die Decke des Treppenhauses wurde vom bedeutendsten Freskenmaler der Zeit, Giovanni Tiepolo, mit dem größten zusammenhängenden Fresko der Welt (ca. 580 m2) ausgestattet. Thema des Gemäldes sind die vier (damals anerkannten) Kontinente: Europa, Amerika, Afrika und Asien.\n
+        Die Residenz diente ehemals als Sitz der Würzburger Fürstbischöfe.\n\n
+        Bei der Zerstörung der Stadt im 2. Weltkrieg am 16. März 1945 wurden große Teile der Residenz zerstört, die Wiederherstellung der Paradezimmer des Kaisers dauerte nahezu 40 Jahre. Die UNESCO bezeichnet das 1997 rekonstruierte Spiegelkabinett als das vollkommenste Raumkunstwerk des Rokoko.\n\n
+        Der Hofgarten war durch die barocke Stadtmauer begrenzt. Zu dieser hohen Befestigungsmauer führen symmetrisch zwei rahmende Treppenanlagen hinauf, wobei auf halber Höhe eine Terrasse eingefügt wurde. Heute blühen hier hunderte von alten Rosensorten, früher waren es beschnittene Obstbäume.\n\n
         Die Residenz hat etwa 340 Räume, von denen 42 bei einer Besichtigung als Schauräume besucht werden können. Die anderen Räume werden teilweise von der Universität und vom Martin-von-Wagner-Museum genutzt.\n\n
         Die Residenz war neben der Marienburg und der alten Mainbrücke Schauplatz des Kinofilms „Die drei Musketiere“ aus dem Jahr 2011 mit Orlando Bloom und Christoph Waltz.
     </string>
-    <string name="image_text_2">Das Treppenhaus Fresko (19 x 30,5m) zu den vier Erdteilen von Tiepolo</string>
-    <string name="image_source_2">Quelle: http://www.wga.hu/index1.html</string>
+    <string name="image_text_2">Das Treppenhaus Fresko (19 x 30,5m) zu den vier Erdteilen von Tiepolo\n(Doppelt tippen um zu Zoomen)</string>
+    <string name="image_source_2">Bildquelle: Web Gallery of Art: http://www.wga.hu/index1.html</string>
     <string name="TaskText2">Das größte zusammenhängende Fresko der Welt im Treppenhaus der Residenz zeigt vier Erdteile. Wie würde dein Fresko zu diesem Thema aussehen?</string>
 
     <string name="Title3">St. Kiliansdom</string>
@@ -77,39 +77,67 @@
         Im Innern des Doms befinden sich eine Reihe von Kunstwerken, wie z.B. der Siebenarmige Leuchter von Andreas Moritz, die Domkanzel, der St.-Magdalenen-Altar, der Marienaltar, sowie der Taufstein aus dem Jahr 1279.\n\n
         Nach dem Einsturz großer Teile des Doms am 20. Februar 1946 als Folge des Bombenangriffs auf Würzburg am 16. März 1945 wurde er bis 1967 wieder aufgebaut. Dabei wurde die barocke Substanz zugunsten einer Re-Romanisierung zerstört. Die Neuausstattung betont den Gegensatz zu den erhaltenen historischen Partien. So entstand eine umstrittene Kombination aus größtenteils romanischen, modernen und barocken Elementen.
     </string>
-    <string name="image_text_3">So sah der Dom früher aus: Von außen (1904) und innen (Alter und Chorraum, 1910)</string>
-    <string name="image_source_3">Quelle: „Wuerzburg Dom 1904“ von Unbekannt - Verlag: Dr. Trenkler Co., Leipzig. Lizenziert unter Gemeinfrei über Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Wuerzburg_Dom_1904.jpg#/media/File:Wuerzburg_Dom_1904.jpg</string>
+    <string name="image_text_3">So sah der Dom früher aus: Von außen (1904) und innen (Alter und Chorraum, 1910)\n(Doppelt tippen um zu Zoomen)</string>
+    <string name="image_source_3">Bildquelle: „Wuerzburg Dom 1904“ von Unbekannt - Verlag: Dr. Trenkler Co., Leipzig. Lizenziert unter Gemeinfrei über Wikimedia Commons - https://commons.wikimedia.org/wiki/File:Wuerzburg_Dom_1904.jpg#/media/File:Wuerzburg_Dom_1904.jpg</string>
     <string name="TaskText3">Was denkst du über die Modernisierung nach der Zerstörung des Doms im 2. Weltkrieg und die somit entstandene Kombination aus größtenteils romanischen, modernen und barocken Elementen?</string>
 
     <string name="Title4">Alter Kranen</string>
     <string name="Text4">Der Alte Kranen ist ein barocker Hafenkran mit Doppelausleger aus dem Jahre 1773 auf dem Kranenkai in Würzburg am rechten Mainufer. Er wurde zur Belebung des Mainhandels erbaut.\n\n
         Das Wappen des Fürstbischofs Adam Friedrich von Seinsheim, der zur Förderung des Maingüterverkehrs selbst den Bau veranlasst hatte, flankiert von den Göttergestalten Franconia (Schutzgöttin und Personifikation Frankens) mit Rennfähnlein und Moenus (Flussgott und Fluss Main) ist in die dem Main zugewandte Kranmauer eingelassen.\n
-        Die Inschrift des Krans unter dem Wappen in Latein versprach: „accipio trado quod libet expedio“, was übersetzt bedeutet „Ich empfange, übergebe, was beliebt, [und] befördere [es]“. \n
-        (Die Schrift ist in der Form: 'aCCIpIo traDo qVoDL Vbet eXpeDIo' ausgeführt, um die Jahreszahl „1773“ aufzuzeigen: CCIIDVDLVXDI ergibt geordnet: DDDCCLXVVIII, daraus mit DD = M und VV = X die korrekte Schreibweise: MDCCLXXIII = 1773)\n\n
+        Die Inschrift des Krans unter dem Wappen in Latein versprach: „accipio trado quod libet expedio“, was übersetzt bedeutet „Ich empfange, übergebe, was beliebt, [und] befördere [es]“.\n
+        (Die Schrift ist in der Form: "aCCIpIo traDo qVoDL Vbet eXpeDIo" ausgeführt, um die Jahreszahl „1773“ aufzuzeigen: CCIIDVDLVXDI ergibt geordnet: DDDCCLXVVIII, daraus mit DD = M und VV = X die korrekte Schreibweise: MDCCLXXIII = 1773)\n\n
         Den Zweiten Weltkrieg überstand der Alte Kranen mit seinem völlig intakten Mechanismus unbeschadet, obwohl Würzburg dabei zu mehr als 80 Prozent zerstört wurde.\n\n
         Aufgrund der günstigen zentralen Lage direkt am Main und einer Reihe von Sitzgelegenheiten ist der Alte Kranen heute ein beliebter Treffpunkt, besonders in den Sommermonaten.
     </string>
-    <string name="image_text_4">Würzburg, Anfang des 19. Jahrhunderts</string>
+    <string name="image_text_4">Würzburg, Anfang des 19. Jahrhunderts\n(Doppelt tippen um zu Zoomen)</string>
     <string name="image_source_4"></string>
     <string name="TaskText4">Zeige anhand eines Fotos, bis wohin du beim Hochwasser am 16.1.1920 im Wasser gestanden wärst.</string>
 
     <string name="Title5">Marienkapelle</string>
-    <string name="Text5"></string>
-    <string name="image_text_5"></string>
-    <string name="image_source_5">Quelle: </string>
-    <string name="TaskText5"></string>
+    <string name="Text5">Die Marienkapelle ist ein gotischer Kirchenbau des dem 14. Jahrhundert. Der Bau wurde als Sühne von der Bürgerschaft errichtet und daher keine pfarrkirchlichen Rechte hat, wird er als Kapelle bezeichnet.\n\n
+        Die Entstehungsgeschichte ist eng mit der Ausrottung der jüdischen Gemeinde Würzburgs verknüpft:\n
+        Im Pestjahr 1349 führte das Gerücht, dass die Juden durch Brunnenvergiftungen schuld am Ausbruch der Pest seien zu einem Progrom, bei dem Juden ermordet, das Judenviertel abgerissen und die Synagoge niedergebrannt wurde. Bald danach begann an der Stelle der zerstörten Synagoge der Bau der Marienkapelle aus Holz. Die Bauzeit der jetzigen Marienkapelle begann 1377.\n\n
+        Beim Bombenangriff auf Würzburg am 16. März 1945 wurde der Bau schwer beschädigt und brannte vollständig aus; zahlreiche Kunstwerke gingen verloren.\n
+        Beim Wideraufbau wurde der Innenraum modern gestaltet.\n\n
+        Um die Kirchenmauer herum befinden sich seit 1437 die sogenannten "Schwalbenlädle", Kramläden, die der Kirche erhebliche Mieteinnahmen einbrachten und noch heute eine Vorstellung über das Geschäftsleben des Mittelalters vermitteln. Einer dieser Läden beheimatet gegenwärtig das kleinste Café Würzburgs.
+    </string>
+    <string name="image_text_5">Der unversehrte Turm der Marienkapelle 1945 nach dem Bombenangriff auf Würzburg\n(Doppelt tippen um zu Zoomen)</string>
+    <string name="image_source_5">Bild: Mehling, Quelle: http://www.hansgruener.de/docs_d/kanal_main/wuerzburg_1945_22a.htm</string>
+    <string name="TaskText5">Hinter dem Altar befinden sich bunte Kirchenfenster. Wie würdest du ein kirchenfenster aus buntem Glas gestalten?</string>
 
     <string name="Title6">Grafeneckart</string>
-    <string name="Text6"></string>
-    <string name="image_text_6"></string>
-    <string name="image_source_6">Quelle: </string>
-    <string name="TaskText6"></string>
+    <string name="Text6">Der Grafeneckart ist ein 55 Meter hoher, romanischer Turm und der älteste Teil des Würzburger Rathauses. Der mittelalterliche Turm wurde 1180 erstmals erwähnt und nach dem Vize-Burggraf Eckart de Foro benannt, der dort wohnte und ermordet wurde.\n\n
+        Der westlich an den Turm angebauten Seitenflügel trägt den Namen Grünbaum, aufgrund einer Linde, die Jahrhunderte lang auf dem freien Platz vor dem Grafeneckart stand. Unter diesem Baum wurde im Mittelalter Gericht gehalten, die Verurteilen kamen danach ins Verlies des Grafeneckarts, das sog. „Loch“ bis sie zur Hinrichtung abgeholt und an dem außen am Ratshaus angebrachten Stock (Pranger) zur Schau gestellt wurden.\n\n
+        Im westlichen Obergeschoss befindet sich der eindrucksvolle gotische Wenzelsaal, einer der schönsten mittelalterlichen Innenräume Würzburgs.\n\n
+        Eine Sonnenuhr schmückt die Südfassade des Turms, vom Vierröhrenbrunnen aus gut zu betrachten. Sie ist allerdings ungenau, selbst nach präziser Umrechnung aller genau berechenbaren jahreszeitlichen- und Längengrad-Abweichungen weicht sie, vor allem nachmittags, bis zu 40 Minuten ab.
+        1316 erwarben die Bürger den Grafeneckart als Zeichen bürgerlicher Unabhängigkeit gegenüber dem bischöflichen Landsherrn.\n\n
+        Beim Bombenangriff am 16. März 1945 wurde der mittelalterliche Kern des Grafeneckarts teilweise getroffen aber Gewölbe und Fassade blieben erhalten.\n\n
+        Im Erdgeschoss des Grafeneckarts befindet sich ein Gedenkraum für die Erinnerung an die Zerstörung Würzburgs. Die Dauerausstellung wurde 2011 modernisiert und zeigt unter anderem ein Modell des zerstörten Würzburgs. Jedoch sorgte die Verwendung des Begriffs „Terrorangriff“ auf den neuen Infotafeln für kontroverse Diskussionen.\n\n
+        Vor dem Rathaus befindet sich der Vierröhrenbrunnen aus der Mitte des 18. Jahrhunderts, dessen Ausgestaltung typisch für die Zeit des Spätbarock ist.\nAm 11. April 2015 wurde von unbekannten eine Substanz in das Brunnenwasser gegeben. Das Wasser schimmerte daraufhin giftgrün und erregte viel Aufmerksamkeit. Die Substanz war zwar weder giftig noch schädlich, das Wasser wurde dennoch ausgetauscht.
+    </string>
+    <string name="image_text_6">Das zerstörte Würzburg um den Grafeneckart nach dem Bombenangriff vom 16. März 1945\n(Doppelt tippen um zu Zoomen)</string>
+    <string name="image_source_6">Bildquelle: http://www.br.de/nachrichten/unterfranken/inhalt/ausstellung-geschichtswerkstatt-wuerzbrug-100~_v-img__16__9__l_-1dc0e8f74459dd04c91a0d45af4972b9069f1135.jpg%3Fversion%3De92d0</string>
+    <string name="TaskText6">Suche dir ein Detail des Grafeneckarts oder des Vierröhrenbrunnes und male es ab.</string>
 
     <string name="Title7">Festung Marienberg</string>
-    <string name="Text7"></string>
-    <string name="image_text_7"></string>
-    <string name="image_source_7">Quelle: </string>
-    <string name="TaskText7"></string>
+    <string name="Text7">Auf dem seit der späten Bronzezeit besiedelten Marienberg befand sich im frühen 8. Jahrhundert wahrscheinlich ein Kastell der fränkisch-thüringischen Herzöge mit der im Jahre 708 geweihten Marienkirche, der ältesten Kirche Würzburgs. Ab 1200 entstand eine ungewöhnlich große Burg, die im Spätmittelalter und in der Renaissance ausgebaut und erweitert wurde. Die Festung trägt auch den Namen „Festung Unser Frauen Berg“.\n\n
+        Im Jahr 1525, während des Bauernkriegs, wurde die Festung Marienberg erfolglos berannt. Für die Anhänger des Bischofs Konrad II. von Thüngen blieb die Festung Rückzugspunkt in einem sonst verwüsteten Bistum.\n\n
+        Die Hauptburg wurde um 1600 zum Renaissanceschloß umgebaut. Aus dieser Zeit stammt auch das Brunnenhaus, das als eines der schönsten Beispiele der Renaissance-Architektur in Franken bezeichnet werden darf.\n\n
+        Die Erstürmung der Burg 1631 durch die Schweden im Dreißigjährigen Krieg veranlasste Johann Philipp von Schönborn, den Marienberg mit einem Kranz gewaltiger Bastionen und militärischer Befestigungen zu umgeben. Die Burg wurde zur Barockfestung ausgebaut. Insgesamt wurden Mauern auf zwölf Kilometer Länge angelegt.\n\n
+        1749 wurde Maria Renata Singer von Mossau als Gefangene auf der Festung Marienberg festgehalten, sie gilt als letztes fränkisches Opfer der Hexenverbrennungen.\n\n
+        Die Nationalsozialisten nutzten die Burg als „SA-Hilfswerklager, dessen wichtige soziale und erzieherische Aufgabe es ist, arbeitslose junge SA-Kameraden umzuschulen“. Der Hof der Marienberg sei zu „einer Feste des Gemeinschaftsgedankens geworden“\n
+        Im Zweiten Weltkrieg wurde bei den Luftangriffen Würzburgs am 16. März 1945 auch die Festung stark beschädigt. Bereits ab 1950 wurde die Festung Marienberg wieder aufgebaut.\n\n
+        Freistehend im inneren Burghof erhebt sich der ca. 40 Meter hohe Bergfried, der als Wachtturm, als Verließ, aber auch als letzter Zufluchtsort im Fall der feindlichen Erstürmung der Festung diente.\n
+        Drei Türme befinden sich an den Ecken der Hauptburg:\n
+        &#8226; Der Randersackerer Turm im Südosten, daneben der halbrunde niedrigere Küchenturm\n
+        &#8226; Der Marienturm - bekrönt von der goldenen Madonna im Strahlenkranz - im Nordosten\n
+        &#8226; Der Kiliansturm (früher Michaelsturm) im Nordwesten neben dem Scherenbergtor.\n\n
+        Im barocken Zeughaus befindet sich heute das Mainfränkische Museum. Es zeigt eine hervorragende Sammlung fränkischer Kunstwerke, darunter die weltberühmten Plastiken von Tilman Riemenschneider; außerdem führt sie eine vorgeschichtliche Sammlung, Zeugnisse fränkischer Weinkultur und eine Volkskunde-Abteilung.\n\n
+        Im Sommer findet auf den Wiesen vor der Festung abends das "Festungsflimmern" (Open-Air-Kino) statt.
+    </string>
+    <string name="image_text_7">Luftaufnahme der Festung Marienberg\n(Doppelt tippen um zu Zoomen)</string>
+    <string name="image_source_7">Bildquelle: Bayrische Verwaltung der staatlichen Schlösser, Gärten und Seen: http://www.schloesser.bayern.de/deutsch/schloss/objekte/wu_fest.htm</string>
+    <string name="TaskText7">Mache ein Foto von der Aussicht auf Würzburg, in dem der Dom in Szene gesetzt wird.</string>
 
     <string name="Quest1">Was hält die Statue des Heiligen Bruno, der Erbauer des Würzburger Doms in der Hand?</string>
     <string name="Answer1A">Buch</string>
@@ -174,90 +202,101 @@
     <string name="Answer15B">Außen an der Nordseite des Kirchenschiffs</string>
     <string name="Answer15C">In der Schönbornkapelle</string>
 
-    <string name="Quest16"></string>
-    <string name="Answer16A"></string>
-    <string name="Answer16B"></string>
-    <string name="Answer16C"></string>
-    <string name="Quest17"></string>
-    <string name="Answer17A"></string>
-    <string name="Answer17B"></string>
-    <string name="Answer17C"></string>
-    <string name="Quest18"></string>
-    <string name="Answer18A"></string>
-    <string name="Answer18B"></string>
-    <string name="Answer18C"></string>
-    <string name="Quest19"></string>
-    <string name="Answer19A"></string>
-    <string name="Answer19B"></string>
-    <string name="Answer19C"></string>
-    <string name="Quest20"></string>
-    <string name="Answer20A"></string>
-    <string name="Answer20B"></string>
-    <string name="Answer20C"></string>
+    <string name="Quest16">An welchem Datum wurde am alten Kranen der höchste Wasserstand eingezeichnet?</string>
+    <string name="Answer16A">16.01.1920</string>
+    <string name="Answer16B">07.02.1909</string>
+    <string name="Answer16C">25.02.1970</string>
+    <string name="Quest17">Bis wann wurde der Kran zum Entladen von Binnenschiffen genutzt?</string>
+    <string name="Answer17A">1846</string>
+    <string name="Answer17B">1920</string>
+    <string name="Answer17C">1903</string>
+    <string name="Quest18">Das Wappen des Fürstbischofs Adam Friedrich von Seinsheim, flankiert von den Göttergestalten Franconia (Schutzgöttin und Personifikation Frankens) Moenus (Flussgott und Fluss Main) ist in die dem Main zugewandte Kranmauer eingelassen. Welche Tiere sind auf dem kleinen Wappenrelief zu sehen?</string>
+    <string name="Answer18A">Adler</string>
+    <string name="Answer18B">Fische</string>
+    <string name="Answer18C">Schweine</string>
+    <string name="Quest19">Was besagt die Inschrift unter dem Wappen übersetzt?</string>
+    <string name="Answer19A">Ich empfange, übergebe, was beliebt, und befördere es.</string>
+    <string name="Answer19B">Ich empfange, was der Fluss bringt.</string>
+    <string name="Answer19C">Zu Ehren Franconias und Moenus</string>
+    <string name="Quest20">Welche Jahreszahl wird mit dem großgeschriebenen Buchstaben der Inschrift gebildet und ist somit das Erbauungsjahr des Krans?</string>
+    <string name="Answer20A">1773</string>
+    <string name="Answer20B">1846</string>
+    <string name="Answer20C">1920</string>
 
-    <string name="Quest21"></string>
-    <string name="Answer21A"></string>
-    <string name="Answer21B"></string>
-    <string name="Answer21C"></string>
-    <string name="Quest22"></string>
-    <string name="Answer22A"></string>
-    <string name="Answer22B"></string>
-    <string name="Answer22C"></string>
-    <string name="Quest23"></string>
-    <string name="Answer23A"></string>
-    <string name="Answer23B"></string>
-    <string name="Answer23C"></string>
-    <string name="Quest24"></string>
-    <string name="Answer24A"></string>
-    <string name="Answer24B"></string>
-    <string name="Answer24C"></string>
-    <string name="Quest25"></string>
-    <string name="Answer25A"></string>
-    <string name="Answer25B"></string>
-    <string name="Answer25C"></string>
+    <string name="Quest21">Rechts und Links des Südportals Richtung Marktplatz befinden sich Kopien zweier Sandsteinfiguren von Tilman Riemenschneider. Um welche FIguren handelt es sich? (Die Orginale befinden sich im Mainfränkischen Museum)</string>
+    <string name="Answer21A">Adam und Eva</string>
+    <string name="Answer21B">Heiliger Stephanus und Heiliger Jakobus</string>
+    <string name="Answer21C">Die Beweinungsgruppe Christi</string>
+    <string name="Quest22">Was befand sich zuvor am Platz der Marienkapelle?</string>
+    <string name="Answer22A">Rathaus</string>
+    <string name="Answer22B">Dom</string>
+    <string name="Answer22C">Synagoge</string>
+    <string name="Quest23">Wie heißt das kleinste Café Würzburgs?</string>
+    <string name="Answer23A">Wunschlös glücklich</string>
+    <string name="Answer23B">Café Fred</string>
+    <string name="Answer23C">Brandstetter</string>
+    <string name="Quest24">Wer wurde in der Marienkapelle bestattet?</string>
+    <string name="Answer24A">Balthasar Neumann (Barockarchitekt)</string>
+    <string name="Answer24B">Tilman Riemenschneider (Bildhauer und Bürgermeister)</string>
+    <string name="Answer24C">Walther von der Vogelweide (Bedeutenster deutschsprachiger Lyriker des Mittelalters)</string>
+    <string name="Quest25">Womit wurde der Heilige Aquilin ermordet?</string>
+    <string name="Answer25A">Speer</string>
+    <string name="Answer25B">Schwert</string>
+    <string name="Answer25C">Dolch</string>
 
-    <string name="Quest26"></string>
-    <string name="Answer26A"></string>
-    <string name="Answer26B"></string>
-    <string name="Answer26C"></string>
-    <string name="Quest27"></string>
-    <string name="Answer27A"></string>
-    <string name="Answer27B"></string>
-    <string name="Answer27C"></string>
-    <string name="Quest28"></string>
-    <string name="Answer28A"></string>
-    <string name="Answer28B"></string>
-    <string name="Answer28C"></string>
-    <string name="Quest29"></string>
-    <string name="Answer29A"></string>
-    <string name="Answer29B"></string>
-    <string name="Answer29C"></string>
-    <string name="Quest30"></string>
-    <string name="Answer30A"></string>
-    <string name="Answer30B"></string>
-    <string name="Answer30C"></string>
+    <string name="Quest26">An der Südfassade des Grünbaums befindet sich eine aufgemalte Baumdarstellung. Diese wurde 1597 an der Fassade angebracht, nachdem zuvor die Linde auf dem Platz vor dem Grafeneckart umgestürzt ist. Was befindet sich im unteren Geäst des Gemäldes?</string>
+    <string name="Answer26A">Eule</string>
+    <string name="Answer26B">Eichhörnchen</string>
+    <string name="Answer26C">Vogelnest und Vogel</string>
+    <string name="Quest27">Wie heißt der Brunnen vor dem Grafeneckart?</string>
+    <string name="Answer27A">Vierröhrenbrunnen</string>
+    <string name="Answer27B">Frankoniabrunnen</string>
+    <string name="Answer27C">Georgsbrunnen</string>
+    <string name="Quest28">Wie viele Uhren befinden sich am Grafeneckart</string>
+    <string name="Answer28A">1</string>
+    <string name="Answer28B">2</string>
+    <string name="Answer28C">3</string>
+    <string name="Quest29">Unter was für einem Baum fanden früher die Gerichtsverhandlungen vor dem Grafeneckart statt?</string>
+    <string name="Answer29A">Eiche</string>
+    <string name="Answer29B">Linde</string>
+    <string name="Answer29C">Birke</string>
+    <string name="Quest30">Am Vierröhrenbrunnen befinden sich die Personifikationen der vier Kardinalstugenden. Die Gerechtigkeit mit der Waage, die Mäßigung, die Wasser aus einer Kanne in den Kelch mit Wein gießt und...</string>
+    <string name="Answer30A">der Glaube mit einem Kreuz.</string>
+    <string name="Answer30B">die Tapferkeit mit Helm und Löwenfell.</string>
+    <string name="Answer30C">die Hoffnung mit Saatkörnern.</string>
 
-    <string name="Quest31"></string>
-    <string name="Answer31A"></string>
-    <string name="Answer31B"></string>
-    <string name="Answer31C"></string>
-    <string name="Quest32"></string>
-    <string name="Answer32A"></string>
-    <string name="Answer32B"></string>
-    <string name="Answer32C"></string>
-    <string name="Quest33"></string>
-    <string name="Answer33A"></string>
-    <string name="Answer33B"></string>
-    <string name="Answer33C"></string>
-    <string name="Quest34"></string>
-    <string name="Answer34A"></string>
-    <string name="Answer34B"></string>
-    <string name="Answer34C"></string>
-    <string name="Quest35"></string>
-    <string name="Answer35A"></string>
-    <string name="Answer35B"></string>
-    <string name="Answer35C"></string>
+    <string name="Quest31">Im inneren Burghof der Festung befindet sich die Marienkirche, die älteste Kirche Würzburgs und der älteste erhaltene Bauteil auf dem Festungsareal, wurde aber im Laufe der Jahre mehrfach umgebaut. Aus welchem Material besteht die Eingangstür im roten Sandstein-Portal?</string>
+    <string name="Answer31A">Holz</string>
+    <string name="Answer31B">Stein</string>
+    <string name="Answer31C">Marmor</string>
+    <string name="Quest32">Im Zentralbau der Kirche befindet sich eine Grablege, deren Grabplatten die Reliefs von Würzburger Bischöfen zeigen. Wie viele dieser Grabplatten gibt es?</string>
+    <string name="Answer32A">16</string>
+    <string name="Answer32B">20</string>
+    <string name="Answer32C">10</string>
+    <string name="Quest33">Neben der Marienkirche befindet sich das um 1600 errichtete Brunnenhaus, in dem sich ein 102 Meter tiefer Brunnen befindet. Welche Form hat der Grundriss des Brunnenhauses?</string>
+    <string name="Answer33A">Kreis</string>
+    <string name="Answer33B">Sechseck</string>
+    <string name="Answer33C">Achteck</string>
+    <string name="Quest34">Das Innere mit dem Brunnenschacht kann nur bei einer Führrung besichtigt werden. Dann ist es eine besondere Herausforderung eine Münze in den Schacht zu werden und die Sekunden bis zum Aufprall auf den Wasserspiegel zu zählen. Dabei darf die Münze nicht die Wände des Schachts berrühren. Wie lange braucht eine Münze etwa um durch einen 102 Meter tiefen Schacht zu fallen?</string>
+    <string name="Answer34A">Etwas mehr als 3 Sekunden</string>
+    <string name="Answer34B">Um die 9 Sekunden</string>
+    <string name="Answer34C">Etwas weniger als 14 Sekunden</string>
+    <string name="Quest35">Auf der Ostseite der Festung befindet sich, mit Blick auf die Stadt, der Fürstengarten. Das Zugangstor befindet sich im inneren Hof der Festung, neben der Marienkirche. An seinen Schmalseiten befindet sich jeweils ein Kaskadenbrunnen. Wie viele Etagen hat einer dieser Brunnen?</string>
+    <string name="Answer35A">5</string>
+    <string name="Answer35B">6</string>
+    <string name="Answer35C">7</string>
 
     <string name="content_description_info_image">Information Image</string>
+    <string name="instruction_like">Halte einen Eintrag gedrückt, um ihm eine positive Bewertung zu geben.</string>
+    <string name="go_to_toast">"Gehe zur/zum "</string>
+    <string name="go_to_toast_2">" um diesen Marker zu öffnen."</string>
+    <string name="badge1_titel">Der erste Schritt</string>
+    <string name="badge1_subtitle">mit dem auch die längste Reise beginnt. Ersten Punkt gesammelt</string>
+    <string name="badge2_titel">Quizzer</string>
+    <string name="badge2_subtitle">3 Punkte durch Quizzes verdient</string>
+    <string name="badge3_titel">Kreativer Kopf</string>
+    <string name="badge3_subtitle">3 Punkte durch Pinnwand-Uploads verdient</string>
+    <string name="badge4_titel">Würzburg-Kenner</string>
+    <string name="badge4_subtitle">Alle Stationen in Würzburg abgehakt</string>
 
 </resources>

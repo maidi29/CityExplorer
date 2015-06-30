@@ -1,6 +1,5 @@
 package de.mareike.cityexplorer;
 
-import com.google.android.gms.maps.model.LatLng;
 
 public class Question {
     private int ID;

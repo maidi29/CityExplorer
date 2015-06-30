@@ -18,7 +18,7 @@ import de.mareike.cityexplorer.R;
 
 public class ResultActivity extends Activity {
 
-    String markerID;
+    Integer markerID;
     Boolean done;
     TextView textResult;
     int score;
@@ -39,7 +39,7 @@ public class ResultActivity extends Activity {
 
         Bundle b = getIntent().getExtras();
         score = b.getInt("score");
-        markerID = b.getString("markerID");
+        markerID = b.getInt("markerID");
         bar.setRating(score);
         switch (score)
         {
@@ -64,12 +64,12 @@ public class ResultActivity extends Activity {
                     do {
                         Log.d("Database", "Inhalt: "+ cursor.getString(0) + cursor.getString(1));
 
-                        if (Integer.parseInt(cursor.getString(0)) < 5 && cursor.getString(1).equals(markerID)) {
+                        if (Integer.parseInt(cursor.getString(0)) < 5 && Integer.parseInt(cursor.getString(1)) == markerID) {
                         Log.d("Database", "Update");
                             dbh.updateScore(dbh, Integer.parseInt(cursor.getString(0)), markerID, score);
                             finish();
                         }
-                        else if (Integer.parseInt(cursor.getString(0))== 5 &&cursor.getString(1).equals(markerID)) {
+                        else if (Integer.parseInt(cursor.getString(0))== 5 && Integer.parseInt(cursor.getString(1))==markerID) {
                             Log.d("Database", "Nothing");
                                 finish();
                             }
@@ -110,7 +110,7 @@ public class ResultActivity extends Activity {
     public Cursor getScore(DbHelper dbh) {
         dbase = dbh.getReadableDatabase();
         String columns[] = {dbh.COLUMN_SCORE, dbh.COLUMN_MARKERID};
-        String args[] = {markerID};
+        String args[] = {markerID.toString()};
         Cursor cursor = dbase.query(dbh.SCORE_TABLE, columns, dbh.MARKERID + " LIKE ?", args , null, null, null, null);
         return cursor;
     }

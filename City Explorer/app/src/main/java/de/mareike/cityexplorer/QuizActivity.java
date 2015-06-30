@@ -20,7 +20,7 @@ public class QuizActivity extends Activity {
     int score=0;
     int qid=0;
     Question currentQ;
-    String markerID;
+    Integer markerID;
     TextView txtQuestion;
     RadioButton rda, rdb, rdc;
     Button butNext;
@@ -35,10 +35,10 @@ public class QuizActivity extends Activity {
             if(extras == null) {
                 markerID= null;
             } else {
-                markerID= extras.getString("MarkerID");
+                markerID= extras.getInt("MarkerID");
             }
         } else {
-            markerID = (String) savedInstanceState.getSerializable("MarkerID");
+            markerID = (Integer) savedInstanceState.getSerializable("MarkerID");
         }
 
         DbHelper db = new DbHelper(this);
@@ -50,14 +50,26 @@ public class QuizActivity extends Activity {
         rdc=(RadioButton)findViewById(R.id.radio2);
         butNext=(Button)findViewById(R.id.button1);
 
-        if (markerID.equals(getString(R.string.Title1))) {
+        if (markerID == 1) {
             qid = 0;
         }
-        if (markerID.equals(getString(R.string.Title2))) {
+        else if (markerID == 2) {
             qid = 5;
         }
-        if (markerID.equals(getString(R.string.Title3))) {
+        else if (markerID == 3) {
             qid = 10;
+        }
+        else if (markerID ==4) {
+            qid = 15;
+        }
+        else if (markerID ==5) {
+            qid = 20;
+        }
+        else if (markerID ==6) {
+            qid = 25;
+        }
+        else if (markerID ==7) {
+            qid = 30;
         }
 
         currentQ = quesList.get(qid);
@@ -72,7 +84,7 @@ public class QuizActivity extends Activity {
                 {
                     score++;
                 }
-                if (markerID.equals(getString(R.string.Title1))) {
+                if (markerID == 1) {
                     if(qid<5) {
                         currentQ = quesList.get(qid);
                         setQuestionView();
@@ -80,7 +92,7 @@ public class QuizActivity extends Activity {
                         startResultActivity();
                     }
                 }
-                if (markerID.equals(getString(R.string.Title2))) {
+                else if (markerID == 2) {
                     if(qid<10) {
                         currentQ = quesList.get(qid);
                         setQuestionView();
@@ -88,11 +100,43 @@ public class QuizActivity extends Activity {
                         startResultActivity();
                     }
                 }
-                if (markerID.equals(getString(R.string.Title3))) {
+                else if (markerID == 3) {
                     if(qid<15) {
                         currentQ = quesList.get(qid);
                         setQuestionView();
                     }else if (qid==15){
+                        startResultActivity();
+                    }
+                }
+                else if (markerID == 4) {
+                    if(qid<20) {
+                        currentQ = quesList.get(qid);
+                        setQuestionView();
+                    }else if (qid==20){
+                        startResultActivity();
+                    }
+                }
+                else if (markerID == 5) {
+                    if(qid<25) {
+                        currentQ = quesList.get(qid);
+                        setQuestionView();
+                    }else if (qid==25){
+                        startResultActivity();
+                    }
+                }
+                else if (markerID == 6) {
+                    if(qid<30) {
+                        currentQ = quesList.get(qid);
+                        setQuestionView();
+                    }else if (qid==30){
+                        startResultActivity();
+                    }
+                }
+                else if (markerID == 7) {
+                    if(qid<35) {
+                        currentQ = quesList.get(qid);
+                        setQuestionView();
+                    }else if (qid==35){
                         startResultActivity();
                     }
                 }
@@ -109,7 +153,7 @@ public class QuizActivity extends Activity {
         Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
         Bundle b = new Bundle();
         b.putInt("score", score);
-        b.putString("markerID",markerID);
+        b.putInt("markerID",markerID);
         intent.putExtras(b);
         startActivity(intent);
         finish();

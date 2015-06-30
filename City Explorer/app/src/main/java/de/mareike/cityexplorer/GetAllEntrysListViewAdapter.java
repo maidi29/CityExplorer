@@ -169,7 +169,7 @@ public class GetAllEntrysListViewAdapter extends BaseAdapter {
     public Cursor getLikes(DbHelper dbh) {
         dbase = dbh.getReadableDatabase();
         String columns[] = {dbh.LIKES_MARKERID, dbh.LIKES_POSITION, dbh.LIKES_LIKE};
-        String args[] = {pinboard.markerID, pos};
+        String args[] = {pinboard.markerID.toString(), pos};
         Cursor cursor = dbase.query(dbh.TABLE_LIKES, columns, dbh.LIKES_MARKERID + " LIKE ? AND " + dbh.LIKES_POSITION + " LIKE ? ", args , null, null, null, null);
         return cursor;
     }

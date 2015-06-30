@@ -33,7 +33,7 @@ public class PinboardActivity extends ActionBarActivity{
 
     ListView getALlEntrysListView;
     private JSONArray jsonArray;
-    String markerID;
+    Integer markerID;
     String entryID;
     GetAllEntrysListViewAdapter.ListCell listCell;
     ImageView likeButton;
@@ -58,11 +58,11 @@ public class PinboardActivity extends ActionBarActivity{
                 markerID= null;
                 calling = "activity";
             } else {
-                markerID= extras.getString("MarkerID");
+                markerID= extras.getInt("MarkerID");
                 calling = extras.getString("calling");
             }
         } else {
-            markerID = (String) savedInstanceState.getSerializable("MarkerID");
+            markerID = (Integer) savedInstanceState.getSerializable("MarkerID");
             calling = (String) savedInstanceState.getSerializable("calling");
         }
 
@@ -80,11 +80,12 @@ public class PinboardActivity extends ActionBarActivity{
                 if (cursor.moveToFirst()) {
                     do {
                         Log.d("Debug", "LongItemClick on " + position);
-                        Log.d("Database", "Inhalt: " + cursor.getString(0) + cursor.getString(1) + cursor.getString(2));
+
                         if (Integer.parseInt(cursor.getString(2)) == 1) {
                             dbh.updateLike(dbh, markerID, position, Integer.parseInt(cursor.getString(2)), 0);
                             dislike(position);
                             Log.d("Debug", "Dislike");
+                            Log.d("Database", "Inhalt: " + cursor.getString(0) + cursor.getString(1) + cursor.getString(2));
                             cursor.close();
                             return true;
                         }
@@ -92,6 +93,7 @@ public class PinboardActivity extends ActionBarActivity{
                             Log.d("Debug", "Change Dislike to Like");
                             dbh.updateLike(dbh, markerID, position, Integer.parseInt(cursor.getString(2)), 1);
                             likeUpload(position);
+                            Log.d("Database", "Inhalt: " + cursor.getString(0) + cursor.getString(1) + cursor.getString(2));
                             cursor.close();
                             return true;
                         }
@@ -100,6 +102,7 @@ public class PinboardActivity extends ActionBarActivity{
                             dbh.addLike(dbh, markerID, position, 1);
                             likeUpload(position);
                             cursor.close();
+                            Log.d("Database", "Inhalt: " + cursor.getString(0) + cursor.getString(1) + cursor.getString(2));
                             return true;
                         }
                     } while (cursor.moveToNext());
@@ -123,7 +126,7 @@ public class PinboardActivity extends ActionBarActivity{
     private class getAllEntrysTask extends AsyncTask<ApiConnector,Long,JSONArray> {
         @Override
         protected JSONArray doInBackground(ApiConnector... params) {
-            return params[0].getAllEntrys(markerID);
+            return params[0].getAllEntrys(markerID.toString());
         }
 
         @Override
@@ -164,7 +167,7 @@ public class PinboardActivity extends ActionBarActivity{
 
             final List<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("id", entryID));
-            params.add(new BasicNameValuePair("markerID", markerID));
+            params.add(new BasicNameValuePair("markerID", markerID.toString()));
 
             new AsyncTask<ApiConnector, Long, Boolean>() {
                 @Override
@@ -192,7 +195,7 @@ public class PinboardActivity extends ActionBarActivity{
 
         final List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("id", entryID));
-        params.add(new BasicNameValuePair("markerID", markerID));
+        params.add(new BasicNameValuePair("markerID", markerID.toString()));
 
         new AsyncTask<ApiConnector, Long, Boolean>() {
             @Override
@@ -215,7 +218,7 @@ public class PinboardActivity extends ActionBarActivity{
     public Cursor getLikes(DbHelper dbh) {
         dbase = dbh.getReadableDatabase();
         String columns[] = {dbh.LIKES_MARKERID, dbh.LIKES_POSITION, dbh.LIKES_LIKE};
-        String args[] = {markerID, pos};
+        String args[] = {markerID.toString(), pos};
         Cursor cursor = dbase.query(dbh.TABLE_LIKES, columns, dbh.LIKES_MARKERID + " LIKE ? AND " + dbh.LIKES_POSITION + " LIKE ? ", args , null, null, null, null);
         return cursor;
     }

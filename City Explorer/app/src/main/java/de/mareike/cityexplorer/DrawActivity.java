@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import android.provider.MediaStore;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.view.View.OnClickListener;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.http.NameValuePair;
@@ -34,13 +36,16 @@ import de.mareike.cityexplorer.R;
 public class DrawActivity extends ActionBarActivity implements OnClickListener {
 
     Button pinnenButton;
-    String markerID;
+    Integer markerID;
     Context context = this;
     String calling = "activity";
+    TextView taskText;
 
     private DrawingView drawView;
     private ImageButton currPaint, drawBtn, eraseBtn, newBtn, saveBtn;
     private float smallBrush, mediumBrush, largeBrush;
+
+    private SQLiteDatabase dbase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,13 +57,14 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
             if(extras == null) {
                 markerID= null;
             } else {
-                markerID= extras.getString("MarkerID");
+                markerID= extras.getInt("MarkerID");
             }
         } else {
-            markerID = (String) savedInstanceState.getSerializable("MarkerID");
+            markerID = (Integer) savedInstanceState.getSerializable("MarkerID");
         }
 
         pinnenButton = (Button) findViewById(R.id.pinnenButton);
+        taskText = (TextView) findViewById(R.id.taskTextView);
 
         drawView = (DrawingView)findViewById(R.id.drawing);
         LinearLayout paintLayout = (LinearLayout)findViewById(R.id.paint_colors);
@@ -79,7 +85,18 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
 
         drawView.setBrushSize(mediumBrush);
 
-
+        if (markerID == 2) {
+            taskText.setText(getString(R.string.TaskText2));
+        }
+        else if (markerID == 5) {
+            taskText.setText(getString(R.string.TaskText5));
+        }
+        else if (markerID == 6) {
+            taskText.setText(getString(R.string.TaskText6));
+        }
+        else {
+            taskText.setText("");
+        }
     }
 
     @Override
@@ -233,7 +250,7 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
         String imageData = encodeTobase64(image);
         final List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("image", imageData));
-        params.add(new BasicNameValuePair("markerID", markerID));
+        params.add(new BasicNameValuePair("markerID", markerID.toString()));
 
         new AsyncTask<ApiConnector, Long, Boolean>() {
             @Override
@@ -244,18 +261,18 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
         }.execute(new ApiConnector());
 
         DbHelper dbh = new DbHelper(context);
-        Cursor cursor = dbh.getUpload(dbh);
+        Cursor cursor = getUpload(dbh);
         cursor.moveToFirst();
         if (cursor.moveToFirst()) {
             do {
-                if (Integer.parseInt(cursor.getString(0)) == 0 && cursor.getString(1).equals(markerID)) {
+                if (Integer.parseInt(cursor.getString(0)) == 0) {
                     dbh.addUpload(dbh, 1,  markerID);
                     finish();
                 }
-                else if (Integer.parseInt(cursor.getString(0))== 1 && cursor.getString(1).equals(markerID)) {
+                else if (Integer.parseInt(cursor.getString(0))== 1) {
                     finish();
                 }
-                else if (!cursor.getString(1).equals(markerID)){
+                else {
                     dbh.addUpload(dbh, 1, markerID);
                     finish();
                 }
@@ -305,6 +322,15 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
     private void lockScreenRotation(int orientation)
     {
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
+
+    public Cursor getUpload(DbHelper dbh) {
+        String markerId = ""+markerID;
+        dbase = dbh.getReadableDatabase();
+        String columns[] = {dbh.UPLOAD, dbh.MARKERID};
+        String args[] = {markerId};
+        Cursor cursor = dbase.query(dbh.UPLOAD_TABLE, columns, dbh.MARKERID + " LIKE ?", args , null, null, null, null);
+        return cursor;
     }
 
 }

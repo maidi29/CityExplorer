@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -23,6 +24,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -40,7 +42,7 @@ import java.util.UUID;
 import de.mareike.cityexplorer.R;
 
 public class PictureActivity extends ActionBarActivity {
-    String markerID;
+    Integer markerID;
     Button pinnenButton;
     ImageButton cameraButton;
     EditText noteEditText;
@@ -48,7 +50,9 @@ public class PictureActivity extends ActionBarActivity {
     private Activity activity;
     Context context = this;
     Uri uriImage;
+    TextView taskText;
     String calling = "activity";
+    private SQLiteDatabase dbase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,16 +61,24 @@ public class PictureActivity extends ActionBarActivity {
 
         pinnenButton = (Button) findViewById(R.id.pinnenButtonPicture);
         cameraButton = (ImageButton) findViewById(R.id.cameraButton);
+        taskText = (TextView) findViewById(R.id.taskText);
 
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
             if (extras == null) {
                 markerID = null;
             } else {
-                markerID = extras.getString("MarkerID");
+                markerID = extras.getInt("MarkerID");
             }
         } else {
-            markerID = (String) savedInstanceState.getSerializable("MarkerID");
+            markerID = (Integer) savedInstanceState.getSerializable("MarkerID");
+        }
+
+        if (markerID == 4) {
+            taskText.setText(getString(R.string.TaskText4));
+        }
+        else if (markerID == 7) {
+            taskText.setText(getString(R.string.TaskText7));
         }
     }
 
@@ -143,7 +155,7 @@ public class PictureActivity extends ActionBarActivity {
         String imageData = encodeTobase64(image);
         final List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("image", imageData));
-        params.add(new BasicNameValuePair("markerID", markerID));
+        params.add(new BasicNameValuePair("markerID", markerID.toString()));
 
         new AsyncTask<ApiConnector, Long, Boolean>() {
             @Override
@@ -154,19 +166,19 @@ public class PictureActivity extends ActionBarActivity {
         }.execute(new ApiConnector());
 
         DbHelper dbh = new DbHelper(context);
-        Cursor cursor = dbh.getUpload(dbh);
+        Cursor cursor = dbh.getAllUploads(dbh);
         cursor.moveToFirst();
         if (cursor.moveToFirst()) {
             do {
                 Log.d("Datenbank", "Inhalt: "+cursor.getString(0)+cursor.getString(1));
-                if (Integer.parseInt(cursor.getString(0)) == 0 && cursor.getString(1).equals(markerID)) {
+                if (Integer.parseInt(cursor.getString(0)) == 0) {
                     dbh.addUpload(dbh, 1,  markerID);
                     finish();
                 }
-                else if (Integer.parseInt(cursor.getString(0))== 1 && cursor.getString(1).equals(markerID)) {
+                else if (Integer.parseInt(cursor.getString(0))== 1) {
                     finish();
                 }
-                else if (!cursor.getString(1).equals(markerID)){
+                else {
                     dbh.addUpload(dbh, 1, markerID);
                     finish();
                 }
@@ -232,6 +244,15 @@ public class PictureActivity extends ActionBarActivity {
     {
         super.onSaveInstanceState(savedInstanceState);
         uriImage = savedInstanceState.getParcelable("file_uri");
+    }
+
+    public Cursor getUpload(DbHelper dbh) {
+        String markerId = ""+markerID;
+        dbase = dbh.getReadableDatabase();
+        String columns[] = {dbh.UPLOAD, dbh.MARKERID};
+        String args[] = {markerId};
+        Cursor cursor = dbase.query(dbh.UPLOAD_TABLE, columns, dbh.MARKERID + " LIKE ?", args , null, null, null, null);
+        return cursor;
     }
 
 }

@@ -11,7 +11,7 @@ import de.mareike.cityexplorer.R;
 
 public class CreatePinboardActivity extends ActionBarActivity {
 
-    String markerID;
+    Integer markerID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,19 +22,31 @@ public class CreatePinboardActivity extends ActionBarActivity {
             if(extras == null) {
                 markerID= null;
             } else {
-                markerID= extras.getString("MarkerID");
+                markerID= extras.getInt("MarkerID");
             }
         } else {
-            markerID = (String) savedInstanceState.getSerializable("MarkerID");
+            markerID = (Integer) savedInstanceState.getSerializable("MarkerID");
         }
 
-        if (markerID.equals(getString(R.string.Title1))) {
+        if (markerID == 1) {
             StartNoteActivity();
         }
-        else if (markerID.equals(getString(R.string.Title2))) {
+        else if (markerID == 2) {
             StartDrawActivity();
         }
-        else if (markerID.equals(getString(R.string.Title3))) {
+        else if (markerID == 3) {
+            StartNoteActivity();
+        }
+        else if (markerID ==4) {
+            StartPictureActivity();
+        }
+        else if (markerID ==5) {
+            StartDrawActivity();
+        }
+        else if (markerID ==6) {
+            StartDrawActivity();
+        }
+        else if (markerID ==7) {
             StartPictureActivity();
         }
     }

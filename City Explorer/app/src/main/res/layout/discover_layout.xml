@@ -30,13 +30,14 @@
             android:clickable="false"
             android:layout_height="wrap_content" />
 
-            <ImageView
+            <de.mareike.cityexplorer.TouchImageView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:id="@+id/InfoImage"
                 android:contentDescription="@string/content_description_info_image"
                 android:src="@drawable/altemainbruecke"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                android:layout_marginTop="20dp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -45,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/InfoImageSource"
-                android:textSize="10sp" />
+                android:textSize="8sp" />
         </LinearLayout>
 
     </ScrollView>
