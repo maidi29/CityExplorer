@@ -82,6 +82,12 @@ public class Badges extends ActionBarActivity{
         if (sum >= 1) {
             myBadges.add(new Badge(getString(R.string.badge1_titel), getString(R.string.badge1_subtitle), R.drawable.badge1));
         }
+        if (points >= 1 && uploadPoints >= 1) {
+            myBadges.add(new Badge("Forscher", "Du hast bereits beide Aufgabentypen getestet, weiter so!", R.drawable.badge4));
+        }
+        if (points >= 2 && uploadPoints >= 2) {
+            myBadges.add(new Badge("Proband", "Ab jetzt bist du herlich zur Evaluation dieser App eingeladen und kanst deine Meinung abgeben. Einfach auf das Klemmbrettsybol oben im Landkarten-Screen tippen.", R.drawable.badge4));
+        }
         if (points >= 3) {
             myBadges.add(new Badge(getString(R.string.badge2_titel), getString(R.string.badge2_subtitle), R.drawable.badge2));
         }

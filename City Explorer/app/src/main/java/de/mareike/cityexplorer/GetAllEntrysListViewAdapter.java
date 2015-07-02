@@ -94,12 +94,15 @@ public class GetAllEntrysListViewAdapter extends BaseAdapter {
             cell.img = (ImageView) convertView.findViewById(R.id.listViewImg);
             cell.likeImage = (ImageView) convertView.findViewById(R.id.heartImage);
 
+
             convertView.setTag(cell);
 
         }
         else {
             cell = (ListCell)convertView.getTag();
         }
+
+        cell.position = position;
 
         try {
             JSONObject jsonObject = this.dataArray.getJSONObject(position);
@@ -110,6 +113,8 @@ public class GetAllEntrysListViewAdapter extends BaseAdapter {
             String urlForImageInServer = baseUrlForImage + img;
 
             new AsyncTask<String, Void, Bitmap>() {
+                private int mPosition = position;
+                private ListCell mCell = cell;
                 @Override
                 protected Bitmap doInBackground(String... params) {
                     //download image
@@ -130,7 +135,9 @@ public class GetAllEntrysListViewAdapter extends BaseAdapter {
 
                 @Override
                 protected void onPostExecute(Bitmap result) {
-                    cell.img.setImageBitmap(result);
+                    if (cell.position == mPosition) {
+                        cell.img.setImageBitmap(result);
+                    }
                 }
 
             }.execute(urlForImageInServer);
@@ -168,8 +175,7 @@ public class GetAllEntrysListViewAdapter extends BaseAdapter {
         private TextView note;
         private ImageView img;
         public ImageView likeImage;
-        public boolean touched;
-
+        public int position;
     }
 
     public Cursor getLikes(DbHelper dbh) {

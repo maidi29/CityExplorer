@@ -221,6 +221,15 @@ public class PictureActivity extends ActionBarActivity {
         return activity;
     }
 
+    public Cursor getUpload(DbHelper dbh) {
+        String markerId = ""+markerID;
+        dbase = dbh.getReadableDatabase();
+        String columns[] = {dbh.UPLOAD, dbh.MARKERID};
+        String args[] = {markerId};
+        Cursor cursor = dbase.query(dbh.UPLOAD_TABLE, columns, dbh.MARKERID + " LIKE ?", args , null, null, null, null);
+        return cursor;
+    }
+
     @Override
     public void onConfigurationChanged(Configuration newConfig)
     {
@@ -246,13 +255,13 @@ public class PictureActivity extends ActionBarActivity {
         uriImage = savedInstanceState.getParcelable("file_uri");
     }
 
-    public Cursor getUpload(DbHelper dbh) {
-        String markerId = ""+markerID;
-        dbase = dbh.getReadableDatabase();
-        String columns[] = {dbh.UPLOAD, dbh.MARKERID};
-        String args[] = {markerId};
-        Cursor cursor = dbase.query(dbh.UPLOAD_TABLE, columns, dbh.MARKERID + " LIKE ?", args , null, null, null, null);
-        return cursor;
+    @Override
+    public void onBackPressed () {
+        {
+            Intent intent = new Intent(PictureActivity.this, Discover.class);
+            intent.putExtra("MarkerID", markerID);
+            startActivity(intent);
+        }
     }
 
 }

@@ -117,6 +117,15 @@ public class NoteActivity extends ActionBarActivity{
         startActivity(intent);
     }
 
+    public Cursor getUpload(DbHelper dbh) {
+        String markerId = ""+markerID;
+        dbase = dbh.getReadableDatabase();
+        String columns[] = {dbh.UPLOAD, dbh.MARKERID};
+        String args[] = {markerId};
+        Cursor cursor = dbase.query(dbh.UPLOAD_TABLE, columns, dbh.MARKERID + " LIKE ?", args , null, null, null, null);
+        return cursor;
+    }
+
     @Override
     public void onConfigurationChanged(Configuration newConfig)
     {
@@ -129,13 +138,13 @@ public class NoteActivity extends ActionBarActivity{
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
-    public Cursor getUpload(DbHelper dbh) {
-        String markerId = ""+markerID;
-        dbase = dbh.getReadableDatabase();
-        String columns[] = {dbh.UPLOAD, dbh.MARKERID};
-        String args[] = {markerId};
-        Cursor cursor = dbase.query(dbh.UPLOAD_TABLE, columns, dbh.MARKERID + " LIKE ?", args , null, null, null, null);
-        return cursor;
+    @Override
+    public void onBackPressed () {
+        {
+            Intent intent = new Intent(NoteActivity.this, Discover.class);
+            intent.putExtra("MarkerID", markerID);
+            startActivity(intent);
+        }
     }
 }
 
