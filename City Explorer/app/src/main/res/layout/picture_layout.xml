@@ -18,7 +18,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Anleitung"
-            android:id="@+id/taskText" />
+            android:id="@+id/taskText"
+            android:layout_marginLeft="10dp" />
 
         <ImageView
             android:layout_width="match_parent"

@@ -117,7 +117,7 @@ public class Discover extends ActionBarActivity {
         if (cursor.moveToFirst()) {
             do {
                 if (Integer.parseInt(cursor.getString(0)) == 5){
-                    pointQuiz.setImageResource(R.drawable.point_blue);
+                    pointQuiz.setImageResource(R.drawable.point_blue_quiz);
                     quiz = true;
                 }
             }
@@ -130,18 +130,16 @@ public class Discover extends ActionBarActivity {
         if (c.moveToFirst()) {
             do {
                 if (Integer.parseInt(c.getString(0)) == 1) {
-                    pointPinnwand.setImageResource(R.drawable.point_blue);
+                    pointPinnwand.setImageResource(R.drawable.point_blue_pinboard);
                     upload = true;
                 }
             }while (cursor.moveToNext());
         }
         c.close();
 
-
-        if (upload && quiz) {
+        /*if (upload && quiz) {
             ImageDone.setImageResource(R.drawable.point_done);
-        }
-
+        }*/
 
     }
 

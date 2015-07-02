@@ -9,7 +9,6 @@
         android:background="#FFCCCCCC"
         android:orientation="vertical"
         tools:context=".NoteActivity"
-        android:layout_alignParentEnd="false"
         android:gravity="bottom"
         android:padding="10dp">
 
@@ -18,14 +17,17 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Aufgabe"
-            android:id="@+id/creativeTaskText" />
+            android:id="@+id/creativeTaskText"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="2" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:inputType="textMultiLine"
             android:ems="10"
-            android:id="@+id/noteEditText" />
+            android:id="@+id/noteEditText"
+            android:layout_weight="1" />
 
         <LinearLayout
                 android:layout_width="fill_parent"

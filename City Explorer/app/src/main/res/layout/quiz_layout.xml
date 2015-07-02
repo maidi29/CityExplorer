@@ -12,10 +12,10 @@
             android:text="Large Text"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="60dp"
-            android:textSize="18dp" />
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="40dp"
+            android:textSize="20dp" />
         <RadioGroup
             android:id="@+id/radioGroup1"
             android:layout_width="wrap_content"
@@ -27,20 +27,20 @@
             android:layout_alignStart="@+id/textView1"
             android:layout_marginStart="0dp"
             android:layout_marginRight="0dp"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="30dp">
             <RadioButton
                 android:id="@+id/radio0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:layout_marginBottom="10dp"
                 android:buttonTint="@color/blue"/>
             <RadioButton
                 android:id="@+id/radio1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:layout_marginBottom="10dp"
                 android:checked="false"
                 android:buttonTint="@color/blue"/>
@@ -48,7 +48,7 @@
                 android:id="@+id/radio2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:checked="false"
                 android:buttonTint="@color/blue"/>
         </RadioGroup>
@@ -60,9 +60,9 @@
             android:text="Weiter"
             android:background="#87c3d8"
             android:textColor="#ffffff"
-            android:layout_marginBottom="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />

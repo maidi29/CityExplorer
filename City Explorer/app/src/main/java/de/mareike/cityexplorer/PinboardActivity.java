@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
@@ -33,7 +34,7 @@ public class PinboardActivity extends ActionBarActivity{
 
     ListView getALlEntrysListView;
     private JSONArray jsonArray;
-    Integer markerID;
+    public Integer markerID;
     String entryID;
     GetAllEntrysListViewAdapter.ListCell listCell;
     ImageView likeButton;
@@ -42,6 +43,7 @@ public class PinboardActivity extends ActionBarActivity{
     private SQLiteDatabase dbase;
     DbHelper dbh = new DbHelper(context);
     public String pos;
+    int i = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,59 +70,58 @@ public class PinboardActivity extends ActionBarActivity{
 
         new getAllEntrysTask().execute(new ApiConnector());
 
-        getALlEntrysListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        getALlEntrysListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                likeButton = (ImageView) view.findViewById(R.id.heartImage);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                i++;
+                Handler handler = new Handler();
+                Runnable r = new Runnable() {
 
-                pos = ""+ position;
-                Cursor cursor = getLikes(dbh);
-                cursor.moveToFirst();
-                if (cursor.moveToFirst()) {
-                    do {
-                        Log.d("Debug", "LongItemClick on " + position);
+                    @Override
+                    public void run() {
+                        i = 0;
+                    }
+                };
 
-                        if (Integer.parseInt(cursor.getString(2)) == 1) {
-                            dbh.updateLike(dbh, markerID, position, Integer.parseInt(cursor.getString(2)), 0);
-                            dislike(position);
-                            Log.d("Debug", "Dislike");
-                            Log.d("Database", "Inhalt: " + cursor.getString(0) + cursor.getString(1) + cursor.getString(2));
-                            cursor.close();
-                            return true;
-                        }
-                        else if (Integer.parseInt(cursor.getString(2)) == 0) {
-                            Log.d("Debug", "Change Dislike to Like");
-                            dbh.updateLike(dbh, markerID, position, Integer.parseInt(cursor.getString(2)), 1);
-                            likeUpload(position);
-                            Log.d("Database", "Inhalt: " + cursor.getString(0) + cursor.getString(1) + cursor.getString(2));
-                            cursor.close();
-                            return true;
-                        }
-                        else{
-                            Log.d("Debug", "Neuer Like");
-                            dbh.addLike(dbh, markerID, position, 1);
-                            likeUpload(position);
-                            cursor.close();
-                            Log.d("Database", "Inhalt: " + cursor.getString(0) + cursor.getString(1) + cursor.getString(2));
-                            return true;
-                        }
-                    } while (cursor.moveToNext());
-                } else {
-                    Log.d("Debug", "Erster Eintrag");
-                    dbh.addLike(dbh, markerID, position, 1);
-                    likeUpload(position);
-                    cursor.close();
-                    return true;
+                if (i == 1) {
+                    handler.postDelayed(r, 350);
+                } else if (i == 2) {
+                    i = 0;
+                    likeButton = (ImageView) view.findViewById(R.id.heartImage);
+                    pos = "" + position;
+                    Cursor cursor = getLikes(dbh);
+                    cursor.moveToFirst();
+                    if (cursor.moveToFirst()) {
+                        do {
+                            if (Integer.parseInt(cursor.getString(2)) == 1) {
+                                dbh.updateLike(dbh, markerID, position, Integer.parseInt(cursor.getString(2)), 0);
+                                dislike(position);
+                                cursor.close();
+                            } else if (Integer.parseInt(cursor.getString(2)) == 0) {
+                                dbh.updateLike(dbh, markerID, position, Integer.parseInt(cursor.getString(2)), 1);
+                                likeUpload(position);
+                                cursor.close();
+                            } else {
+                                dbh.addLike(dbh, markerID, position, 1);
+                                likeUpload(position);
+                                cursor.close();
+                            }
+                        } while (cursor.moveToNext());
+                    } else {
+                        dbh.addLike(dbh, markerID, position, 1);
+                        likeUpload(position);
+                        cursor.close();
+                    }
                 }
+
             }
         });
     }
 
-
     public  void setListAdapter(JSONArray jsonArray) {
         this.jsonArray = jsonArray;
-        this.getALlEntrysListView.setAdapter(new GetAllEntrysListViewAdapter(jsonArray, this));
+        this.getALlEntrysListView.setAdapter(new GetAllEntrysListViewAdapter(jsonArray, this, markerID));
     }
 
     private class getAllEntrysTask extends AsyncTask<ApiConnector,Long,JSONArray> {
@@ -189,7 +190,6 @@ public class PinboardActivity extends ActionBarActivity{
 
     private void dislike(int position) {
         try {
-
         JSONObject entryClicked = jsonArray.getJSONObject(position);
         entryID = entryClicked.getString("id");
 

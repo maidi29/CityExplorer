@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import de.mareike.cityexplorer.R;
 
@@ -79,67 +80,78 @@ public class QuizActivity extends Activity {
             @Override
             public void onClick(View v) {
                 RadioGroup grp=(RadioGroup)findViewById(R.id.radioGroup1);
-                RadioButton answer=(RadioButton)findViewById(grp.getCheckedRadioButtonId());
-                if(currentQ.getANSWER().equals(answer.getText()))
+                if (grp.getCheckedRadioButtonId() == -1)
                 {
-                    score++;
+                    Toast.makeText(getBaseContext(),getString(R.string.toast_quiz_no_answer), Toast.LENGTH_LONG).show();
                 }
-                if (markerID == 1) {
-                    if(qid<5) {
-                        currentQ = quesList.get(qid);
-                        setQuestionView();
-                     }else{
-                        startResultActivity();
+                else
+                {
+
+                    RadioButton answer=(RadioButton)findViewById(grp.getCheckedRadioButtonId());
+                    if(currentQ.getANSWER().equals(answer.getText()))
+                    {
+                        score++;
                     }
-                }
-                else if (markerID == 2) {
-                    if(qid<10) {
-                        currentQ = quesList.get(qid);
-                        setQuestionView();
-                    }else if (qid==10){
-                        startResultActivity();
+                    grp.clearCheck();
+                    if (markerID == 1) {
+                        if(qid<5) {
+                            currentQ = quesList.get(qid);
+                            setQuestionView();
+                        }else{
+                            startResultActivity();
+                        }
                     }
-                }
-                else if (markerID == 3) {
-                    if(qid<15) {
-                        currentQ = quesList.get(qid);
-                        setQuestionView();
-                    }else if (qid==15){
-                        startResultActivity();
+                    else if (markerID == 2) {
+                        if(qid<10) {
+                            currentQ = quesList.get(qid);
+                            setQuestionView();
+                        }else if (qid==10){
+                            startResultActivity();
+                        }
                     }
-                }
-                else if (markerID == 4) {
-                    if(qid<20) {
-                        currentQ = quesList.get(qid);
-                        setQuestionView();
-                    }else if (qid==20){
-                        startResultActivity();
+                    else if (markerID == 3) {
+                        if(qid<15) {
+                            currentQ = quesList.get(qid);
+                            setQuestionView();
+                        }else if (qid==15){
+                            startResultActivity();
+                        }
                     }
-                }
-                else if (markerID == 5) {
-                    if(qid<25) {
-                        currentQ = quesList.get(qid);
-                        setQuestionView();
-                    }else if (qid==25){
-                        startResultActivity();
+                    else if (markerID == 4) {
+                        if(qid<20) {
+                            currentQ = quesList.get(qid);
+                            setQuestionView();
+                        }else if (qid==20){
+                            startResultActivity();
+                        }
                     }
-                }
-                else if (markerID == 6) {
-                    if(qid<30) {
-                        currentQ = quesList.get(qid);
-                        setQuestionView();
-                    }else if (qid==30){
-                        startResultActivity();
+                    else if (markerID == 5) {
+                        if(qid<25) {
+                            currentQ = quesList.get(qid);
+                            setQuestionView();
+                        }else if (qid==25){
+                            startResultActivity();
+                        }
                     }
-                }
-                else if (markerID == 7) {
-                    if(qid<35) {
-                        currentQ = quesList.get(qid);
-                        setQuestionView();
-                    }else if (qid==35){
-                        startResultActivity();
+                    else if (markerID == 6) {
+                        if(qid<30) {
+                            currentQ = quesList.get(qid);
+                            setQuestionView();
+                        }else if (qid==30){
+                            startResultActivity();
+                        }
                     }
+                    else if (markerID == 7) {
+                        if(qid<35) {
+                            currentQ = quesList.get(qid);
+                            setQuestionView();
+                        }else if (qid==35){
+                            startResultActivity();
+                        }
+                    }
+
                 }
+
             }
         });
     }

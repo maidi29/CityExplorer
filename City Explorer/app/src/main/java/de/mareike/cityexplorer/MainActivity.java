@@ -1,6 +1,8 @@
 package de.mareike.cityexplorer;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
@@ -8,6 +10,7 @@ import android.database.Cursor;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -247,13 +250,13 @@ public class MainActivity extends ActionBarActivity {
                     markerID = 7;
                 }
 
-                if (meters < 200 || marker.getSnippet().equals(getString(R.string.done_Snippet))) {
+                /*if (meters < 200 || marker.getSnippet().equals(getString(R.string.done_Snippet))) {*/
                     Intent intent = new Intent(MainActivity.this, Discover.class);
                     intent.putExtra("MarkerID", markerID);
                     startActivity(intent);
-                } else {
+                /*} else {
                     Toast.makeText(getBaseContext(),getString(R.string.go_to_toast)+ marker.getTitle()+getString(R.string.go_to_toast_2), Toast.LENGTH_LONG).show();
-                }
+                }*/
             }
         });
     }
@@ -278,6 +281,9 @@ public class MainActivity extends ActionBarActivity {
             case R.id.action_badges:
                 openBadges();
                 return true;
+            case R.id.action_questionnaire:
+                openQuestionnaire();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -286,6 +292,25 @@ public class MainActivity extends ActionBarActivity {
     public void openBadges() {
         Intent intent = new Intent(MainActivity.this, Badges.class);
         startActivity(intent);
+    }
+
+    void openQuestionnaire() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.dialog_evaluation_start)
+                .setMessage(getString(R.string.dialog_evaluation))
+                .setPositiveButton(getString(R.string.dialog_evaluation_start), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent openURL = new Intent(Intent.ACTION_VIEW, Uri.parse("http://bamhouse.de"));
+                        startActivity(openURL);
+                    }
+                })
+                .setNegativeButton(getString(R.string.dialog_evaluation_later), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                    }
+                })
+                .setIcon(R.drawable.ic_action_questionnaire)
+                .show();
     }
 
     @Override

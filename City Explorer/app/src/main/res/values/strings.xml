@@ -287,7 +287,7 @@
     <string name="Answer35C">7</string>
 
     <string name="content_description_info_image">Information Image</string>
-    <string name="instruction_like">Halte einen Eintrag gedrückt, um ihm eine positive Bewertung zu geben.</string>
+    <string name="instruction_like">Doppelt auf einen Eintrag tippen, um ihm eine positive Bewertung zu geben.</string>
     <string name="go_to_toast">"Gehe zur/zum "</string>
     <string name="go_to_toast_2">" um diesen Marker zu öffnen."</string>
     <string name="badge1_titel">Der erste Schritt</string>
@@ -298,5 +298,11 @@
     <string name="badge3_subtitle">3 Punkte durch Pinnwand-Uploads verdient</string>
     <string name="badge4_titel">Würzburg-Kenner</string>
     <string name="badge4_subtitle">Alle Stationen in Würzburg abgehakt</string>
+    <string name="mainactivity_badges">Punktestand ansehen</string>
+    <string name="mainactivity_evaluation">An der Evaluation teilnehmen</string>
+    <string name="dialog_evaluation">Diese App ist Teil einer Bachelor-Arbeit. Falls Sie mindestens 2 Quizzes und 2 Pinnwandeinträge abgeschlossen haben (je mehr desto besser!), würde ich mich freuen, wenn Sie an der Evauluation dieser App teilnehmen. Diese besteht aus einem Fragebogen, der nur wenige Minuten in Anspruch nimmt. Diesen können Sie selbstverständlich auch an Ihrem Desktop-PC bearbeiten.</string>
+    <string name="dialog_evaluation_start">Evaluation starten</string>
+    <string name="dialog_evaluation_later">Später</string>
+    <string name="toast_quiz_no_answer">Bitte eine Antwortmöglichkeit auswählen</string>
 
 </resources>
