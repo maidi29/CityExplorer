@@ -33,7 +33,7 @@ import de.mareike.cityexplorer.R;
 public class PinboardActivity extends ActionBarActivity{
 
     ListView getALlEntrysListView;
-    private JSONArray jsonArray;
+    public JSONArray jsonArray;
     public Integer markerID;
     String entryID;
     GetAllEntrysListViewAdapter.ListCell listCell;
@@ -85,32 +85,45 @@ public class PinboardActivity extends ActionBarActivity{
                 };
 
                 if (i == 1) {
-                    handler.postDelayed(r, 350);
+                    handler.postDelayed(r, 400);
                 } else if (i == 2) {
                     i = 0;
+                    try {
+                        JSONObject entryClicked = jsonArray.getJSONObject(position);
+                        entryID = entryClicked.getString("id");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
                     likeButton = (ImageView) view.findViewById(R.id.heartImage);
                     pos = "" + position;
+                    int objectID = Integer.parseInt(entryID);
                     Cursor cursor = getLikes(dbh);
                     cursor.moveToFirst();
                     if (cursor.moveToFirst()) {
                         do {
+                            Log.d("Debug", "Cursor move to first");
                             if (Integer.parseInt(cursor.getString(2)) == 1) {
-                                dbh.updateLike(dbh, markerID, position, Integer.parseInt(cursor.getString(2)), 0);
-                                dislike(position);
+                                Log.d("Debug", "Dislike");
+                                dbh.updateLike(dbh, markerID, objectID, Integer.parseInt(cursor.getString(2)), 0);
+                                dislike(entryID);
                                 cursor.close();
                             } else if (Integer.parseInt(cursor.getString(2)) == 0) {
-                                dbh.updateLike(dbh, markerID, position, Integer.parseInt(cursor.getString(2)), 1);
-                                likeUpload(position);
+                                Log.d("Debug", "Like again");
+                                dbh.updateLike(dbh, markerID, objectID, Integer.parseInt(cursor.getString(2)), 1);
+                                likeUpload(entryID);
                                 cursor.close();
                             } else {
-                                dbh.addLike(dbh, markerID, position, 1);
-                                likeUpload(position);
+                                dbh.addLike(dbh, markerID, objectID, 1);
+                                Log.d("Debug", "Like");
+                                likeUpload(entryID);
                                 cursor.close();
                             }
                         } while (cursor.moveToNext());
                     } else {
-                        dbh.addLike(dbh, markerID, position, 1);
-                        likeUpload(position);
+                        Log.d("Debug", "Add Like");
+                        dbh.addLike(dbh, markerID, objectID, 1);
+                        likeUpload(entryID);
                         cursor.close();
                     }
                 }
@@ -160,38 +173,26 @@ public class PinboardActivity extends ActionBarActivity{
         }
     }
 
-    public void likeUpload (int position){
-        try {
+    public void likeUpload (String entryID){
 
-            JSONObject entryClicked = jsonArray.getJSONObject(position);
-            entryID = entryClicked.getString("id");
+        final List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("id", entryID));
+        params.add(new BasicNameValuePair("markerID", markerID.toString()));
 
-            final List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("id", entryID));
-            params.add(new BasicNameValuePair("markerID", markerID.toString()));
+        new AsyncTask<ApiConnector, Long, Boolean>() {
+            @Override
+            protected Boolean doInBackground(ApiConnector... apiConnectors) {
+                return apiConnectors[0].like(params);
 
-            new AsyncTask<ApiConnector, Long, Boolean>() {
-                @Override
-                protected Boolean doInBackground(ApiConnector... apiConnectors) {
-                    return apiConnectors[0].like(params);
+            }
+        }.execute(new ApiConnector());
 
-                }
-            }.execute(new ApiConnector());
+        finish();
+        startActivity(getIntent());
 
-            finish();
-            startActivity(getIntent());
-            //heart.setImageResource(R.drawable.heart_filled);
-
-        }
-        catch (JSONException e){
-            e.printStackTrace();
-        }
     }
 
-    private void dislike(int position) {
-        try {
-        JSONObject entryClicked = jsonArray.getJSONObject(position);
-        entryID = entryClicked.getString("id");
+    private void dislike(String entryID) {
 
         final List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("id", entryID));
@@ -207,19 +208,14 @@ public class PinboardActivity extends ActionBarActivity{
 
         finish();
         startActivity(getIntent());
-        //heart.setImageResource(R.drawable.heart_filled);
 
-    }
-    catch (JSONException e){
-        e.printStackTrace();
-    }
     }
 
     public Cursor getLikes(DbHelper dbh) {
         dbase = dbh.getReadableDatabase();
-        String columns[] = {dbh.LIKES_MARKERID, dbh.LIKES_POSITION, dbh.LIKES_LIKE};
-        String args[] = {markerID.toString(), pos};
-        Cursor cursor = dbase.query(dbh.TABLE_LIKES, columns, dbh.LIKES_MARKERID + " LIKE ? AND " + dbh.LIKES_POSITION + " LIKE ? ", args , null, null, null, null);
+        String columns[] = {dbh.LIKES_MARKERID, dbh.LIKES_ENTRYID, dbh.LIKES_LIKE};
+        String args[] = {markerID.toString(), entryID};
+        Cursor cursor = dbase.query(dbh.TABLE_LIKES, columns, dbh.LIKES_MARKERID + " LIKE ? AND " + dbh.LIKES_ENTRYID + " LIKE ? ", args , null, null, null, null);
         return cursor;
     }
 

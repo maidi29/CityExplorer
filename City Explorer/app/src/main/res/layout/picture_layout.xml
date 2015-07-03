@@ -19,7 +19,8 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Anleitung"
             android:id="@+id/taskText"
-            android:layout_marginLeft="10dp" />
+            android:layout_marginLeft="10dp"
+            android:textSize="18sp" />
 
         <ImageView
             android:layout_width="match_parent"
@@ -49,7 +50,7 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="50dp"
                 android:gravity="center_horizontal">
                 <Button
                     android:layout_width="150dp"

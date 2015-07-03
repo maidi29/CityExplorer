@@ -166,7 +166,7 @@ public class PictureActivity extends ActionBarActivity {
         }.execute(new ApiConnector());
 
         DbHelper dbh = new DbHelper(context);
-        Cursor cursor = dbh.getAllUploads(dbh);
+        Cursor cursor = getUpload(dbh);
         cursor.moveToFirst();
         if (cursor.moveToFirst()) {
             do {

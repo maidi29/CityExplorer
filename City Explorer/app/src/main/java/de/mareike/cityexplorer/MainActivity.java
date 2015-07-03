@@ -76,16 +76,6 @@ public class MainActivity extends ActionBarActivity {
             LatLng latLng = new LatLng(latitude, longitude);
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
             googleMap.animateCamera(CameraUpdateFactory.zoomTo(14));
-
-            /*LocationManager mng = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-            Location location = mng.getLastKnownLocation(mng.getBestProvider(new Criteria(), false));
-
-            double lat = location.getLatitude();
-            double lon = location.getLongitude();
-
-            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lon), 300);
-            googleMap.animateCamera(cameraUpdate);*/
-
             iconDone = R.drawable.markerdone;
             icon = R.drawable.marker;
         }
@@ -250,13 +240,14 @@ public class MainActivity extends ActionBarActivity {
                     markerID = 7;
                 }
 
-                /*if (meters < 200 || marker.getSnippet().equals(getString(R.string.done_Snippet))) {*/
+                if (meters < 200 || marker.getSnippet().equals(getString(R.string.done_Snippet))) {
                     Intent intent = new Intent(MainActivity.this, Discover.class);
                     intent.putExtra("MarkerID", markerID);
                     startActivity(intent);
-                /*} else {
+                }
+                else {
                     Toast.makeText(getBaseContext(),getString(R.string.go_to_toast)+ marker.getTitle()+getString(R.string.go_to_toast_2), Toast.LENGTH_LONG).show();
-                }*/
+                }
             }
         });
     }
@@ -300,7 +291,7 @@ public class MainActivity extends ActionBarActivity {
                 .setMessage(getString(R.string.dialog_evaluation))
                 .setPositiveButton(getString(R.string.dialog_evaluation_start), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent openURL = new Intent(Intent.ACTION_VIEW, Uri.parse("http://bamhouse.de"));
+                        Intent openURL = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.soscisurvey.de/CityExplorer"));
                         startActivity(openURL);
                     }
                 })

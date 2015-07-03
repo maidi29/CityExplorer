@@ -12,7 +12,10 @@
         android:adjustViewBounds="true"
         android:maxHeight="80dp"
         android:maxWidth="80dp"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp" />
 
 
     <TextView

@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,20 +43,12 @@ public class GetAllEntrysListViewAdapter extends BaseAdapter {
     private Context context;
     String pos;
     Integer markerID;
+    public String objectID;
 
 
 
     private static final String baseUrlForImage = "http://www.creepyhollow.bplaced.net/CityExplorer/CEimages/";
 
-    /*public GetAllEntrysListViewAdapter(JSONArray jsonArray, Activity a) {
-        this.dataArray = jsonArray;
-        this.activity = a;
-        inflater = (LayoutInflater)this.activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-    }
-
-    public GetAllEntrysListViewAdapter(Context context) {
-        this.context = context;
-    }*/
     public GetAllEntrysListViewAdapter(JSONArray jsonArray, Context context, Integer markerID) {
         this.dataArray = jsonArray;
         this.context= context;
@@ -87,32 +82,29 @@ public class GetAllEntrysListViewAdapter extends BaseAdapter {
         final ListCell cell;
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.get_all_entry_list_view_cell, null);
-
             cell = new ListCell();
             cell.likes = (TextView) convertView.findViewById(R.id.listViewLikes);
             cell.note = (TextView) convertView.findViewById(R.id.listViewNote);
             cell.img = (ImageView) convertView.findViewById(R.id.listViewImg);
             cell.likeImage = (ImageView) convertView.findViewById(R.id.heartImage);
-
-
             convertView.setTag(cell);
-
         }
         else {
             cell = (ListCell)convertView.getTag();
         }
-
         cell.position = position;
 
         try {
             JSONObject jsonObject = this.dataArray.getJSONObject(position);
             cell.likes.setText(jsonObject.getString("likes"));
             cell.note.setText(jsonObject.getString("note"));
-
+            cell.entryID = jsonObject.getString("id");
             String img = jsonObject.getString("image");
             String urlForImageInServer = baseUrlForImage + img;
 
-            new AsyncTask<String, Void, Bitmap>() {
+            Picasso.with(context).load(urlForImageInServer).into(cell.img);
+
+            /*new AsyncTask<String, Void, Bitmap>() {
                 private int mPosition = position;
                 private ListCell mCell = cell;
                 @Override
@@ -139,14 +131,14 @@ public class GetAllEntrysListViewAdapter extends BaseAdapter {
                         cell.img.setImageBitmap(result);
                     }
                 }
+            }.execute(urlForImageInServer);*/
 
-            }.execute(urlForImageInServer);
-
-            pos = ""+position;
+            objectID  = ""+cell.entryID;
             dbh = new DbHelper(context);
             cursor = getLikes(dbh);
             cursor.moveToFirst();
             if (cursor.moveToFirst()) {
+                Log.d("Cursor","Marker ID: "+cursor.getString(0)+" Entry ID: "+cursor.getString(1)+" Like: "+cursor.getString(2));
                 do {
                     if (Integer.parseInt(cursor.getString(2)) == 1) {
                         cell.likeImage.setImageResource(R.drawable.heart_filled);
@@ -176,13 +168,14 @@ public class GetAllEntrysListViewAdapter extends BaseAdapter {
         private ImageView img;
         public ImageView likeImage;
         public int position;
+        public String entryID;
     }
 
     public Cursor getLikes(DbHelper dbh) {
         dbase = dbh.getReadableDatabase();
-        String columns[] = {dbh.LIKES_MARKERID, dbh.LIKES_POSITION, dbh.LIKES_LIKE};
-        String selection = dbh.LIKES_MARKERID + " LIKE ? AND " + dbh.LIKES_POSITION + " LIKE ? ";
-        String args[] = {markerID.toString(), pos};
+        String columns[] = {dbh.LIKES_MARKERID, dbh.LIKES_ENTRYID, dbh.LIKES_LIKE};
+        String selection = dbh.LIKES_MARKERID + " LIKE ? AND " + dbh.LIKES_ENTRYID + " LIKE ? ";
+        String args[] = {markerID.toString(), objectID};
         Cursor cursor = dbase.query(dbh.TABLE_LIKES, columns, selection, args , null, null, null, null);
         return cursor;
     }

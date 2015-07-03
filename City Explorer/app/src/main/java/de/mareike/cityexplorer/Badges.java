@@ -83,10 +83,7 @@ public class Badges extends ActionBarActivity{
             myBadges.add(new Badge(getString(R.string.badge1_titel), getString(R.string.badge1_subtitle), R.drawable.badge1));
         }
         if (points >= 1 && uploadPoints >= 1) {
-            myBadges.add(new Badge("Forscher", "Du hast bereits beide Aufgabentypen getestet, weiter so!", R.drawable.badge4));
-        }
-        if (points >= 2 && uploadPoints >= 2) {
-            myBadges.add(new Badge("Proband", "Tippe auf das Klemmbrettsybol oben im Landkarten-Screen (davor noch möglichst viele Aufgaben abschließen).", R.drawable.badge4));
+            myBadges.add(new Badge(getString(R.string.badge5_titel), getString(R.string.badge5_subtitle), R.drawable.badge5));
         }
         if (points >= 3) {
             myBadges.add(new Badge(getString(R.string.badge2_titel), getString(R.string.badge2_subtitle), R.drawable.badge2));
@@ -94,7 +91,7 @@ public class Badges extends ActionBarActivity{
         if (uploadPoints >= 3) {
             myBadges.add(new Badge(getString(R.string.badge3_titel), getString(R.string.badge3_subtitle), R.drawable.badge3));
         }
-        if (sum >= 6) {
+        if (sum >= 14) {
             myBadges.add(new Badge(getString(R.string.badge4_titel), getString(R.string.badge4_subtitle), R.drawable.badge4));
         }
     }
