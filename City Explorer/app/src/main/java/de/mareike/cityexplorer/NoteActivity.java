@@ -61,6 +61,9 @@ public class NoteActivity extends ActionBarActivity{
         else if (markerID == 3) {
             creativeTaskText.setText(getString(R.string.TaskText3));
         }
+        else if (markerID == 6) {
+            creativeTaskText.setText(getString(R.string.TaskText6));
+        }
     }
 
     public void StartPinnen (View view) {

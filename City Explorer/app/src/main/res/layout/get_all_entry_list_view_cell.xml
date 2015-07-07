@@ -24,7 +24,7 @@
         android:id="@+id/listViewImg"
         android:layout_below="@+id/listViewNote"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/load"
+        android:src="@drawable/progress_image"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"

@@ -44,7 +44,7 @@ public class CreatePinboardActivity extends ActionBarActivity {
             StartDrawActivity();
         }
         else if (markerID ==6) {
-            StartDrawActivity();
+            StartNoteActivity();
         }
         else if (markerID ==7) {
             StartPictureActivity();

@@ -117,7 +117,7 @@
     </string>
     <string name="image_text_6">Das zerstörte Würzburg um den Grafeneckart nach dem Bombenangriff vom 16. März 1945\n(Doppelt tippen um zu Zoomen)</string>
     <string name="image_source_6">Bildquelle: http://www.br.de/nachrichten/unterfranken/inhalt/ausstellung-geschichtswerkstatt-wuerzbrug-100~_v-img__16__9__l_-1dc0e8f74459dd04c91a0d45af4972b9069f1135.jpg%3Fversion%3De92d0</string>
-    <string name="TaskText6">Suche dir ein Detail des Grafeneckarts oder des Vierröhrenbrunnes und male es ab.</string>
+    <string name="TaskText6">Wie und warum könnte Eckart de Foro, nach dem der Grafeneckart benannt wurde, hier ermordet worden sein?</string>
 
     <string name="Title7">Festung Marienberg</string>
     <string name="Text7">Auf dem seit der späten Bronzezeit besiedelten Marienberg befand sich im frühen 8. Jahrhundert wahrscheinlich ein Kastell der fränkisch-thüringischen Herzöge mit der im Jahre 708 geweihten Marienkirche, der ältesten Kirche Würzburgs. Ab 1200 entstand eine ungewöhnlich große Burg, die im Spätmittelalter und in der Renaissance ausgebaut und erweitert wurde. Die Festung trägt auch den Namen „Festung Unser Frauen Berg“.\n\n
@@ -125,7 +125,7 @@
         Die Hauptburg wurde um 1600 zum Renaissanceschloß umgebaut. Aus dieser Zeit stammt auch das Brunnenhaus, das als eines der schönsten Beispiele der Renaissance-Architektur in Franken bezeichnet werden darf.\n\n
         Die Erstürmung der Burg 1631 durch die Schweden im Dreißigjährigen Krieg veranlasste Johann Philipp von Schönborn, den Marienberg mit einem Kranz gewaltiger Bastionen und militärischer Befestigungen zu umgeben. Die Burg wurde zur Barockfestung ausgebaut. Insgesamt wurden Mauern auf zwölf Kilometer Länge angelegt.\n\n
         1749 wurde Maria Renata Singer von Mossau als Gefangene auf der Festung Marienberg festgehalten, sie gilt als letztes fränkisches Opfer der Hexenverbrennungen.\n\n
-        Die Nationalsozialisten nutzten die Burg als „SA-Hilfswerklager, dessen wichtige soziale und erzieherische Aufgabe es ist, arbeitslose junge SA-Kameraden umzuschulen“. Der Hof der Marienberg sei zu „einer Feste des Gemeinschaftsgedankens geworden“\n
+        Die Nationalsozialisten nutzten die Burg als „SA-Hilfswerklager, dessen wichtige soziale und erzieherische Aufgabe es ist, arbeitslose junge SA-Kameraden umzuschulen“. Der Hof der Marienberg sei zu „einer Feste des Gemeinschaftsgedankens geworden“.\n
         Im Zweiten Weltkrieg wurde bei den Luftangriffen Würzburgs am 16. März 1945 auch die Festung stark beschädigt. Bereits ab 1950 wurde die Festung Marienberg wieder aufgebaut.\n\n
         Freistehend im inneren Burghof erhebt sich der ca. 40 Meter hohe Bergfried, der als Wachtturm, als Verließ, aber auch als letzter Zufluchtsort im Fall der feindlichen Erstürmung der Festung diente.\n
         Drei Türme befinden sich an den Ecken der Hauptburg:\n
@@ -197,8 +197,8 @@
     <string name="Answer14A">Die Mailänder Madonna</string>
     <string name="Answer14B">"Johannes der Täufer" von Leonardo Da Vinci</string>
     <string name="Answer14C">Der Siebenarmige Leuchter von Andreas Moritz</string>
-    <string name="Quest15">Wo befindet sich das Grab und der Grabstein des Würzburger Bürgermeister Tilman Riemenschneider?</string>
-    <string name="Answer15A">Außen rechts neben dem Haupteingang der Westseite</string>
+    <string name="Quest15">Wo befinden sich das Grab und der Grabstein des Würzburger Bürgermeister Tilman Riemenschneider?</string>
+    <string name="Answer15A">Außen, rechts neben dem Haupteingang der Westseite</string>
     <string name="Answer15B">Außen an der Nordseite des Kirchenschiffs</string>
     <string name="Answer15C">In der Schönbornkapelle</string>
 
@@ -223,7 +223,7 @@
     <string name="Answer20B">1846</string>
     <string name="Answer20C">1920</string>
 
-    <string name="Quest21">Rechts und Links des Südportals Richtung Marktplatz befinden sich Kopien zweier Sandsteinfiguren von Tilman Riemenschneider. Um welche FIguren handelt es sich? (Die Orginale befinden sich im Mainfränkischen Museum)</string>
+    <string name="Quest21">Rechts und links des Südportals Richtung Marktplatz befinden sich Kopien zweier Sandsteinfiguren von Tilman Riemenschneider. Um welche Figuren handelt es sich? (Die Originale befinden sich im Mainfränkischen Museum)</string>
     <string name="Answer21A">Adam und Eva</string>
     <string name="Answer21B">Heiliger Stephanus und Heiliger Jakobus</string>
     <string name="Answer21C">Die Beweinungsgruppe Christi</string>
@@ -278,9 +278,9 @@
     <string name="Answer33B">Sechseck</string>
     <string name="Answer33C">Achteck</string>
     <string name="Quest34">Der Brunnenschacht kann nur bei einer Führrung besichtigt werden. Eine besondere Herausforderung ist es, eine Münze in den Schacht zu werfen ohne dass sie an die Wände des Schachts prallt. Dabei werden die Sekunden bis zum Aufprall auf den Wasserspiegel gezählt. Wie lange fällt eine Münze etwa durch einen 102 Meter tiefen Schacht?</string>
-    <string name="Answer34A">Etwas mehr als 3 Sekunden</string>
-    <string name="Answer34B">Um die 9 Sekunden</string>
-    <string name="Answer34C">Etwas weniger als 14 Sekunden</string>
+    <string name="Answer34A">Etwa 5 Sekunden</string>
+    <string name="Answer34B">Um die 11 Sekunden</string>
+    <string name="Answer34C">Circa 14 Sekunden</string>
     <string name="Quest35">Auf der Ostseite der Festung befindet sich, mit Blick auf die Stadt, der Fürstengarten. Das Zugangstor befindet sich im inneren Hof der Festung neben der Marienkirche. An seinen Schmalseiten befindet sich jeweils ein Kaskadenbrunnen. Wie viele Etagen hat einer dieser Brunnen?</string>
     <string name="Answer35A">5</string>
     <string name="Answer35B">6</string>

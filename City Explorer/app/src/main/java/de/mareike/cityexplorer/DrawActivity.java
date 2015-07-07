@@ -91,9 +91,6 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
         else if (markerID == 5) {
             taskText.setText(getString(R.string.TaskText5));
         }
-        else if (markerID == 6) {
-            taskText.setText(getString(R.string.TaskText6));
-        }
         else {
             taskText.setText("");
         }

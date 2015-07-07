@@ -102,7 +102,11 @@ public class GetAllEntrysListViewAdapter extends BaseAdapter {
             String img = jsonObject.getString("image");
             String urlForImageInServer = baseUrlForImage + img;
 
-            Picasso.with(context).load(urlForImageInServer).into(cell.img);
+            Picasso.with(context)
+                    .load(urlForImageInServer)
+                    .error(android.R.drawable.ic_dialog_alert)
+                    .placeholder(R.drawable.progress_animation)
+                    .into(cell.img);
 
             /*new AsyncTask<String, Void, Bitmap>() {
                 private int mPosition = position;
