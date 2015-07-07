@@ -84,7 +84,6 @@ public class MainActivity extends ActionBarActivity {
         }
 
 
-
         Marker marker1 = googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(49.793012, 9.926201))
                 .title(getString(R.string.Title1))
@@ -120,8 +119,6 @@ public class MainActivity extends ActionBarActivity {
                 .title(getString(R.string.Title7))
                 .snippet("")
                 .icon(BitmapDescriptorFactory.fromResource(icon)));
-
-
 
         DbHelper dbh  = new DbHelper(context);
         cursor = dbh.getAllScores(dbh);

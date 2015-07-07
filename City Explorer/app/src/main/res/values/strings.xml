@@ -3,7 +3,7 @@
     <string name="action_settings">Einstellungen</string>
     <string name="zumQuizButton">Quiz</string>
     <string name="buttonPinnwand">Pinnwand</string>
-    <string name="mainactivity_help">Gehe in die Nähe einer der Markierungen um sie auswählen zu können.</string>
+    <string name="mainactivity_help">Gehe in die Nähe einer der Markierungen. Es kann manchmal eine Weile dauern bis dein aktueller Standort angezeigt wird.</string>
     <string name="pointsTextString">Deine Punktzahl:</string>
     <string name="anpinnen_Button">Anpinnen</string>
     <string name="start_new">Neu</string>
