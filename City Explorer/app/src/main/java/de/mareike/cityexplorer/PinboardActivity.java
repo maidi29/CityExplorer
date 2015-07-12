@@ -14,10 +14,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -28,29 +26,32 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.mareike.cityexplorer.R;
-
 public class PinboardActivity extends ActionBarActivity{
 
     ListView getALlEntrysListView;
+    PinboardListViewAdapter.ListCell listCell;
+
     public JSONArray jsonArray;
     public Integer markerID;
     String entryID;
-    GetAllEntrysListViewAdapter.ListCell listCell;
-    ImageView likeButton;
-    Context context = this;
     String calling;
-    private SQLiteDatabase dbase;
-    DbHelper dbh = new DbHelper(context);
     public String pos;
     int i = 0;
+
+    ImageView likeButton;
+
+    Context context = this;
+    private SQLiteDatabase dbase;
+    DbHelper dbh = new DbHelper(context);
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pinboard_layout);
 
-        listCell = new GetAllEntrysListViewAdapter.ListCell();
+        listCell = new PinboardListViewAdapter.ListCell();
         getALlEntrysListView = (ListView) findViewById(R.id.getAllEntrysListView);
 
 
@@ -102,26 +103,21 @@ public class PinboardActivity extends ActionBarActivity{
                     cursor.moveToFirst();
                     if (cursor.moveToFirst()) {
                         do {
-                            Log.d("Debug", "Cursor move to first");
                             if (Integer.parseInt(cursor.getString(2)) == 1) {
-                                Log.d("Debug", "Dislike");
                                 dbh.updateLike(dbh, markerID, objectID, Integer.parseInt(cursor.getString(2)), 0);
                                 dislike(entryID);
                                 cursor.close();
                             } else if (Integer.parseInt(cursor.getString(2)) == 0) {
-                                Log.d("Debug", "Like again");
                                 dbh.updateLike(dbh, markerID, objectID, Integer.parseInt(cursor.getString(2)), 1);
                                 likeUpload(entryID);
                                 cursor.close();
                             } else {
                                 dbh.addLike(dbh, markerID, objectID, 1);
-                                Log.d("Debug", "Like");
                                 likeUpload(entryID);
                                 cursor.close();
                             }
                         } while (cursor.moveToNext());
                     } else {
-                        Log.d("Debug", "Add Like");
                         dbh.addLike(dbh, markerID, objectID, 1);
                         likeUpload(entryID);
                         cursor.close();
@@ -134,7 +130,7 @@ public class PinboardActivity extends ActionBarActivity{
 
     public  void setListAdapter(JSONArray jsonArray) {
         this.jsonArray = jsonArray;
-        this.getALlEntrysListView.setAdapter(new GetAllEntrysListViewAdapter(jsonArray, this, markerID));
+        this.getALlEntrysListView.setAdapter(new PinboardListViewAdapter(jsonArray, this, markerID));
     }
 
     private class getAllEntrysTask extends AsyncTask<ApiConnector,Long,JSONArray> {
@@ -167,7 +163,7 @@ public class PinboardActivity extends ActionBarActivity{
             finish();
         }
         else if(calling.equals("upload")) {
-            Intent intent = new Intent(PinboardActivity.this, Discover.class);
+            Intent intent = new Intent(PinboardActivity.this, DiscoverActivity.class);
             intent.putExtra("MarkerID", markerID);
             startActivity(intent);
         }

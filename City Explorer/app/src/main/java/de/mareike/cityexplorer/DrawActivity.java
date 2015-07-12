@@ -31,8 +31,6 @@ import android.widget.Toast;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
-import de.mareike.cityexplorer.R;
-
 public class DrawActivity extends ActionBarActivity implements OnClickListener {
 
     Button pinnenButton;
@@ -236,7 +234,6 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
     }
 
 
-
     public void StartPinnen (View view) {
         calling = "upload";
         drawView.setDrawingCacheEnabled(true);
@@ -334,7 +331,7 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
     @Override
     public void onBackPressed () {
         {
-            Intent intent = new Intent(DrawActivity.this, Discover.class);
+            Intent intent = new Intent(DrawActivity.this, DiscoverActivity.class);
             intent.putExtra("MarkerID", markerID);
             startActivity(intent);
         }

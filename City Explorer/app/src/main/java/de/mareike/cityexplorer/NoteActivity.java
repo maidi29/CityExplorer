@@ -22,8 +22,6 @@ import org.apache.http.message.BasicNameValuePair;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.mareike.cityexplorer.R;
-
 public class NoteActivity extends ActionBarActivity{
     Integer markerID;
     Button pinnenButton;
@@ -86,7 +84,6 @@ public class NoteActivity extends ActionBarActivity{
         cursor.moveToFirst();
         if (cursor.moveToFirst()) {
             do {
-                Log.d("Datenbank", "Inhalt: " + cursor.getString(0) + cursor.getString(1));
                 if (Integer.parseInt(cursor.getString(0)) == 0) {
                     dbh.addUpload(dbh, 1,  markerID);
                     finish();
@@ -144,7 +141,7 @@ public class NoteActivity extends ActionBarActivity{
     @Override
     public void onBackPressed () {
         {
-            Intent intent = new Intent(NoteActivity.this, Discover.class);
+            Intent intent = new Intent(NoteActivity.this, DiscoverActivity.class);
             intent.putExtra("MarkerID", markerID);
             startActivity(intent);
         }

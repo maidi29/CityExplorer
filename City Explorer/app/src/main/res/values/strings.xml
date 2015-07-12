@@ -3,7 +3,7 @@
     <string name="action_settings">Einstellungen</string>
     <string name="zumQuizButton">Quiz</string>
     <string name="buttonPinnwand">Pinnwand</string>
-    <string name="mainactivity_help">Gehe in die Nähe einer der Markierungen. Es kann manchmal eine Weile dauern bis dein aktueller Standort angezeigt wird.</string>
+
     <string name="pointsTextString">Deine Punktzahl:</string>
     <string name="anpinnen_Button">Anpinnen</string>
     <string name="start_new">Neu</string>
@@ -58,7 +58,7 @@
     <string name="TaskText1">Suche dir deine Lieblingsstatue aus und formuliere, was diese Person wohl gerade angesichts des aktuellen Treibens auf der Mainbrücke denkt. Vergiss nicht mitzuteilen welche Statue du dir ausgesucht hast.</string>
 
     <string name="Title2">Residenz</string>
-    <string name="Text2">Die Würzburger Residenz ist UNESCO-Weltkulturerbe und das Hauptwerk des süddeutschen Barock und somit eines des bedeutendsten Schlösser Europas.\n\n
+    <string name="Text2">Die Würzburger Residenz ist UNESCO-Weltkulturerbe und das Hauptwerk des süddeutschen Barock und somit eines der bedeutendsten Schlösser Europas.\n\n
         Erbaut wurde sie 1720 -1744 nach den Plänen von Balthasar Neumann. Die Decke des Treppenhauses wurde vom bedeutendsten Freskenmaler der Zeit, Giovanni Tiepolo, mit dem größten zusammenhängenden Fresko der Welt (ca. 580 m2) ausgestattet. Thema des Gemäldes sind die vier (damals anerkannten) Kontinente: Europa, Amerika, Afrika und Asien.\n
         Die Residenz diente ehemals als Sitz der Würzburger Fürstbischöfe.\n\n
         Bei der Zerstörung der Stadt im 2. Weltkrieg am 16. März 1945 wurden große Teile der Residenz zerstört, die Wiederherstellung der Paradezimmer des Kaisers dauerte nahezu 40 Jahre. Die UNESCO bezeichnet das 1997 rekonstruierte Spiegelkabinett als das vollkommenste Raumkunstwerk des Rokoko.\n\n
@@ -107,7 +107,7 @@
 
     <string name="Title6">Grafeneckart</string>
     <string name="Text6">Der Grafeneckart ist ein 55 Meter hoher, romanischer Turm und der älteste Teil des Würzburger Rathauses. Der mittelalterliche Turm wurde 1180 erstmals erwähnt und nach dem Vize-Burggraf Eckart de Foro benannt, der dort wohnte und ermordet wurde.\n\n
-        Der westlich an den Turm angebauten Seitenflügel trägt den Namen Grünbaum, aufgrund einer Linde, die Jahrhunderte lang auf dem freien Platz vor dem Grafeneckart stand. Unter diesem Baum wurde im Mittelalter Gericht gehalten, die Verurteilen kamen danach ins Verlies des Grafeneckarts, das sog. „Loch“ bis sie zur Hinrichtung abgeholt und an dem außen am Ratshaus angebrachten Stock (Pranger) zur Schau gestellt wurden.\n\n
+        Der westlich an den Turm angebauten Seitenflügel trägt den Namen Grünbaum, aufgrund einer Linde, die Jahrhunderte lang auf dem freien Platz vor dem Grafeneckart stand. Unter diesem Baum wurde im Mittelalter Gericht gehalten, die Verurteilen kamen danach ins Verlies des Grafeneckarts, das sogenannten „Loch“, bis sie zur Hinrichtung abgeholt und an dem außen am Rathaus angebrachten Stock (Pranger) zur Schau gestellt wurden.\n\n
         Im westlichen Obergeschoss befindet sich der eindrucksvolle gotische Wenzelsaal, einer der schönsten mittelalterlichen Innenräume Würzburgs.\n\n
         1316 erwarben die Bürger den Grafeneckart als Zeichen bürgerlicher Unabhängigkeit gegenüber dem bischöflichen Landsherrn.\n\n
         Beim Bombenangriff am 16. März 1945 wurde der mittelalterliche Kern des Grafeneckarts teilweise getroffen aber Gewölbe und Fassade blieben erhalten.\n\n
@@ -185,7 +185,7 @@
     <string name="Answer11A">Marienkapelle</string>
     <string name="Answer11B">Schönbornkapelle</string>
     <string name="Answer11C">St. Bruno-Kapelle</string>
-    <string name="Quest12">An der Wand hinter dem Altar befindet sich unter einer goldenen Scheibe mit einer weißen Christus-Figur. Darunter befindet sich die Skulptur eines Tieres. Es handelt sich um...</string>
+    <string name="Quest12">An der Wand hinter dem Altar befindet sich eine goldene Scheibe mit einer weißen Christus-Figur. Darunter befindet sich die Skulptur eines Tieres. Es handelt sich um...</string>
     <string name="Answer12A">einen Esel.</string>
     <string name="Answer12B">einen Stier.</string>
     <string name="Answer12C">ein Schaf.</string>
@@ -260,7 +260,7 @@
     <string name="Answer29A">Eiche</string>
     <string name="Answer29B">Linde</string>
     <string name="Answer29C">Birke</string>
-    <string name="Quest30">Am Vierröhrenbrunnen befinden sich die Personifikationen der vier Kardinalstugenden. Die Gerechtigkeit mit der Waage, die Mäßigung, die Wasser aus einer Kanne in den Kelch mit Wein gießt und...</string>
+    <string name="Quest30">Am Vierröhrenbrunnen befinden sich die Personifikationen der vier Kardinalstugenden. Die Gerechtigkeit mit der Waage, die Weisheit mit Buch und Spiegel, die Mäßigung, die Wasser aus einer Kanne in den Kelch mit Wein gießt und...</string>
     <string name="Answer30A">der Glaube mit einem Kreuz.</string>
     <string name="Answer30B">die Tapferkeit mit Helm und Löwenfell.</string>
     <string name="Answer30C">die Hoffnung mit Saatkörnern.</string>
@@ -306,5 +306,13 @@
     <string name="toast_quiz_no_answer">Bitte eine Antwortmöglichkeit auswählen</string>
     <string name="badge5_titel">Forscher</string>
     <string name="badge5_subtitle">Du hast bereits beide Aufgabentypen getestet, weiter so!</string>
+    <string name="alert_help">Hilfe</string>
+    <string name="mainactivity_help">Gehe in die Nähe einer der Markierungen um diese auswählen zu können.\n\n
+        Bekannte Probleme:\n
+        Mein Standort wird nicht angezeigt:\n
+        Es kann manchmal eine Weile dauern bis dein aktueller Standort angezeigt wird. Überprüfe deine Standorteinstellungen auf dem Smartphone, wenn auch nach Warten kein blauer Punkt erscheint.\n\n
+        Mein Standort wird direkt bei der Markierung angezeigt, aber ich kann sie trotzdem nicht öffnen:\n
+        Stelle bei den Standorteinstellungen ein, dass du nur über GPS geortet werden willst (ggf. Ortung über Mobiles Internet ausschalten) und versuche es nochmal.</string>
+    <string name="alert_ok">OK</string>
 
 </resources>

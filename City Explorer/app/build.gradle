@@ -9,8 +9,8 @@ android {
         applicationId "de.mareike.cityexplorer"
         minSdkVersion 15
         targetSdkVersion 22
-        versionCode 15
-        versionName "1.5"
+        versionCode 191
+        versionName "1.9.1"
     }
     buildTypes {
         release {

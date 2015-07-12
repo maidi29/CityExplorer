@@ -39,8 +39,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import de.mareike.cityexplorer.R;
-
 public class PictureActivity extends ActionBarActivity {
     Integer markerID;
     Button pinnenButton;
@@ -258,7 +256,7 @@ public class PictureActivity extends ActionBarActivity {
     @Override
     public void onBackPressed () {
         {
-            Intent intent = new Intent(PictureActivity.this, Discover.class);
+            Intent intent = new Intent(PictureActivity.this, DiscoverActivity.class);
             intent.putExtra("MarkerID", markerID);
             startActivity(intent);
         }

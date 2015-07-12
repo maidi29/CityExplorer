@@ -14,8 +14,6 @@ import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import de.mareike.cityexplorer.R;
-
 public class ResultActivity extends Activity {
 
     Integer markerID;
@@ -62,26 +60,21 @@ public class ResultActivity extends Activity {
                 cursor.moveToFirst();
                 if (cursor.moveToFirst()) {
                     do {
-                        Log.d("Database", "Inhalt: "+ cursor.getString(0) + cursor.getString(1));
-
                         if (Integer.parseInt(cursor.getString(0)) < 5 && Integer.parseInt(cursor.getString(1)) == markerID) {
-                        Log.d("Database", "Update");
                             dbh.updateScore(dbh, Integer.parseInt(cursor.getString(0)), markerID, score);
                             finish();
                         }
                         else if (Integer.parseInt(cursor.getString(0))== 5 && Integer.parseInt(cursor.getString(1))==markerID) {
-                            Log.d("Database", "Nothing");
                                 finish();
                             }
                     } while (cursor.moveToNext());
                }
                 else {
-                    Log.d("Database", "Add Score");
                     dbh.addScore(dbh, score, markerID);
                     finish();
                 }
                 cursor.close();
-                Intent intent = new Intent(ResultActivity.this, Discover.class);
+                Intent intent = new Intent(ResultActivity.this, DiscoverActivity.class);
                 intent.putExtra("MarkerID", markerID);
                 startActivity(intent);
             }
@@ -102,7 +95,7 @@ public class ResultActivity extends Activity {
 
     @Override
     public void onBackPressed () {
-        Intent intent = new Intent(ResultActivity.this, Discover.class);
+        Intent intent = new Intent(ResultActivity.this, DiscoverActivity.class);
         intent.putExtra("MarkerID", markerID);
         startActivity(intent);
     }
@@ -115,11 +108,4 @@ public class ResultActivity extends Activity {
         return cursor;
     }
 
-
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.activity_result, menu);
-        return true;
-    }*/
 }

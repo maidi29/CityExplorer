@@ -12,9 +12,8 @@ import java.util.List;
 
 
 public class DbHelper extends SQLiteOpenHelper {
-    //Versionsnummer um die Database bei jeder Aenderung zu upgraden
+
     private static final int DATABASE_VERSION = 28;
-    // Database Name
     private static final String DATABASE_NAME = "CE";
 
     public static final String SCORE_TABLE = "score";
@@ -188,15 +187,14 @@ public class DbHelper extends SQLiteOpenHelper {
         return quesList;
     }
 
-    public int rowcount()
-    {
-        int row=0;
+    /*public int rowcount()
+    {   int row=0;
         String selectQuery = "SELECT  * FROM " + TABLE_QUEST;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         row=cursor.getCount();
         return row;
-    }
+    }*/
 
     private void addQuestions()
     {

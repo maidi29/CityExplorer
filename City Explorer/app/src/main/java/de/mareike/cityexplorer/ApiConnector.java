@@ -63,7 +63,7 @@ public class ApiConnector {
 
         try
         {
-            DefaultHttpClient httpClient = new DefaultHttpClient();  // Default HttpClient
+            DefaultHttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost(url);
             httpPost.setEntity(new UrlEncodedFormEntity(params));
 
@@ -90,7 +90,7 @@ public class ApiConnector {
 
         try
         {
-            DefaultHttpClient httpClient = new DefaultHttpClient();  // Default HttpClient
+            DefaultHttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost(url);
             httpPost.setEntity(new UrlEncodedFormEntity(params));
 
@@ -117,7 +117,7 @@ public class ApiConnector {
 
         try
         {
-            DefaultHttpClient httpClient = new DefaultHttpClient();  // Default HttpClient
+            DefaultHttpClient httpClient = new DefaultHttpClient();
             HttpPost httpPost = new HttpPost(url);
             httpPost.setEntity(new UrlEncodedFormEntity(params));
 

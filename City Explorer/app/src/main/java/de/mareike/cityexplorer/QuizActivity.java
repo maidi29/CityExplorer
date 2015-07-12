@@ -155,12 +155,7 @@ public class QuizActivity extends Activity {
             }
         });
     }
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.quiz_layout, menu);
-        return true;
-    }*/
+
     private void startResultActivity() {
         Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
         Bundle b = new Bundle();
