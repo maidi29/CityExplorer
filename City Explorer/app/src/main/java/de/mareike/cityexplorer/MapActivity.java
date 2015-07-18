@@ -18,17 +18,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 
-public class MapActivity extends ActionBarActivity {
+
+public class MapActivity extends ActionBarActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
     private GoogleMap googleMap;
     Context context = this;
@@ -45,17 +53,25 @@ public class MapActivity extends ActionBarActivity {
     int icon;
     int markerID;
 
+    Marker locationMarker;
+
     LocationManager locationManager;
+    LocationRequest mLocationRequest;
+    GoogleApiClient mGoogleApiClient;
     String provider;
     Criteria criteria;
+    LatLng myposition;
     Location myLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+        
+        buildGoogleApiClient();
+        mGoogleApiClient.connect();
 
-       try {
+       /*try {
             if(googleMap == null) {
                 googleMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
             }
@@ -80,7 +96,46 @@ public class MapActivity extends ActionBarActivity {
         }
         catch(Exception e) {
             e.printStackTrace();
-        }
+        }*/
+
+
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+
+        mapFragment.getMapAsync(this);
+    }
+
+    protected synchronized void buildGoogleApiClient() {
+        //Toast.makeText(this,"buildGoogleApiClient", Toast.LENGTH_SHORT).show();
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
+    }
+
+    @Override
+    public void onMapReady (GoogleMap map) {
+        googleMap = map;
+        setUpMap();
+    }
+
+    private void setUpMap() {
+        googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        googleMap.setMyLocationEnabled(true);
+        googleMap.setTrafficEnabled(true);
+        googleMap.setIndoorEnabled(true);
+        googleMap.setBuildingsEnabled(true);
+        googleMap.getUiSettings().setZoomControlsEnabled(true);
+        iconDone = R.drawable.markerdone;
+        icon = R.drawable.marker;
 
         Marker marker1 = googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(49.793012, 9.926201))
@@ -199,52 +254,83 @@ public class MapActivity extends ActionBarActivity {
         }
         c.close();
 
-
         googleMap.setInfoWindowAdapter(new UserInfoWindowAdapter(getLayoutInflater()));
         googleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(Marker marker) {
 
-                LatLng markerPosition = marker.getPosition();
-                myLocation = locationManager.getLastKnownLocation(provider);
-                Location markerLoc = new Location("marker");
-                markerLoc.setLatitude(markerPosition.latitude);
-                markerLoc.setLongitude(markerPosition.longitude);
-                float meters = myLocation.distanceTo(markerLoc);
-                String markerTitle = marker.getTitle();
-                if (markerTitle.equals(getString(R.string.Title1))) {
-                   markerID = 1;
-                }
-                else if (markerTitle.equals(getString(R.string.Title2))) {
-                    markerID = 2;
-                }
-                else if (markerTitle.equals(getString(R.string.Title3))) {
-                    markerID = 3;
-                }
-                else if (markerTitle.equals(getString(R.string.Title4))) {
-                    markerID = 4;
-                }
-                else if (markerTitle.equals(getString(R.string.Title5))) {
-                    markerID = 5;
-                }
-                else if (markerTitle.equals(getString(R.string.Title6))) {
-                    markerID = 6;
-                }
-                else if (markerTitle.equals(getString(R.string.Title7))) {
-                    markerID = 7;
-                }
-
-                if (meters < 200 || marker.getSnippet().equals(getString(R.string.done_Snippet))) {
-                    Intent intent = new Intent(MapActivity.this, DiscoverActivity.class);
-                    intent.putExtra("MarkerID", markerID);
-                    startActivity(intent);
+                if(myLocation == null) {
+                    Toast.makeText(getBaseContext(), getString(R.string.toast_no_location), Toast.LENGTH_LONG).show();
                 }
                 else {
-                    Toast.makeText(getBaseContext(),getString(R.string.go_to_toast)+ marker.getTitle()+getString(R.string.go_to_toast_2), Toast.LENGTH_LONG).show();
+
+                    LatLng markerPosition = marker.getPosition();
+                    Location markerLoc = new Location("marker");
+                    markerLoc.setLatitude(markerPosition.latitude);
+                    markerLoc.setLongitude(markerPosition.longitude);
+
+                    float meters = myLocation.distanceTo(markerLoc);
+                    String markerTitle = marker.getTitle();
+
+
+                    if (markerTitle.equals(getString(R.string.Title1))) {
+                        markerID = 1;
+                    } else if (markerTitle.equals(getString(R.string.Title2))) {
+                        markerID = 2;
+                    } else if (markerTitle.equals(getString(R.string.Title3))) {
+                        markerID = 3;
+                    } else if (markerTitle.equals(getString(R.string.Title4))) {
+                        markerID = 4;
+                    } else if (markerTitle.equals(getString(R.string.Title5))) {
+                        markerID = 5;
+                    } else if (markerTitle.equals(getString(R.string.Title6))) {
+                        markerID = 6;
+                    } else if (markerTitle.equals(getString(R.string.Title7))) {
+                        markerID = 7;
+                    }
+
+                    if (meters < 200 || marker.getSnippet().equals(getString(R.string.done_Snippet))) {
+                        Intent intent = new Intent(MapActivity.this, DiscoverActivity.class);
+                        intent.putExtra("MarkerID", markerID);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(getBaseContext(), getString(R.string.go_to_toast) + marker.getTitle() + getString(R.string.go_to_toast_2), Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         });
+
     }
+
+    @Override
+    public void onConnected (Bundle bundle) {
+        mLocationRequest = new LocationRequest();
+        mLocationRequest.setInterval(10);
+        mLocationRequest.setFastestInterval(10);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+
+        LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, (LocationListener) this);
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        myLocation = location;
+
+        myposition = new LatLng(myLocation.getLatitude(), myLocation.getLongitude());
+        CameraPosition cameraPosition = new CameraPosition.Builder().target(myposition).zoom(14).build();
+        googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

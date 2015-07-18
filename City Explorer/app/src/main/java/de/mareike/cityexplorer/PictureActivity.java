@@ -25,6 +25,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -148,51 +149,53 @@ public class PictureActivity extends ActionBarActivity {
         calling = "upload";
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inSampleSize = 1;
-        final Bitmap image = BitmapFactory.decodeFile(imageFile.getAbsolutePath(), options);
-        Log.d("Pin", imageFile.toString());
-        String imageData = encodeTobase64(image);
-        final List<NameValuePair> params = new ArrayList<NameValuePair>();
-        params.add(new BasicNameValuePair("image", imageData));
-        params.add(new BasicNameValuePair("markerID", markerID.toString()));
-
-        new AsyncTask<ApiConnector, Long, Boolean>() {
-            @Override
-            protected Boolean doInBackground(ApiConnector... apiConnectors) {
-                return apiConnectors[0].uploadImageToServer(params);
-
-            }
-        }.execute(new ApiConnector());
-
-        DbHelper dbh = new DbHelper(context);
-        Cursor cursor = getUpload(dbh);
-        cursor.moveToFirst();
-        if (cursor.moveToFirst()) {
-            do {
-                Log.d("Datenbank", "Inhalt: "+cursor.getString(0)+cursor.getString(1));
-                if (Integer.parseInt(cursor.getString(0)) == 0) {
-                    dbh.addUpload(dbh, 1,  markerID);
-                    finish();
-                }
-                else if (Integer.parseInt(cursor.getString(0))== 1) {
-                    finish();
-                }
-                else {
-                    dbh.addUpload(dbh, 1, markerID);
-                    finish();
-                }
-            }
-            while (cursor.moveToNext());
+        if (imageFile == null) {
+            Toast.makeText(getBaseContext(), getString(R.string.toast_no_picture), Toast.LENGTH_LONG).show();
         }
         else {
-            dbh.addUpload(dbh, 1, markerID);
-            finish();
-        }
-        cursor.close();
+            final Bitmap image = BitmapFactory.decodeFile(imageFile.getAbsolutePath(), options);
+            Log.d("Pin", imageFile.toString());
+            String imageData = encodeTobase64(image);
+            final List<NameValuePair> params = new ArrayList<NameValuePair>();
+            params.add(new BasicNameValuePair("image", imageData));
+            params.add(new BasicNameValuePair("markerID", markerID.toString()));
 
-        Intent intent = new Intent(PictureActivity.this,PinboardActivity.class);
-        intent.putExtra("MarkerID", markerID);
-        intent.putExtra("calling", calling);
-        startActivity(intent);
+            new AsyncTask<ApiConnector, Long, Boolean>() {
+                @Override
+                protected Boolean doInBackground(ApiConnector... apiConnectors) {
+                    return apiConnectors[0].uploadImageToServer(params);
+
+                }
+            }.execute(new ApiConnector());
+
+            DbHelper dbh = new DbHelper(context);
+            Cursor cursor = getUpload(dbh);
+            cursor.moveToFirst();
+            if (cursor.moveToFirst()) {
+                do {
+                    Log.d("Datenbank", "Inhalt: " + cursor.getString(0) + cursor.getString(1));
+                    if (Integer.parseInt(cursor.getString(0)) == 0) {
+                        dbh.addUpload(dbh, 1, markerID);
+                        finish();
+                    } else if (Integer.parseInt(cursor.getString(0)) == 1) {
+                        finish();
+                    } else {
+                        dbh.addUpload(dbh, 1, markerID);
+                        finish();
+                    }
+                }
+                while (cursor.moveToNext());
+            } else {
+                dbh.addUpload(dbh, 1, markerID);
+                finish();
+            }
+            cursor.close();
+
+            Intent intent = new Intent(PictureActivity.this, PinboardActivity.class);
+            intent.putExtra("MarkerID", markerID);
+            intent.putExtra("calling", calling);
+            startActivity(intent);
+        }
     }
 
     public void Pinnwand (View view) {

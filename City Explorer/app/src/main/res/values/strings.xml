@@ -232,10 +232,10 @@
     <string name="Answer22B">Dom</string>
     <string name="Answer22C">Synagoge</string>
     <string name="Quest23">Wie heißt das kleinste Café Würzburgs?</string>
-    <string name="Answer23A">Wunschlös glücklich</string>
+    <string name="Answer23A">Wunschlos glücklich</string>
     <string name="Answer23B">Café Fred</string>
     <string name="Answer23C">Brandstetter</string>
-    <string name="Quest24">Wer wurde in der Marienkapelle bestattet?</string>
+    <string name="Quest24">Wer wurde in der Marienkapelle bestattet, sodass eine Gedenktafel an einer Säule an ihn erinnert?</string>
     <string name="Answer24A">Balthasar Neumann (Barockarchitekt)</string>
     <string name="Answer24B">Tilman Riemenschneider (Bildhauer und Bürgermeister)</string>
     <string name="Answer24C">Walther von der Vogelweide (Bedeutenster deutschsprachiger Lyriker des Mittelalters)</string>
@@ -308,11 +308,10 @@
     <string name="badge5_subtitle">Du hast bereits beide Aufgabentypen getestet, weiter so!</string>
     <string name="alert_help">Hilfe</string>
     <string name="mainactivity_help">Gehe in die Nähe einer der Markierungen um diese auswählen zu können.\n\n
-        Bekannte Probleme:\n
-        Mein Standort wird nicht angezeigt:\n
-        Es kann manchmal eine Weile dauern bis dein aktueller Standort angezeigt wird. Überprüfe deine Standorteinstellungen auf dem Smartphone, wenn auch nach Warten kein blauer Punkt erscheint.\n\n
-        Mein Standort wird direkt bei der Markierung angezeigt, aber ich kann sie trotzdem nicht öffnen:\n
-        Stelle bei den Standorteinstellungen ein, dass du nur über GPS geortet werden willst (ggf. Ortung über Mobiles Internet ausschalten) und versuche es nochmal.</string>
+        Falls dein Standort nicht über einen blauen Punkt angezeigt wird könnte das daran liegen, dass du die Ortung in deinen Smartphone-Einstellungen oder Google Einstellungen ausgeschaltet hast.\n
+        Es kann manchmal eine Weile dauern bis dein Standort auf der Karte erscheint. In Gebäuden kann die Ortung manchmal nicht erfolgen.</string>
     <string name="alert_ok">OK</string>
+    <string name="toast_no_location">Standort konnte nicht gefunden werden</string>
+    <string name="toast_no_picture">Bitte nimm ein Foto zum Hochladen auf.</string>
 
 </resources>
