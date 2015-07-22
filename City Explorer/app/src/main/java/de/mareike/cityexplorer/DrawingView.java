@@ -33,6 +33,7 @@ public class DrawingView extends View {
         setupDrawing();
     }
 
+    //Default Einstellungen fürs Zeichnen einstellen
     private void setupDrawing(){
         drawPath = new Path();
         drawPaint = new Paint();
@@ -55,12 +56,13 @@ public class DrawingView extends View {
         drawCanvas = new Canvas(canvasBitmap);
     }
 
+    //Pfad des Fingers nachverfolgen
+
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.drawBitmap(canvasBitmap, 0, 0, canvasPaint);
         canvas.drawPath(drawPath, drawPaint);
     }
-
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         float touchX = event.getX();
@@ -84,12 +86,14 @@ public class DrawingView extends View {
         return true;
     }
 
+    //Farbe ändern
     public void setColor(String newColor){
         invalidate();
         paintColor = Color.parseColor(newColor);
         drawPaint.setColor(paintColor);
     }
 
+    //Pinselgröße ändern
     public void setBrushSize(float newSize){
         float pixelAmount = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 newSize, getResources().getDisplayMetrics());
@@ -104,12 +108,14 @@ public class DrawingView extends View {
         return lastBrushSize;
     }
 
+    //Radiergummi starten
     public void setErase(boolean isErase){
         erase=isErase;
         if(erase) drawPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         else drawPaint.setXfermode(null);
     }
 
+    //Zeichnung verwerfen und neu starten
     public void startNew(){
         drawCanvas.drawColor(0, PorterDuff.Mode.CLEAR);
         invalidate();

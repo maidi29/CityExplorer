@@ -4,8 +4,42 @@
     <string name="zumQuizButton">Quiz</string>
     <string name="buttonPinnwand">Pinnwand</string>
 
+    <string name="mainactivity_badges_title">Punktestand</string>
+    <string name="mainactivity_evaluation_title">Evaluation</string>
+    <string name="mainactivity_info_title">Quellen der Inhalte</string>
+    <string name="mainactivity_help_title">Hilfe</string>
+    <string name="dialog_evaluation">Diese App ist Teil einer Bachelor-Arbeit. Falls Sie mindestens 2 Quizzes und 2 Pinnwandeinträge abgeschlossen haben (je mehr desto besser!), würde ich mich freuen, wenn Sie an der Evauluation dieser App teilnehmen. Diese besteht aus einem Fragebogen, der nur wenige Minuten in Anspruch nimmt. Diesen können Sie selbstverständlich auch an Ihrem Desktop-PC unter https://www.soscisurvey.de/CityExplorer bearbeiten.</string>
+    <string name="dialog_evaluation_start">Evaluation starten</string>
+    <string name="dialog_evaluation_later">Später</string>
+    <string name="done_Snippet">Zum Öffnen tippen</string>
+    <string name="go_to_toast">"Gehe zur/zum "</string>
+    <string name="go_to_toast_2">" um diesen Marker zu öffnen."</string>
+    <string name="alert_help">Hilfe</string>
+    <string name="mainactivity_help">Gehe in die Nähe einer der Markierungen um diese auswählen zu können.\n\n
+        Falls dein Standort nicht über einen blauen Punkt angezeigt wird könnte das daran liegen, dass du die Ortung in deinen Smartphone-Einstellungen oder Google Einstellungen ausgeschaltet hast.\n
+        Es kann manchmal eine Weile dauern bis dein Standort auf der Karte erscheint. In Gebäuden kann die Ortung manchmal nicht erfolgen.</string>
+    <string name="alert_ok">OK</string>
+    <string name="toast_no_location">Standort konnte nicht gefunden werden</string>
+    <string name="toast_no_picture">Bitte nimm ein Foto zum Hochladen auf.</string>
+
     <string name="pointsTextString">Deine Punktzahl:</string>
     <string name="anpinnen_Button">Anpinnen</string>
+    <string name="badesQuizText">"Erfolgreich abgeschlossene Quizzes: "</string>
+    <string name="badesPinnwandText">"Kreative Beiträge an der Pinnwand: "</string>
+    <string name="badgesSummaryText">"Gesamtpunktzahl: "</string>
+    <string name="badge1_titel">Der erste Schritt</string>
+    <string name="badge1_subtitle">mit dem auch die längste Reise beginnt. Ersten Punkt gesammelt</string>
+    <string name="badge2_titel">Quizzer</string>
+    <string name="badge2_subtitle">3 Punkte durch Quizzes verdient</string>
+    <string name="badge3_titel">Kreativer Kopf</string>
+    <string name="badge3_subtitle">3 Punkte durch Pinnwand-Uploads verdient</string>
+    <string name="badge4_titel">Würzburg-Kenner</string>
+    <string name="badge4_subtitle">Alle Stationen in Würzburg abgehakt</string>
+    <string name="badge5_titel">Forscher</string>
+    <string name="badge5_subtitle">Du hast bereits beide Aufgabentypen getestet, weiter so!</string>
+
+    <string name="content_description_info_image">Information Image</string>
+
     <string name="start_new">Neu</string>
     <string name="brush">Stift</string>
     <string name="erase">Radiergummi</string>
@@ -14,9 +48,6 @@
     <string name="sml">Klein</string>
     <string name="med">Mittel</string>
     <string name="lrg">Groß</string>
-    <string name="badesQuizText">"Erfolgreich abgeschlossene Quizzes: "</string>
-    <string name="badesPinnwandText">"Kreative Beiträge an der Pinnwand: "</string>
-    <string name="badgesSummaryText">"Gesamtpunktzahl: "</string>
     <string name="dialogTitleBrush">Stiftgröße:</string>
     <string name="dialogTitleEraser">Radiergummigröße:</string>
     <string name="dialogNewTitle">Neue Zeichnung</string>
@@ -29,7 +60,12 @@
     <string name="dialogSavedToast">Zeichnung erfolgreich gespeichert!</string>
     <string name="dialogNotSavedToast">Zeichnung konnte nicht gespeichert werden</string>
     <string name="dialogSaveCancel">Abbrechen</string>
-    <string name="done_Snippet">Zum Öffnen tippen</string>
+
+    <string name="instruction_like">Doppelt auf einen Eintrag tippen, um ihm eine positive Bewertung zu geben.</string>
+
+    <string name="toast_quiz_no_answer">Bitte eine Antwortmöglichkeit auswählen</string>
+
+
 
     <string name="Title1">Alte Mainbrücke</string>
     <string name="Text1">Die Alte Mainbrücke ist die älteste Brücke über den Main in Würzburg. Das Bauwerk war bis 1886 Würzburgs einziger Flussübergang.\n\n
@@ -116,7 +152,7 @@
         Vor dem Rathaus befindet sich der Vierröhrenbrunnen aus der Mitte des 18. Jahrhunderts, dessen Ausgestaltung typisch für die Zeit des Spätbarock ist.\nAm 11. April 2015 wurde von unbekannten eine Substanz in das Brunnenwasser gegeben. Das Wasser schimmerte daraufhin giftgrün und erregte viel Aufmerksamkeit. Die Substanz war zwar weder giftig noch schädlich, das Wasser wurde dennoch ausgetauscht.
     </string>
     <string name="image_text_6">Das zerstörte Würzburg um den Grafeneckart nach dem Bombenangriff vom 16. März 1945\n(Doppelt tippen um zu Zoomen)</string>
-    <string name="image_source_6">Bildquelle: http://www.br.de/nachrichten/unterfranken/inhalt/ausstellung-geschichtswerkstatt-wuerzbrug-100~_v-img__16__9__l_-1dc0e8f74459dd04c91a0d45af4972b9069f1135.jpg%3Fversion%3De92d0</string>
+    <string name="image_source_6">Bildquelle: http://www.br.de/nachrichten/unterfranken/inhalt/ausstellung-geschichtswerkstatt-wuerzbrug-100~_v-img__16__9__l_-1dc0e8f74459dd04c91a0d45af4972b9069f1135.jpg%%3Fversion%%3De92d0</string>
     <string name="TaskText6">Wie und warum könnte Eckart de Foro, nach dem der Grafeneckart benannt wurde, hier ermordet worden sein?</string>
 
     <string name="Title7">Festung Marienberg</string>
@@ -286,32 +322,38 @@
     <string name="Answer35B">6</string>
     <string name="Answer35C">7</string>
 
-    <string name="content_description_info_image">Information Image</string>
-    <string name="instruction_like">Doppelt auf einen Eintrag tippen, um ihm eine positive Bewertung zu geben.</string>
-    <string name="go_to_toast">"Gehe zur/zum "</string>
-    <string name="go_to_toast_2">" um diesen Marker zu öffnen."</string>
-    <string name="badge1_titel">Der erste Schritt</string>
-    <string name="badge1_subtitle">mit dem auch die längste Reise beginnt. Ersten Punkt gesammelt</string>
-    <string name="badge2_titel">Quizzer</string>
-    <string name="badge2_subtitle">3 Punkte durch Quizzes verdient</string>
-    <string name="badge3_titel">Kreativer Kopf</string>
-    <string name="badge3_subtitle">3 Punkte durch Pinnwand-Uploads verdient</string>
-    <string name="badge4_titel">Würzburg-Kenner</string>
-    <string name="badge4_subtitle">Alle Stationen in Würzburg abgehakt</string>
-    <string name="mainactivity_badges">Punktestand ansehen</string>
-    <string name="mainactivity_evaluation">An der Evaluation teilnehmen</string>
-    <string name="dialog_evaluation">Diese App ist Teil einer Bachelor-Arbeit. Falls Sie mindestens 2 Quizzes und 2 Pinnwandeinträge abgeschlossen haben (je mehr desto besser!), würde ich mich freuen, wenn Sie an der Evauluation dieser App teilnehmen. Diese besteht aus einem Fragebogen, der nur wenige Minuten in Anspruch nimmt. Diesen können Sie selbstverständlich auch an Ihrem Desktop-PC unter https://www.soscisurvey.de/CityExplorer bearbeiten.</string>
-    <string name="dialog_evaluation_start">Evaluation starten</string>
-    <string name="dialog_evaluation_later">Später</string>
-    <string name="toast_quiz_no_answer">Bitte eine Antwortmöglichkeit auswählen</string>
-    <string name="badge5_titel">Forscher</string>
-    <string name="badge5_subtitle">Du hast bereits beide Aufgabentypen getestet, weiter so!</string>
-    <string name="alert_help">Hilfe</string>
-    <string name="mainactivity_help">Gehe in die Nähe einer der Markierungen um diese auswählen zu können.\n\n
-        Falls dein Standort nicht über einen blauen Punkt angezeigt wird könnte das daran liegen, dass du die Ortung in deinen Smartphone-Einstellungen oder Google Einstellungen ausgeschaltet hast.\n
-        Es kann manchmal eine Weile dauern bis dein Standort auf der Karte erscheint. In Gebäuden kann die Ortung manchmal nicht erfolgen.</string>
-    <string name="alert_ok">OK</string>
-    <string name="toast_no_location">Standort konnte nicht gefunden werden</string>
-    <string name="toast_no_picture">Bitte nimm ein Foto zum Hochladen auf.</string>
+
+    <string name="sources">Michler, H. 2014. Die alte Mainbrücke in Würzburg. www.wuerzburg-fotos.de - Bilder und Fotos über Stadt und Leute. Verfügbar unter: http://www.wuerzburg-fotos.de/alte_mainbruecke.php\n\n
+        Alte Mainbrücke – Die erste Steinbrücke Deutschlands?. Stadt Würzburg. Verfügbar unter: http://www.wuerzburg.de/de/gaeste/sehenswuerdigkeiten/alte-mainbruecke/15008.Alte_Mainbruecke_-_die_erste_Steinbruecke_Deutschlands.html\n\n
+        Alte Mainbrücke. Wikipedia. Verfügbar unter: https://de.wikipedia.org/wiki/Alte_Mainbr%%C3%%BCcke\n\n
+        Residenz Würzburg. Bayrische Verwaltung der staatlichen Schlösser, Gärten und Seen. Verfügbar unter: http://www.residenz-wuerzburg.de/deutsch/residenz/index.htm\n\n
+        Würzburger Residenz. Wikipedia. Verfügbar unter: https://de.wikipedia.org/wiki/W%%C3%%BCrzburger_Residenz\n\n
+        Die Würzburger Residenz - Hauptwerk des süddeutschen Barock und eines der bedeutendsten Schlösser Europas. Stadt Würzburg. Verfügbar unter: http://www.wuerzburg.de/de/gaeste/sehenswuerdigkeiten/residenz/15001.Die_Wuerzburger_Residenz_-_Hauptwerk_des_sueddeutschen_Barock_und_eines_der_bedeutendsten_Schloesser_Europas..html\n\n
+        Deckenfresko im Treppenhaus der Residenz. Würzburg Wiki. Verfügbar unter: http://wuerzburgwiki.de/wiki/Deckenfresko_im_Treppenhaus_der_Residenz\n\n
+        Frankoniabrunnen. Würzburg Wiki. Verfügbar unter: http://www.wuerzburgwiki.de/wiki/Frankoniabrunnen\n\n
+        Dom St. Kilian. Würzburg Wiki. Verfügbar unter: http://wuerzburgwiki.de/wiki/Dom_St._Kilian\n\n
+        Dom St. Kilian und Schönbornkapelle - die viertgrößte romanische Kirche Deutschlands. Stadt Würzburg. Verfügbar unter: http://www.wuerzburg.de/de/gaeste/sehenswuerdigkeiten/dom-und-schoenbornkapelle/15003.Dom_St._Kilian_und_Schoenbornkapelle_-_die_viertgroeszligte_romanische_Kirche_Deutschlands.html\n\n
+        Würzburger Dom. Wikipedia. Verfügbar unter: https://de.wikipedia.org/wiki/W%%C3%%BCrzburger_Dom\n\n
+        Der St. Kilians Dom zu Würzburg. www.wuerzburg-fotos.de - Bilder und Fotos über Stadt und Leute. Verfügbar unter: http://www.wuerzburg-fotos.de/dom.php\n\n
+        Alter Kranen (Würzburg). Wikipedia. Verfügbar unter: https://de.wikipedia.org/wiki/Alter_Kranen_(W%%C3%%BCrzburg)\n\n
+        Marienkapelle – ein Höhepunkt der Kunstgeschichte Würzburgs. Stadt Würzburg. Verfügbar unter: http://www.wuerzburg.de/de/gaeste/sehenswuerdigkeiten/marienkapelle/15006.Marienkapelle_-_ein_Hoehepunkt_der_Kunstgeschichte_Wuerzburgs.html\n\n
+        Marienkapelle. Würzburg Wiki. Verfügbar unter: http://wuerzburgwiki.de/wiki/Marienkapelle\n\n
+        Virtueller Rundgang durch die Marienkapelle. Würzburger Markt. Verfügbar unter: http://www.wuerzburger-markt.de/sehenswertes/marienkapelle/\n\n
+        Marienkapelle (Würzburg). Wikipedia. Verfügbar unter: https://de.wikipedia.org/wiki/Marienkapelle_(W%%C3%%BCrzburg)\n\n
+        Grafeneckart. Würzburg Wiki. Verfügbar unter: http://wuerzburgwiki.de/wiki/Grafeneckart\n\n
+        Rathaus und Grafeneckart – sichtbares Zeichen bürgerlichen Unabhängigkeitsstrebens. Stadt Würzburg. Verfügbar unter: http://www.wuerzburg.de/de/gaeste/sehenswuerdigkeiten/rathaus-und-grafeneckart/15010.Grafeneckart_ndash_sichtbares_Zeichen_buergerlichen_Unabhaengigkeitsstrebens.html\n\n
+        Festung Marienberg mit Fürstenbaumuseum - Würzburg. Bayrische Verwaltung der staatlichen Schlösser, Gärten und Seen. Verfügbar unter: http://www.schloesser.bayern.de/deutsch/schloss/objekte/wu_fest.htm\n\n
+        Festung Marienberg. Wikipedia. Verfügbar unter: https://de.wikipedia.org/wiki/Festung_Marienberg\n\n
+        Die Festung Marienberg – Ein eindrucksvolles Baudenkmal aus alter Zeit. Stadt Würzburg. Verfügbar unter: http://www.wuerzburg.de/de/gaeste/sehenswuerdigkeiten/festung-marienberg/15002.Die_Festung_Marienberg_-_ein_eindruckvolles_Baudenkmal_aus_alter_Zeit.html\n\n
+        Festung Marienberg. Würzburg Wiki. Verfügbar unter: http://www.wuerzburgwiki.de/wiki/Festung_Marienberg\n\n\n</string>
+    <string name="image_sources">Bildquellen:\n\n
+        Historische Postkartenansicht der Alten Mainbrücke aus dem Jahr 1895. www.wuerzburg-fotos.de - Bilder und Fotos über Stadt und Leute. Verfügbar unter: http://www.wuerzburg-fotos.de/alte_mainbruecke.php\n\n
+        Web Gallery of Art. Verfügbar unter: http://www.wga.hu/index1.html\n\n
+        Wuerzburg Dom 1904. Wikipedia. Verfügbar unter: https://commons.wikimedia.org/wiki/File:Wuerzburg_Dom_1904.jpg#/media/File:Wuerzburg_Dom_1904.jpg\n\n
+        Würzburg Anfang des 19. Jahrhunderts: Blick auf den Main mit Raddampfer, Kran, Kranmeisterhaus und Lagerhaus. Wikipedia. Verfügbar unter: https://de.wikipedia.org/wiki/Alter_Kranen_(W%%C3%%BCrzburg)#/media/File:W%%C3%%BCrzburg,_Ende_18._Jhd.jpg\n\n
+        Mehling, 1945. Hans Gruener, Verfügbar unter: http://www.hansgruener.de/docs_d/kanal_main/wuerzburg_1945_22a.htm\n\n
+        Ausstellung zum Bombenangriff auf Würzburg. BR. Verfügbar unter: http://www.br.de/nachrichten/unterfranken/inhalt/ausstellung-geschichtswerkstatt-wuerzbrug-100~_v-img__16__9__l_-1dc0e8f74459dd04c91a0d45af4972b9069f1135.jpg%%3Fversion%%3De92d0\n\n
+        Festung Marienberg mit Fürstenbaumuseum – Würzburg. Bayrische Verwaltung der staatlichen Schlösser, Gärten und Seen. Verfügbar unter: http://www.schloesser.bayern.de/deutsch/schloss/objekte/wu_fest.htm\n\n
+</string>
 
 </resources>

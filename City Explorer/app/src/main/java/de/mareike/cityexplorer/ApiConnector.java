@@ -21,9 +21,9 @@ import java.util.List;
 public class ApiConnector {
 
 
+    //Lade alle Einträge mit der jeweiligen ID des Markers über ein phpSkript auf dem Server herunter und gebe sie in einem Array zurück
     public JSONArray getAllEntrys(String markerID)
     {
-        // URL
         String url = "http://www.creepyhollow.bplaced.net/CityExplorer/getAllEntrys.php?markerID="+markerID;
         // Get HttpResponse Object from url.
         // Get HttpEntity from Http Response Object
@@ -56,6 +56,7 @@ public class ApiConnector {
         return jsonArray;
     }
 
+    //Lade ein Bild über ein php-Skript auf den Server auf den Server
     public Boolean uploadImageToServer(List<NameValuePair> params) {
         String url = "http://www.creepyhollow.bplaced.net/CityExplorer/uploadImage.php";
 
@@ -83,6 +84,7 @@ public class ApiConnector {
         return false;
     }
 
+    //Lade einen Text über ein php-Skript auf dem Server auf den Server
     public Boolean uploadNoteToServer(List<NameValuePair> params) {
         String url = "http://www.creepyhollow.bplaced.net/CityExplorer/uploadNote.php";
 
@@ -110,6 +112,7 @@ public class ApiConnector {
         return false;
     }
 
+    //Erhöhe die Anzahl positiver Bewertungen bei der übergebenen ID des Eintrags über ein php-Skript auf dem Server
     public Boolean like (List<NameValuePair> params) {
         String url = "http://www.creepyhollow.bplaced.net/CityExplorer/like.php";
 
@@ -138,6 +141,7 @@ public class ApiConnector {
         return false;
     }
 
+    //Vermindere die Anzahl positiver Bewertungen bei der übergebenen ID des Eintrags über ein php-Skript auf dem Server
     public Boolean dislike (List<NameValuePair> params) {
         String url = "http://www.creepyhollow.bplaced.net/CityExplorer/dislike.php";
 

@@ -38,6 +38,7 @@ public class DiscoverActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.discover_layout);
 
+        //Layout-Elemente verbinden
         InfoText = (TextView)findViewById(R.id.InfoText);
         InfoUeberschrift = (TextView)findViewById(R.id.InfoUeberschrift);
         InfoImage = (TouchImageView)findViewById(R.id.InfoImage);
@@ -49,6 +50,7 @@ public class DiscoverActivity extends ActionBarActivity {
         pointQuiz = (ImageView) findViewById(R.id.pointQuiz);
         pointPinnwand = (ImageView) findViewById(R.id.pointPinnwand);
 
+        //übergebene MarkerID entgegennehmen
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
             if(extras == null) {
@@ -60,6 +62,7 @@ public class DiscoverActivity extends ActionBarActivity {
             markerID = (Integer) savedInstanceState.getSerializable("MarkerID");
         }
 
+        //Je nach Marker ID die entsprechenden String und Bildquellen setzen
         if (markerID == 1){
             InfoUeberschrift.setText(getString(R.string.Title1));
             InfoText.setText(getString(R.string.Text1));
@@ -110,6 +113,7 @@ public class DiscoverActivity extends ActionBarActivity {
             InfoImageSource.setText(getString(R.string.image_source_7));
         }
 
+        //In der SQLite Datenbank schauen, ob bei diesem Marker bereits das Quiz erfolgreich gelöst wurde
         DbHelper dbh  = new DbHelper(context);
         Cursor cursor = getScore(dbh);
         cursor.moveToFirst();
@@ -124,6 +128,7 @@ public class DiscoverActivity extends ActionBarActivity {
         }
         cursor.close();
 
+        //In der SQLite Datenbank schauen, ob bei diesem Marker bereits dein Upload gemacht wurde
         Cursor c = getUpload(dbh);
         c.moveToFirst();
         if (c.moveToFirst()) {
@@ -138,18 +143,21 @@ public class DiscoverActivity extends ActionBarActivity {
 
     }
 
+    //Quiz starten, wird beim Klick auf den Quiz Button aufgerufen (in XML)
     public void StartQuiz (View v) {
         Intent intent = new Intent(DiscoverActivity.this,QuizActivity.class);
         intent.putExtra("MarkerID", markerID);
         startActivity(intent);
     }
 
+    //Pinnwand Activity starten, wird beim Klick auf den Pinnwand Button aufgerufen (in XML)
     public void StartPinboard (View v) {
         Intent intent = new Intent(DiscoverActivity.this,CreatePinboardActivity.class);
         intent.putExtra("MarkerID", markerID);
         startActivity(intent);
     }
 
+    //Rotation verhindern
     @Override
     public void onConfigurationChanged(Configuration newConfig)
     {
@@ -162,6 +170,7 @@ public class DiscoverActivity extends ActionBarActivity {
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
+    //Öffne wieder die MapActivity, wenn der "Zurück"-Buttonn des geräts geklickt wird
     @Override
     public void onBackPressed () {
         Intent intent = new Intent(DiscoverActivity.this, MapActivity.class);
@@ -169,6 +178,7 @@ public class DiscoverActivity extends ActionBarActivity {
         startActivity(intent);
     }
 
+    //Zeiger definieren um nur die Einträge der Datenbank mit der aktuellen Marker ID zu erhalten
     public Cursor getScore(DbHelper dbh) {
         String markerId = ""+markerID;
         dbase = dbh.getReadableDatabase();
@@ -177,7 +187,6 @@ public class DiscoverActivity extends ActionBarActivity {
         Cursor cursor = dbase.query(dbh.SCORE_TABLE, columns, dbh.MARKERID + " LIKE ?", args , null, null, null, null);
         return cursor;
     }
-
     public Cursor getUpload(DbHelper dbh) {
         String markerId = ""+markerID;
         dbase = dbh.getReadableDatabase();

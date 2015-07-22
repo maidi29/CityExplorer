@@ -33,7 +33,7 @@ public class PinboardListViewAdapter extends BaseAdapter {
     public String objectID;
 
 
-
+    //URL in der Bilder abgespeichert werden sollen
     private static final String baseUrlForImage = "http://www.creepyhollow.bplaced.net/CityExplorer/CEimages/";
 
     public PinboardListViewAdapter(JSONArray jsonArray, Context context, Integer markerID) {
@@ -66,6 +66,7 @@ public class PinboardListViewAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
+        //Elemente der einzelnen Listen-Items verbinden
         final ListCell cell;
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.pinboard_list_view_cell, null);
@@ -81,6 +82,7 @@ public class PinboardListViewAdapter extends BaseAdapter {
         }
         cell.position = position;
 
+        //Listen Items mit entsprechenden Elementen aus dem heruntergeladenen Array befüllen
         try {
             JSONObject jsonObject = this.dataArray.getJSONObject(position);
             cell.likes.setText(jsonObject.getString("likes"));
@@ -89,7 +91,7 @@ public class PinboardListViewAdapter extends BaseAdapter {
             String img = jsonObject.getString("image");
             String urlForImageInServer = baseUrlForImage + img;
 
-
+            //Bild herunterladen mit der Picasso Bibliothek
             Picasso.with(context)
                 .load(urlForImageInServer)
                 .placeholder(R.drawable.progress_animation)
@@ -97,12 +99,12 @@ public class PinboardListViewAdapter extends BaseAdapter {
                 .into(cell.img);
 
 
+            //Das Herz ausfüllen, fass der Nutzer den entsprechenden Eintrag positiv bewertet hat, also ein entsprechender Eintrag in der Like Tabelle der SQLite Datenbank besteht
             objectID  = ""+cell.entryID;
             dbh = new DbHelper(context);
             cursor = getLikes(dbh);
             cursor.moveToFirst();
             if (cursor.moveToFirst()) {
-                Log.d("Cursor","Marker ID: "+cursor.getString(0)+" Entry ID: "+cursor.getString(1)+" Like: "+cursor.getString(2));
                 do {
                     if (Integer.parseInt(cursor.getString(2)) == 1) {
                         cell.likeImage.setImageResource(R.drawable.heart_filled);
@@ -126,6 +128,7 @@ public class PinboardListViewAdapter extends BaseAdapter {
 
     }
 
+    //Elemente jedes Listen Items
     public static class ListCell {
         private TextView likes;
         private TextView note;
@@ -135,6 +138,7 @@ public class PinboardListViewAdapter extends BaseAdapter {
         public String entryID;
     }
 
+    //Zeiger für den Abruf der Likes bei der aktuellen Marker ID und der entsprechenen ID des Eeintrags
     public Cursor getLikes(DbHelper dbh) {
         dbase = dbh.getReadableDatabase();
         String columns[] = {dbh.LIKES_MARKERID, dbh.LIKES_ENTRYID, dbh.LIKES_LIKE};

@@ -11,6 +11,8 @@ import com.google.android.gms.maps.model.Marker;
 import de.mareike.cityexplorer.R;
 
 public class UserInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
+
+    //Das Info Fenster der Marker personalisieren und mit dem Layout user_info_windows verbinden
     LayoutInflater inflater = null;
     UserInfoWindowAdapter(LayoutInflater inflater) {
         this.inflater = inflater;

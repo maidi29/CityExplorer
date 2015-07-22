@@ -31,6 +31,7 @@ public class QuizActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.quiz_layout);
 
+        //übergebene Marker ID entgegennehmen
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
             if(extras == null) {
@@ -42,15 +43,18 @@ public class QuizActivity extends Activity {
             markerID = (Integer) savedInstanceState.getSerializable("MarkerID");
         }
 
+        //Alle Fragen aus der Tabelle Questions der SQLite Datenbank abrufgen
         DbHelper db = new DbHelper(this);
         quesList=db.getAllQuestions();
 
+        //Laxout-Elemente verbinden
         txtQuestion=(TextView)findViewById(R.id.textView1);
         rda=(RadioButton)findViewById(R.id.radio0);
         rdb=(RadioButton)findViewById(R.id.radio1);
         rdc=(RadioButton)findViewById(R.id.radio2);
         butNext=(Button)findViewById(R.id.button1);
 
+        //Entprechende Startfrage für die Marker ID festlegen
         if (markerID == 1) {
             qid = 0;
         }
@@ -76,6 +80,7 @@ public class QuizActivity extends Activity {
         currentQ = quesList.get(qid);
         setQuestionView();
 
+        //Beim Klick auf den WeiterButton die nächste Frage anzeigen
         butNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,11 +93,14 @@ public class QuizActivity extends Activity {
                 {
 
                     RadioButton answer=(RadioButton)findViewById(grp.getCheckedRadioButtonId());
+                    //pro richtiger Antwort wird die Score Variable erhöht
                     if(currentQ.getANSWER().equals(answer.getText()))
                     {
                         score++;
                     }
+
                     grp.clearCheck();
+                    //je nach Marker ID wird ein andere Endpunkt gesetzt bei dem dann das Ergebnis in der ResultActivity angezeigt wird
                     if (markerID == 1) {
                         if(qid<5) {
                             currentQ = quesList.get(qid);
@@ -155,7 +163,7 @@ public class QuizActivity extends Activity {
             }
         });
     }
-
+    //Ergebnis Activity starten nachdem 5 Fragen angezeigt wurden
     private void startResultActivity() {
         Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
         Bundle b = new Bundle();
@@ -166,6 +174,7 @@ public class QuizActivity extends Activity {
         finish();
     }
 
+    //Die Layout-Elemente mit der Frage und den Antwortmöglichkeiten füllen
     private void setQuestionView()
     {
         txtQuestion.setText(currentQ.getQUESTION());
@@ -175,6 +184,7 @@ public class QuizActivity extends Activity {
         qid++;
     }
 
+    //Rotation verhindern
     @Override
     public void onConfigurationChanged(Configuration newConfig)
     {

@@ -15,6 +15,7 @@ public class SplashScreen extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
+        //Nach 500 ms die MapActivity starten
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -26,6 +27,7 @@ public class SplashScreen extends Activity {
 
     }
 
+    //Rotation verhindern
     @Override
     public void onConfigurationChanged(Configuration newConfig)
     {

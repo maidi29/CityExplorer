@@ -7,13 +7,10 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.database.Cursor;
-import android.location.Criteria;
 import android.location.Location;
-import android.location.LocationManager;
 import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -25,7 +22,6 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -53,13 +49,8 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
     int icon;
     int markerID;
 
-    Marker locationMarker;
-
-    LocationManager locationManager;
     LocationRequest mLocationRequest;
     GoogleApiClient mGoogleApiClient;
-    String provider;
-    Criteria criteria;
     LatLng myposition;
     Location myLocation;
 
@@ -70,35 +61,6 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
         
         buildGoogleApiClient();
         mGoogleApiClient.connect();
-
-       /*try {
-            if(googleMap == null) {
-                googleMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
-            }
-            googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-            googleMap.setMyLocationEnabled(true);
-            googleMap.setTrafficEnabled(true);
-            googleMap.setIndoorEnabled(true);
-            googleMap.setBuildingsEnabled(true);
-            googleMap.getUiSettings().setZoomControlsEnabled(true);
-
-            locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-            criteria = new Criteria();
-            provider = locationManager.getBestProvider(criteria, true);
-            myLocation = locationManager.getLastKnownLocation(provider);
-            double latitude = myLocation.getLatitude();
-            double longitude = myLocation.getLongitude();
-            LatLng latLng = new LatLng(latitude, longitude);
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-            googleMap.animateCamera(CameraUpdateFactory.zoomTo(14));
-            iconDone = R.drawable.markerdone;
-            icon = R.drawable.marker;
-        }
-        catch(Exception e) {
-            e.printStackTrace();
-        }*/
-
-
     }
 
 
@@ -113,7 +75,6 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
     }
 
     protected synchronized void buildGoogleApiClient() {
-        //Toast.makeText(this,"buildGoogleApiClient", Toast.LENGTH_SHORT).show();
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
@@ -127,16 +88,20 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
         setUpMap();
     }
 
+    //Karte erstellen
     private void setUpMap() {
+        //Ein paar Google Maps Einstellungen
         googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
         googleMap.setMyLocationEnabled(true);
         googleMap.setTrafficEnabled(true);
         googleMap.setIndoorEnabled(true);
         googleMap.setBuildingsEnabled(true);
         googleMap.getUiSettings().setZoomControlsEnabled(true);
+
         iconDone = R.drawable.markerdone;
         icon = R.drawable.marker;
 
+        //Marker setzen
         Marker marker1 = googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(49.793012, 9.926201))
                 .title(getString(R.string.Title1))
@@ -173,6 +138,8 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
                 .snippet("")
                 .icon(BitmapDescriptorFactory.fromResource(icon)));
 
+        //Prüfen welche Marker als abgehakt dargestellt werden müssen:
+        //Schauen bei welchem Marker das Quiz mit 5 Punkten abgeschlossen wurde
         DbHelper dbh  = new DbHelper(context);
         cursor = dbh.getAllScores(dbh);
         cursor.moveToFirst();
@@ -211,6 +178,7 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
         }
         cursor.close();
 
+        //Schauen bei welchem Marker ein Pinnwnad-Eintrag hochgeladen wurde. Falls dort auch das Quiz erfolgreich abgeschlossen ist, wird eine andere Bildquelle für den Marker gesetzt
         c = dbh.getAllUploads(dbh);
         c.moveToFirst();
         if (c.moveToFirst()) {
@@ -254,7 +222,12 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
         }
         c.close();
 
+        //Eigenes Layout für das Info Fenster der Marker setzen
         googleMap.setInfoWindowAdapter(new UserInfoWindowAdapter(getLayoutInflater()));
+
+        /*Beim Klick auf das Info Fenster wird je nach Titel eine ID gesetzt,
+             dann wird überprüft, ob der Standort im Umkreis von 200m zu dem angeklickten Marker liegt.
+            Falls ja soll die DiscoverActivity geöffnet werden, falls nein ein Hinweis ausgegeben werden.*/
         googleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(Marker marker) {
@@ -302,6 +275,7 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
 
     }
 
+    //Standortabfrage
     @Override
     public void onConnected (Bundle bundle) {
         mLocationRequest = new LocationRequest();
@@ -314,9 +288,10 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
 
     @Override
     public void onConnectionSuspended(int i) {
-
+        //return
     }
 
+    //wenn sich der Standort geändert hat wird der Wert der Latitude und Longitude bestimmt und die Camera zoomt zum Standort
     @Override
     public void onLocationChanged(Location location) {
         myLocation = location;
@@ -328,16 +303,17 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
-
+        //return
     }
 
-
+    //Action Bar Menü erstellen
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_activity_actions, menu);
         return true;
     }
 
+    //Was passieren soll wenn auf ein Item der Action Bar geklickt wird
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -351,11 +327,14 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
             case R.id.action_questionnaire:
                 openQuestionnaire();
                 return true;
+                case R.id.action_sources:
+                    openSources();
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
+    //Dialogfenster mit Anleitungen und Hilfe öffnen
     void openHelp() {
         new AlertDialog.Builder(this)
                 .setTitle(getString(R.string.alert_help))
@@ -368,11 +347,13 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
                 .show();
     }
 
+    //Die Activity mit Punktestand und Orden öffnen
     public void openBadges() {
         Intent intent = new Intent(MapActivity.this, BadgesActivity.class);
         startActivity(intent);
     }
 
+    //Dialogfenster öffnen, von dem aus der Nutzer die Evaluation starten kann
     void openQuestionnaire() {
         new AlertDialog.Builder(this)
                 .setTitle(R.string.dialog_evaluation_start)
@@ -392,6 +373,20 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
                 .show();
     }
 
+    //Dialogfenster mit den Quellen der Inhalte öffnen
+    void openSources () {
+        new AlertDialog.Builder(this)
+                .setTitle(getString(R.string.mainactivity_info_title))
+                .setMessage(getString(R.string.sources)+ getString(R.string.image_sources))
+                .setPositiveButton(getString(R.string.alert_ok), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                })
+                .setIcon(R.drawable.ic_action_info)
+                .show();
+    }
+
+    //Verhindern, dass beim Drehen des Smartphones die Anzeige rotiert
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
@@ -403,6 +398,7 @@ public class MapActivity extends ActionBarActivity implements OnMapReadyCallback
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
+    //Beim Klick auf den "Zurück" Button des Geräts soll die App geschlossen werden
     @Override
     public void onBackPressed () {
         Intent intent = new Intent(Intent.ACTION_MAIN);

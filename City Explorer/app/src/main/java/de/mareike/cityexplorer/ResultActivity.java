@@ -29,16 +29,20 @@ public class ResultActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.result_layout);
 
+        //Layout-Elemente verbinden
         saveButton = (Button) findViewById(R.id.saveButton);
         RatingBar bar=(RatingBar)findViewById(R.id.ratingBar1);
         bar.setNumStars(5);
         bar.setStepSize(0.5f);
         textResult = (TextView)findViewById(R.id.textResult);
 
+        //übergebenen Score und Marker ID entgegennehmen
         Bundle b = getIntent().getExtras();
         score = b.getInt("score");
         markerID = b.getInt("markerID");
+        //Sterne das Ergebnis anzeigen lassen
         bar.setRating(score);
+        //Text je nach Ergebnis snzeigen
         switch (score)
         {
             case 1:
@@ -51,7 +55,7 @@ public class ResultActivity extends Activity {
                 break;
         }
 
-
+        //Beim Klick auf Button "Speichern und Zurück": Score in die Score Tabelle der SQLite Datenbank eintragen oder aktualisieren und die DiscoverActivity öffnen
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +85,7 @@ public class ResultActivity extends Activity {
         });
     }
 
+    //Rotation verhindern
     @Override
     public void onConfigurationChanged(Configuration newConfig)
     {
@@ -93,6 +98,7 @@ public class ResultActivity extends Activity {
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
+    //Beim Klick auf den "Zurück" Button wird die Discover Activity gestartet
     @Override
     public void onBackPressed () {
         Intent intent = new Intent(ResultActivity.this, DiscoverActivity.class);
@@ -100,6 +106,7 @@ public class ResultActivity extends Activity {
         startActivity(intent);
     }
 
+    //Zeiger definieren, der nur Einträge aus der Score Tabelle mit dieser Marker ID anzeigt
     public Cursor getScore(DbHelper dbh) {
         dbase = dbh.getReadableDatabase();
         String columns[] = {dbh.COLUMN_SCORE, dbh.COLUMN_MARKERID};

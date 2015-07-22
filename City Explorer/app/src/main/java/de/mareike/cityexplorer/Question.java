@@ -18,6 +18,7 @@ public class Question {
         OPTC="";
         ANSWER="";
     }
+    //Erstelle einen Frage mit folgender Struktur
     public Question( String qUESTION, String oPTA, String oPTB, String oPTC,
                     String aNSWER) {
 

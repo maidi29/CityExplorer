@@ -37,10 +37,12 @@ public class NoteActivity extends ActionBarActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.note_layout);
 
+        //Layout-Elemente verbinden
         pinnenButton = (Button) findViewById(R.id.pinnenButtonNote);
         noteEditText = (EditText) findViewById(R.id.noteEditText);
         creativeTaskText = (TextView) findViewById(R.id.creativeTaskText);
 
+        //Übergebene Marker ID entgegennehmen
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
             if (extras == null) {
@@ -53,6 +55,7 @@ public class NoteActivity extends ActionBarActivity{
             markerID = (Integer) savedInstanceState.getSerializable("MarkerID");
         }
 
+        //Je nach Marker ID den Aufgabentext setzen
         if (markerID == 1) {
             creativeTaskText.setText(R.string.TaskText1);
         }
@@ -64,6 +67,7 @@ public class NoteActivity extends ActionBarActivity{
         }
     }
 
+    /*Wird beim Klick auf den Annpinnen-Button gestartet (XML), den ins Textfeld eingegebenen Text, sowie die marker ID an ApiConnector übergeben*/
     public void StartPinnen (View view) {
         calling = "upload";
         note = noteEditText.getText().toString();
@@ -79,6 +83,7 @@ public class NoteActivity extends ActionBarActivity{
             }
         }.execute(new ApiConnector());
 
+        //Einen Eintrag zur Upload Tabelle der SQLite Datenbank hinzufügen oder nichts tun falls bereits einer besteht
         DbHelper dbh = new DbHelper(context);
         Cursor cursor = getUpload(dbh);
         cursor.moveToFirst();
@@ -104,12 +109,15 @@ public class NoteActivity extends ActionBarActivity{
         }
         cursor.close();
 
+        //Die Pinborad Activity starten
         Intent intent = new Intent(NoteActivity.this,PinboardActivity.class);
         intent.putExtra("MarkerID", markerID);
+        //Mitgeben, welcher Button die Pinnwand aufgerufen hat
         intent.putExtra("calling", calling);
         startActivity(intent);
     }
 
+    //Beim Klick auf den Pinnwand Button einfach nur die Pinborad Activity öffnen ohne etwas hochzuladen
     public void Pinnwand (View view) {
         Intent intent = new Intent(NoteActivity.this,PinboardActivity.class);
         intent.putExtra("MarkerID", markerID);
@@ -117,6 +125,7 @@ public class NoteActivity extends ActionBarActivity{
         startActivity(intent);
     }
 
+    //Zeiger definieren um nur die Einträge der Upload Tabelle durchzugehen, die zu dieser Marker ID erstellt wurden
     public Cursor getUpload(DbHelper dbh) {
         String markerId = ""+markerID;
         dbase = dbh.getReadableDatabase();
@@ -126,6 +135,7 @@ public class NoteActivity extends ActionBarActivity{
         return cursor;
     }
 
+    //Rotation verhindern
     @Override
     public void onConfigurationChanged(Configuration newConfig)
     {
@@ -138,6 +148,7 @@ public class NoteActivity extends ActionBarActivity{
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
+    //Beim Zurück-Button die DiscoverActivity  mit der entasprechenden Marker ID öffnen
     @Override
     public void onBackPressed () {
         {

@@ -17,6 +17,7 @@ public class CreatePinboardActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Marker ID abrufen
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
             if(extras == null) {
@@ -28,6 +29,7 @@ public class CreatePinboardActivity extends ActionBarActivity {
             markerID = (Integer) savedInstanceState.getSerializable("MarkerID");
         }
 
+        //Festlegen bei welcher ID welche Activity aufgerufen werden soll
         if (markerID == 1) {
             StartNoteActivity();
         }
@@ -51,6 +53,7 @@ public class CreatePinboardActivity extends ActionBarActivity {
         }
     }
 
+    //Die jeweilige Activity starten und die Marker ID weiter mitgeben
 
     public void StartDrawActivity () {
         Intent intent = new Intent(CreatePinboardActivity.this,DrawActivity.class);
@@ -70,6 +73,7 @@ public class CreatePinboardActivity extends ActionBarActivity {
         startActivity(intent);
     }
 
+    //Rotation verhindern
     @Override
     public void onConfigurationChanged(Configuration newConfig)
     {

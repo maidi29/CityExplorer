@@ -13,7 +13,7 @@ import java.util.List;
 
 public class DbHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 28;
+    private static final int DATABASE_VERSION = 29;
     private static final String DATABASE_NAME = "CE";
 
     public static final String SCORE_TABLE = "score";
@@ -53,18 +53,23 @@ public class DbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         dbase = db;
 
+        //Tabellen erstellen
+
+        //Tabelle für die Quiz-Scores
         String create_query = "CREATE TABLE IF NOT EXISTS " + SCORE_TABLE + " ( "
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + COLUMN_SCORE + " INTEGER, "
                 + COLUMN_MARKERID + " INTEGER) ";
         db.execSQL(create_query);
 
+        //Tabelle für die Uploads (ob beim jeweiligen Marker bereits etwas hochgeladen wurde oder nicht)
         String query = "CREATE TABLE IF NOT EXISTS " + UPLOAD_TABLE + " ( "
                 + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + UPLOAD + " INTEGER, "
                 + MARKERID + " INTEGER) ";
         db.execSQL(query);
 
+        //Tabelle für die Quiz-Fragen
         String sql = "CREATE TABLE IF NOT EXISTS " + TABLE_QUEST + " ( "
                 + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + KEY_QUES + " TEXT, "
@@ -75,6 +80,7 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL(sql);
         addQuestions();
 
+        //Tabelle für die positiven Bewertungen, um bei bewerteten Einträgen ein ausgefülltes Herz anzuzeigen und bei nochmaligem bewerten den Like zurückzunehmen
         String likes = "CREATE TABLE IF NOT EXISTS " + TABLE_LIKES + " ( "
                 + LIKES_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + LIKES_MARKERID + " INTEGER, "
@@ -84,6 +90,7 @@ public class DbHelper extends SQLiteOpenHelper {
         //db.close();
     }
 
+    //Wenn die Datenbank Version erhöht wird sollen die existierenden Tabellen gelöscht werden
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldV, int newV) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_QUEST);
@@ -93,6 +100,9 @@ public class DbHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+   //METHODEN FÜR DIE SCORE TABELLE
+
+    //Methode um einen Eintrag für ein Quiz-Ergebnis hinzuzufügen
     public void addScore (DbHelper dbh, Integer score, Integer markerID) {
         dbase = dbh.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -101,6 +111,7 @@ public class DbHelper extends SQLiteOpenHelper {
         dbase.insert(SCORE_TABLE, null, cv);
     }
 
+    //Methode um einen bereits existierenden Eintrag mit Quiz-Ergebnis zu aktualisieren, wenn der Nutzer bei einem weiteren Durchgang volle Punktzahl erreicht hat
     public void updateScore (DbHelper dbh, Integer score, Integer markerID, Integer newScore) {
         dbase = dbh.getWritableDatabase();
         String selection = COLUMN_SCORE+ " LIKE ? AND "+ COLUMN_MARKERID + " LIKE ? ";
@@ -110,6 +121,7 @@ public class DbHelper extends SQLiteOpenHelper {
         dbase.update(SCORE_TABLE, values, selection, args);
     }
 
+    //Methode um die Punktzahl und die Marker ID alle Einträge der Scores-Tabelle auszugeben
     public Cursor getAllScores(DbHelper dbh) {
         dbase = dbh.getReadableDatabase();
         String columns[] = {COLUMN_SCORE, COLUMN_MARKERID};
@@ -117,7 +129,8 @@ public class DbHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-
+    //METHODEN FÜR DIE UPLOAD TABELLE
+    //Methode um einen Eintrag für einen ausgeführten Upload hinzuzufügen
     public void addUpload (DbHelper dbh, Integer upload, Integer markerID) {
         dbase = dbh.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -126,6 +139,7 @@ public class DbHelper extends SQLiteOpenHelper {
         dbase.insert(UPLOAD_TABLE, null, cv);
     }
 
+    //Methode um den Integer-Wert für Upload (1 wenn Upload erfolgt) und die Marker ID aller Einträge der Upload-Tabelle auszugeben
     public Cursor getAllUploads(DbHelper dbh) {
         dbase = dbh.getReadableDatabase();
         String columns[] = {UPLOAD, MARKERID};
@@ -133,6 +147,9 @@ public class DbHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+
+    //METHODEN FÜR DIE LIKE TABELLE
+    //Einen Tabelleneintrag mit positive Bewertung hinzufügen
     public void addLike (DbHelper dbh, Integer markerID, Integer entryID, Integer like) {
         dbase = dbh.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -142,6 +159,7 @@ public class DbHelper extends SQLiteOpenHelper {
         dbase.insert(TABLE_LIKES, null, cv);
     }
 
+    //Einen Tabelleneintrag aktualisieren, also entweder die positive Bewertung entfernen oder nach dem Entfernen wieder hinzufügen
     public void updateLike (DbHelper dbh, Integer markerID, Integer entryID, Integer like, Integer newLike) {
         dbase = dbh.getWritableDatabase();
         String selection = LIKES_ENTRYID + " LIKE ? AND " + LIKES_MARKERID + " LIKE ? ";
@@ -152,8 +170,8 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
 
-
-
+    //METHODEN FÜR DIE QUESTION TABELLE
+    //Eine Frage Hinzufügen
     public void addQuestion(Question quest) {
         //SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -166,6 +184,7 @@ public class DbHelper extends SQLiteOpenHelper {
         dbase.insert(TABLE_QUEST, null, values);
     }
 
+    //Liste aller Einträge der Question Tabelle erstellen
     public List<Question> getAllQuestions() {
         List<Question> quesList = new ArrayList<Question>();
         String selectQuery = "SELECT  * FROM " + TABLE_QUEST;
@@ -187,15 +206,8 @@ public class DbHelper extends SQLiteOpenHelper {
         return quesList;
     }
 
-    /*public int rowcount()
-    {   int row=0;
-        String selectQuery = "SELECT  * FROM " + TABLE_QUEST;
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-        row=cursor.getCount();
-        return row;
-    }*/
 
+    //Fragen definieren und hinzufügen
     private void addQuestions()
     {
         Question q1=new Question(context.getString(R.string.Quest1), context.getString(R.string.Answer1A), context.getString(R.string.Answer1B), context.getString(R.string.Answer1C), context.getString(R.string.Answer1A));

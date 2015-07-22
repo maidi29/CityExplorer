@@ -44,24 +44,25 @@ public class PictureActivity extends ActionBarActivity {
     Integer markerID;
     Button pinnenButton;
     ImageButton cameraButton;
-    EditText noteEditText;
     private File imageFile;
-    private Activity activity;
     Context context = this;
     Uri uriImage;
     TextView taskText;
     String calling = "activity";
     private SQLiteDatabase dbase;
+    Activity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.picture_layout);
 
+        //Layout-Elemente verbinden
         pinnenButton = (Button) findViewById(R.id.pinnenButtonPicture);
         cameraButton = (ImageButton) findViewById(R.id.cameraButton);
         taskText = (TextView) findViewById(R.id.taskText);
 
+        //übergebene Marker ID entgegennehmen
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
             if (extras == null) {
@@ -73,6 +74,7 @@ public class PictureActivity extends ActionBarActivity {
             markerID = (Integer) savedInstanceState.getSerializable("MarkerID");
         }
 
+        //Je nach Marker ID den entsprechenden Aufgabentext setzen
         if (markerID == 4) {
             taskText.setText(getString(R.string.TaskText4));
         }
@@ -81,6 +83,8 @@ public class PictureActivity extends ActionBarActivity {
         }
     }
 
+    /*wird beim Klick auf den Kamera Button aufgerufen (XML)
+    Smartphone-interne Kamera Starten und gemachtes Bild im png Format auf dem Gerät abspeichern*/
     public void startCamera(View view) {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         File imageFolder = new File (Environment.getExternalStorageDirectory(), Environment.DIRECTORY_DCIM);
@@ -93,11 +97,11 @@ public class PictureActivity extends ActionBarActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+        //Falls Foto gemacht wurde, die Adresse der Datei aufrufen
         if (requestCode == 0 && resultCode == getActivity().RESULT_OK) {
             String filePath = uriImage.getPath();
 
-            Log.d("FILE PATH CAMEREA:->", filePath);
-
+            //Bild im ImageView anzeigen
             try
             {
                 File f = new File(filePath);
@@ -145,16 +149,18 @@ public class PictureActivity extends ActionBarActivity {
         }
     }
 
+    //Methode wird beim Klick auf den Anpinnen-Button aufgerufen (XML)
     public void StartPinnenPicture (View view) {
         calling = "upload";
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inSampleSize = 1;
+        //Absturz verhindern falls kein Bild gemacht wurde
         if (imageFile == null) {
             Toast.makeText(getBaseContext(), getString(R.string.toast_no_picture), Toast.LENGTH_LONG).show();
         }
         else {
+            //Bild encodieren und an ApiConnector übergeben
             final Bitmap image = BitmapFactory.decodeFile(imageFile.getAbsolutePath(), options);
-            Log.d("Pin", imageFile.toString());
             String imageData = encodeTobase64(image);
             final List<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("image", imageData));
@@ -168,12 +174,12 @@ public class PictureActivity extends ActionBarActivity {
                 }
             }.execute(new ApiConnector());
 
+            //Eintrag in Upload Tabelle erstellen; falls bereits einer besteht nichts tun
             DbHelper dbh = new DbHelper(context);
             Cursor cursor = getUpload(dbh);
             cursor.moveToFirst();
             if (cursor.moveToFirst()) {
                 do {
-                    Log.d("Datenbank", "Inhalt: " + cursor.getString(0) + cursor.getString(1));
                     if (Integer.parseInt(cursor.getString(0)) == 0) {
                         dbh.addUpload(dbh, 1, markerID);
                         finish();
@@ -191,6 +197,7 @@ public class PictureActivity extends ActionBarActivity {
             }
             cursor.close();
 
+            //Pinborad Activity starten und neben Marker ID auch übergeben von welchem Button aus die Activity gestartet wurde
             Intent intent = new Intent(PictureActivity.this, PinboardActivity.class);
             intent.putExtra("MarkerID", markerID);
             intent.putExtra("calling", calling);
@@ -198,6 +205,7 @@ public class PictureActivity extends ActionBarActivity {
         }
     }
 
+    //Methode wird beim Klick auf Pinnwand-Button aufgerufen (XML) und startet die PinboardActivity
     public void Pinnwand (View view) {
         Intent intent = new Intent(PictureActivity.this,PinboardActivity.class);
         intent.putExtra("MarkerID", markerID);
@@ -205,6 +213,7 @@ public class PictureActivity extends ActionBarActivity {
         startActivity(intent);
     }
 
+    //Methode um Bild Datei zu enkodieren
     public static String encodeTobase64(Bitmap image) {
         System.gc();
         if (image == null) {
@@ -222,6 +231,7 @@ public class PictureActivity extends ActionBarActivity {
         return activity;
     }
 
+    //Zeiger definieren, der nur Einträge aus der Upload Tabelle mit dieser Marker ID anzeigt
     public Cursor getUpload(DbHelper dbh) {
         String markerId = ""+markerID;
         dbase = dbh.getReadableDatabase();
@@ -231,6 +241,7 @@ public class PictureActivity extends ActionBarActivity {
         return cursor;
     }
 
+    //Rotation verhindern
     @Override
     public void onConfigurationChanged(Configuration newConfig)
     {
@@ -242,6 +253,8 @@ public class PictureActivity extends ActionBarActivity {
     {
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
+
+    //Bei Rotaton Zustand speichern und wiederhersetellen
 
     @Override
     public void onSaveInstanceState(Bundle outState)
@@ -256,6 +269,7 @@ public class PictureActivity extends ActionBarActivity {
         uriImage = savedInstanceState.getParcelable("file_uri");
     }
 
+    //Beim Klick auf den Zurück-Button die DiscoverActivity mit ensprechender Marker ID öffnen
     @Override
     public void onBackPressed () {
         {

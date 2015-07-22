@@ -50,6 +50,7 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.draw_layout);
 
+        //übergebene Marker ID entgegennehmen
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
             if(extras == null) {
@@ -61,6 +62,8 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
             markerID = (Integer) savedInstanceState.getSerializable("MarkerID");
         }
 
+
+        //Layout Elemente verbinden und definieren
         pinnenButton = (Button) findViewById(R.id.pinnenButton);
         taskText = (TextView) findViewById(R.id.taskTextView);
 
@@ -83,6 +86,7 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
 
         drawView.setBrushSize(mediumBrush);
 
+        //Je nach marker ID die entsprechende Aufgabe anzeigen
         if (markerID == 2) {
             taskText.setText(getString(R.string.TaskText2));
         }
@@ -94,8 +98,12 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
         }
     }
 
+    //Klicks auf die Buttons abfangen
     @Override
     public void onClick(View view){
+        /*Beim Klick auf den Stift Button wird ein Dialogfesnter mit 3 Stiftgröen angezeigt, je nachdem welche Größe
+        in diesem Fenster ausgewählt wird, wird die Methode setBrushSize der Klasse DrawingView mit der ensprechenden Größe aufgerufen und
+        das Dialogfesnter geschlossen*/
         if(view.getId()==R.id.draw_btn){
             final Dialog brushDialog = new Dialog(this);
             brushDialog.setTitle(getString(R.string.dialogTitleBrush));
@@ -135,6 +143,8 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
             });
             brushDialog.show();
         }
+
+        /*Beim Klick auf den Radiergummi wird analog zum Klick auf den Stift verfahren, nur dass die Methode setErase der Klasse DrawningView aufgerufen wird*/
         else if(view.getId()==R.id.erase_btn){
             final Dialog brushDialog = new Dialog(this);
             brushDialog.setTitle(getString(R.string.dialogTitleEraser));
@@ -169,6 +179,7 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
             });
             brushDialog.show();
         }
+        //Beim Klick auf das "Neue Dokument" wird ein Dialog angezeigt in dem abgefragt wird ob der Nutzer das aktuelle Bild verwerfen will. Wird bestätigt wird die Methode startNew() aufgerufen
         else if(view.getId()==R.id.new_btn){
             AlertDialog.Builder newDialog = new AlertDialog.Builder(this);
             newDialog.setTitle(getString(R.string.dialogNewTitle));
@@ -186,6 +197,8 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
             });
             newDialog.show();
         }
+        /*Beim Klick auf den Spreichern Button wird in einem Dialog Fesnter gefragt ob die Zeichnungn gespreichert werden soll, bei ja wird das Bild mit einem zufälligen Namen im Format png auf dem Gerät gespeichert
+        und zur Bestätigung ein Hinweis angezeigt*/
         else if(view.getId()==R.id.save_btn){
             AlertDialog.Builder saveDialog = new AlertDialog.Builder(this);
             saveDialog.setTitle(getString(R.string.dialogSaveTitle));
@@ -221,6 +234,7 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
 
     }
 
+    //Methode um ein Bild zu enkodieren
     public static String encodeTobase64(Bitmap image) {
         if (image == null) {
             return null;
@@ -233,7 +247,7 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
         return imageEncoded;
     }
 
-
+    //Beim Klick auf den Button "Anpinnen" wird das Bild mit der obigen Methide enkodiert und gemeinsam mit der Marker ID an den ApiConnector übergeben, der anzeigt ob die Pinnwand über diesen oder den "Anpinneen" Button geöffnet wurde
     public void StartPinnen (View view) {
         calling = "upload";
         drawView.setDrawingCacheEnabled(true);
@@ -254,6 +268,7 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
             }
         }.execute(new ApiConnector());
 
+        //Besteht bei diesem Marker noch kein Eintrag in der Upload Tabelle der Datenbank wird dieser hinzugefügt, besteht bereits einer passiert nichts
         DbHelper dbh = new DbHelper(context);
         Cursor cursor = getUpload(dbh);
         cursor.moveToFirst();
@@ -279,12 +294,14 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
         }
         cursor.close();
 
+        //Dann wird die neue Activity gestartet in der die Pinnwand mit allen Einträgen angezeigt wiird
         Intent intent = new Intent(DrawActivity.this,PinboardActivity.class);
         intent.putExtra("MarkerID", markerID);
         intent.putExtra("calling", calling);
         startActivity(intent);
     }
 
+    //Methode wird aufgerufen, wenn Nutzer auf Pinnwnad-Button klickt ohne etwas hochzuladen, es wird die neue PinboardActivity gestartet und neben der Marker ID ein String übergeben
     public void Pinnwand (View view) {
         Intent intent = new Intent(DrawActivity.this,PinboardActivity.class);
         intent.putExtra("MarkerID", markerID);
@@ -292,6 +309,7 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
         startActivity(intent);
     }
 
+    //wird eine Farbe angeklickt wird diese dem DrawingView über die Methode setColor mitgegeben
     public void paintClicked(View view){
         drawView.setErase(false);
         drawView.setBrushSize(drawView.getLastBrushSize());
@@ -306,6 +324,7 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
 
     }
 
+    //Zeiger definieren um nur die Upload-Einträge zu dieser Marker ID zu erhalten
     public Cursor getUpload(DbHelper dbh) {
         String markerId = ""+markerID;
         dbase = dbh.getReadableDatabase();
@@ -315,6 +334,7 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
         return cursor;
     }
 
+    //Rotation verhindern
     @Override
     public void onConfigurationChanged(Configuration newConfig)
     {
@@ -327,7 +347,7 @@ public class DrawActivity extends ActionBarActivity implements OnClickListener {
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
-
+    //Beim Klick des Zurück-Buttons soll die DiscoverActivity mit der entsprechenden Marker ID aufgerufen werden
     @Override
     public void onBackPressed () {
         {

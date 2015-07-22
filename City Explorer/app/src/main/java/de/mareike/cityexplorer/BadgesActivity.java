@@ -36,11 +36,12 @@ public class BadgesActivity extends ActionBarActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.badges_layout);
 
-
+        //Layout-Elemente verbinden
         pointsText = (TextView)findViewById(R.id.pointsText);
         uploadPointsText = (TextView) findViewById(R.id.uploadPointsText);
         summary = (TextView) findViewById(R.id.summary);
 
+        //Anzahl der erfolgreich abgeschlossenen Quizzes aus der SQLite Datenbank beziehen
         dbh  = new DbHelper(context);
         cursor = dbh.getAllScores(dbh);
         cursor.moveToFirst();
@@ -54,6 +55,7 @@ public class BadgesActivity extends ActionBarActivity{
         }
         cursor.close();
 
+        //ANzahl der Uploads aus der SQLite Datenbank beziehen
         c = dbh.getAllUploads(dbh);
         c.moveToFirst();
         if (c.moveToFirst()) {
@@ -66,6 +68,7 @@ public class BadgesActivity extends ActionBarActivity{
         }
         c.close();
 
+        //Gesamtpunktzahl berechnen und mit entsprechenden Texten anzeigen
         sum = points + uploadPoints;
         pointsText.setText(getString(R.string.badesQuizText) + points);
         uploadPointsText.setText(getString(R.string.badesPinnwandText) + uploadPoints);
@@ -76,6 +79,7 @@ public class BadgesActivity extends ActionBarActivity{
 
     }
 
+    //Orden mit Titeln und Bildern definieren und bei welchen Punktzahlen sie angezeigt werden sollen
     private void populateBadgeList() {
         if (sum >= 1) {
             myBadges.add(new Badge(getString(R.string.badge1_titel), getString(R.string.badge1_subtitle), R.drawable.badge1));
@@ -94,17 +98,18 @@ public class BadgesActivity extends ActionBarActivity{
         }
     }
 
+    //Custom List Adapter setzen
     private void populateListView() {
         ArrayAdapter<Badge> adapter = new MyListAdapter();
         ListView list = (ListView) findViewById(R.id.listView);
         list.setAdapter(adapter);
     }
-
     private class MyListAdapter extends ArrayAdapter<Badge> {
         public MyListAdapter() {
             super(BadgesActivity.this, R.layout.badges_list_view_cell, myBadges);
         }
 
+        //Die einzelnen List Items mit den Orden und ihren Texten befüllen
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -128,6 +133,7 @@ public class BadgesActivity extends ActionBarActivity{
         }
     }
 
+    //Rotation verhindern
     @Override
     public void onConfigurationChanged(Configuration newConfig)
     {
