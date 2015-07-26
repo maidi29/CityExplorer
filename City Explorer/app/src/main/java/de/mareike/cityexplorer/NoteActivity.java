@@ -67,7 +67,8 @@ public class NoteActivity extends ActionBarActivity{
         }
     }
 
-    /*Wird beim Klick auf den Annpinnen-Button gestartet (XML), den ins Textfeld eingegebenen Text, sowie die marker ID an ApiConnector übergeben*/
+    /*Wird beim Klick auf den Annpinnen-Button gestartet (XML)
+    Übergebe den ins Textfeld eingegebenen Text, sowie die Marker ID an den ApiConnector*/
     public void StartPinnen (View view) {
         calling = "upload";
         note = noteEditText.getText().toString();
@@ -83,7 +84,7 @@ public class NoteActivity extends ActionBarActivity{
             }
         }.execute(new ApiConnector());
 
-        //Einen Eintrag zur Upload Tabelle der SQLite Datenbank hinzufügen oder nichts tun falls bereits einer besteht
+        //Einen Eintrag zur Upload Tabelle der SQLite Datenbank hinzufügen oder nichts tun, falls bereits einer besteht
         DbHelper dbh = new DbHelper(context);
         Cursor cursor = getUpload(dbh);
         cursor.moveToFirst();
@@ -125,7 +126,7 @@ public class NoteActivity extends ActionBarActivity{
         startActivity(intent);
     }
 
-    //Zeiger definieren um nur die Einträge der Upload Tabelle durchzugehen, die zu dieser Marker ID erstellt wurden
+    //Zeiger definieren, um nur die Einträge der Upload Tabelle durchzugehen, die zu dieser Marker ID erstellt wurden
     public Cursor getUpload(DbHelper dbh) {
         String markerId = ""+markerID;
         dbase = dbh.getReadableDatabase();

@@ -82,7 +82,7 @@ public class PinboardListViewAdapter extends BaseAdapter {
         }
         cell.position = position;
 
-        //Listen Items mit entsprechenden Elementen aus dem heruntergeladenen Array befüllen
+        //Listen-Items mit entsprechenden Elementen aus dem heruntergeladenen Array befüllen
         try {
             JSONObject jsonObject = this.dataArray.getJSONObject(position);
             cell.likes.setText(jsonObject.getString("likes"));

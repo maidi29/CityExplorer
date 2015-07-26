@@ -100,7 +100,7 @@ public class QuizActivity extends Activity {
                     }
 
                     grp.clearCheck();
-                    //je nach Marker ID wird ein andere Endpunkt gesetzt bei dem dann das Ergebnis in der ResultActivity angezeigt wird
+                    //je nach Marker ID einen anderen Endpunkt setzen bei dem dann das Ergebnis in der ResultActivity angezeigt wird
                     if (markerID == 1) {
                         if(qid<5) {
                             currentQ = quesList.get(qid);

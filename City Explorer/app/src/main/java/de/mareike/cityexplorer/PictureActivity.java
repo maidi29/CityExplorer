@@ -97,7 +97,7 @@ public class PictureActivity extends ActionBarActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        //Falls Foto gemacht wurde, die Adresse der Datei aufrufen
+        //Falls ein Foto gemacht wurde, die Adresse der Datei aufrufen
         if (requestCode == 0 && resultCode == getActivity().RESULT_OK) {
             String filePath = uriImage.getPath();
 

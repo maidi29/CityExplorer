@@ -45,16 +45,16 @@ public class PinboardActivity extends ActionBarActivity{
     DbHelper dbh = new DbHelper(context);
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pinboard_layout);
 
+        //ListView konfigurieren
         listCell = new PinboardListViewAdapter.ListCell();
         getALlEntrysListView = (ListView) findViewById(R.id.getAllEntrysListView);
 
-
+        //Marker ID und String entgegennehmen, der sagt welcher Button die Pinnwand aufgerufen hat
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
             if(extras == null) {
@@ -69,8 +69,10 @@ public class PinboardActivity extends ActionBarActivity{
             calling = (String) savedInstanceState.getSerializable("calling");
         }
 
+        //Inhalte herunterladen
         new getAllEntrysTask().execute(new ApiConnector());
 
+        //Doppelklick auf List Item
         getALlEntrysListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -101,6 +103,7 @@ public class PinboardActivity extends ActionBarActivity{
                     int objectID = Integer.parseInt(entryID);
                     Cursor cursor = getLikes(dbh);
                     cursor.moveToFirst();
+                    //positive Bewertung in Like Tabelle in der SQLite Datenbank eintragen oder aktualisieren
                     if (cursor.moveToFirst()) {
                         do {
                             if (Integer.parseInt(cursor.getString(2)) == 1) {
@@ -128,11 +131,13 @@ public class PinboardActivity extends ActionBarActivity{
         });
     }
 
+    //List Adapter setzten
     public  void setListAdapter(JSONArray jsonArray) {
         this.jsonArray = jsonArray;
         this.getALlEntrysListView.setAdapter(new PinboardListViewAdapter(jsonArray, this, markerID));
     }
 
+    //Inhalte herunterladen
     private class getAllEntrysTask extends AsyncTask<ApiConnector,Long,JSONArray> {
         @Override
         protected JSONArray doInBackground(ApiConnector... params) {
@@ -145,18 +150,8 @@ public class PinboardActivity extends ActionBarActivity{
         }
     }
 
-    @Override
-    public void onConfigurationChanged(Configuration newConfig)
-    {
-        super.onConfigurationChanged(newConfig);
-        lockScreenRotation(Configuration.ORIENTATION_PORTRAIT);
-    }
-
-    private void lockScreenRotation(int orientation)
-    {
-        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-    }
-
+    /* Beim Klick auf den Zurück-Button soll entweder die Übersicht der Sehenswürdigkeit (DIscoverActivity) angezeigt werden,falls der Nutzer etwas hochgeladen hat
+    oder wieder die Kreativaufgabe (letzte Activity) wieder angezeigt werden, falls der Nutzer noch nichts hochgeladen hat*/
     @Override
     public void onBackPressed () {
         if (calling.equals("activity")) {
@@ -169,6 +164,7 @@ public class PinboardActivity extends ActionBarActivity{
         }
     }
 
+    //Anzahl positiver Bewertungen auf dem Server erhöhen und Activity neu starten, um die neue Anzahl in der Liste anzuzeigen
     public void likeUpload (String entryID){
 
         final List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -187,7 +183,6 @@ public class PinboardActivity extends ActionBarActivity{
         startActivity(getIntent());
 
     }
-
     private void dislike(String entryID) {
 
         final List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -207,12 +202,26 @@ public class PinboardActivity extends ActionBarActivity{
 
     }
 
+    //Zeiger definieren, der nur die positiven Bewertungen dieses Markers und des aktuellen Eintrags zurückgibt
     public Cursor getLikes(DbHelper dbh) {
         dbase = dbh.getReadableDatabase();
         String columns[] = {dbh.LIKES_MARKERID, dbh.LIKES_ENTRYID, dbh.LIKES_LIKE};
         String args[] = {markerID.toString(), entryID};
         Cursor cursor = dbase.query(dbh.TABLE_LIKES, columns, dbh.LIKES_MARKERID + " LIKE ? AND " + dbh.LIKES_ENTRYID + " LIKE ? ", args , null, null, null, null);
         return cursor;
+    }
+
+    //Rotation verhindern
+    @Override
+    public void onConfigurationChanged(Configuration newConfig)
+    {
+        super.onConfigurationChanged(newConfig);
+        lockScreenRotation(Configuration.ORIENTATION_PORTRAIT);
+    }
+
+    private void lockScreenRotation(int orientation)
+    {
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
 }

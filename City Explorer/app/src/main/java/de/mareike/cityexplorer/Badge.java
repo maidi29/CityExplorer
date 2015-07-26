@@ -6,7 +6,7 @@ public class Badge {
     String subtitle;
     int iconID;
 
-    //Erstelle einen Orden mit folgender Struktur
+    //Orden mit folgender Struktur erstellen
     public Badge(String title, String subtitle, int iconID) {
         this.title = title;
         this.subtitle = subtitle;

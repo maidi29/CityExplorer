@@ -170,7 +170,7 @@ public class DiscoverActivity extends ActionBarActivity {
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
-    //Öffne wieder die MapActivity, wenn der "Zurück"-Buttonn des geräts geklickt wird
+    //MapActivity wieder öffnen, wenn der "Zurück"-Buttonn des geräts geklickt wird
     @Override
     public void onBackPressed () {
         Intent intent = new Intent(DiscoverActivity.this, MapActivity.class);

@@ -98,7 +98,7 @@
         Erbaut wurde sie 1720 -1744 nach den Plänen von Balthasar Neumann. Die Decke des Treppenhauses wurde vom bedeutendsten Freskenmaler der Zeit, Giovanni Tiepolo, mit dem größten zusammenhängenden Fresko der Welt (ca. 580 m2) ausgestattet. Thema des Gemäldes sind die vier (damals anerkannten) Kontinente: Europa, Amerika, Afrika und Asien.\n
         Die Residenz diente ehemals als Sitz der Würzburger Fürstbischöfe.\n\n
         Bei der Zerstörung der Stadt im 2. Weltkrieg am 16. März 1945 wurden große Teile der Residenz zerstört, die Wiederherstellung der Paradezimmer des Kaisers dauerte nahezu 40 Jahre. Die UNESCO bezeichnet das 1997 rekonstruierte Spiegelkabinett als das vollkommenste Raumkunstwerk des Rokoko.\n\n
-        Der Hofgarten war durch die barocke Stadtmauer begrenzt. Zu dieser hohen Befestigungsmauer führen symmetrisch zwei rahmende Treppenanlagen hinauf, wobei auf halber Höhe eine Terrasse eingefügt wurde. Heute blühen hier hunderte von alten Rosensorten, früher waren es beschnittene Obstbäume.\n\n
+        Der Hofgarten war durch die barocke Stadtmauer begrenzt. Zu dieser hohen Befestigungsmauer führen symmetrisch zwei rahmende Treppenanlagen hinauf, wobei auf halber Höhe eine Terrasse eingefügt wurde. Heute blühen hier hunderte alter Rosensorten, früher waren es beschnittene Obstbäume.\n\n
         Die Residenz hat etwa 340 Räume, von denen 42 bei einer Besichtigung als Schauräume besucht werden können. Die anderen Räume werden teilweise von der Universität und vom Martin-von-Wagner-Museum genutzt.\n\n
         Die Residenz war neben der Marienburg und der alten Mainbrücke Schauplatz des Kinofilms „Die drei Musketiere“ aus dem Jahr 2011 mit Orlando Bloom und Christoph Waltz.
     </string>
@@ -119,9 +119,8 @@
 
     <string name="Title4">Alter Kranen</string>
     <string name="Text4">Der Alte Kranen ist ein barocker Hafenkran mit Doppelausleger aus dem Jahre 1773 auf dem Kranenkai in Würzburg am rechten Mainufer. Er wurde zur Belebung des Mainhandels erbaut.\n\n
-        Das Wappen des Fürstbischofs Adam Friedrich von Seinsheim, der den Bau veranlasst hatte, flankiert von den Göttergestalten Franconia (Schutzgöttin und Personifikation Frankens) mit Rennfähnlein und Moenus (Flussgott und Fluss Main) ist in die dem Main zugewandte Kranmauer eingelassen.\n
-        Die Inschrift des Krans unter dem Wappen in Latein verspricht: „accipio trado quod libet expedio“, was übersetzt bedeutet „Ich empfange, übergebe, was beliebt, [und] befördere [es]“.\n
-        (Die Schrift ist in der Form: "aCCIpIo traDo qVoDL Vbet eXpeDIo" ausgeführt, um die Jahreszahl „1773“ aufzuzeigen: CCIIDVDLVXDI ergibt geordnet: DDDCCLXVVIII, daraus mit DD = M und VV = X die korrekte Schreibweise: MDCCLXXIII = 1773)\n\n
+        Das Wappen des Fürstbischofs Adam Friedrich von Seinsheim, der den Bau veranlasst hatte, flankiert von den Göttergestalten Franconia (Schutzgöttin und Personifikation Frankens) mit Rennfähnlein und Moenus (Flussgott und Fluss Main) ist in die dem Main zugewandte Kranmauer eingelassen.
+        Die Inschrift des Krans unter dem Wappen in Latein verspricht: „accipio trado quod libet expedio“, was übersetzt bedeutet „Ich empfange, übergebe, was beliebt, [und] befördere [es]“. Die Schrift ist in der Form: "aCCIpIo traDo qVoDL Vbet eXpeDIo" ausgeführt, um die Jahreszahl „1773“ aufzuzeigen.\n\n
         Den Zweiten Weltkrieg überstand der Alte Kranen mit seinem völlig intakten Mechanismus unbeschadet, obwohl Würzburg dabei zu mehr als 80 Prozent zerstört wurde.\n\n
         Aufgrund der günstigen zentralen Lage direkt am Main und einer Reihe von Sitzgelegenheiten ist der Alte Kranen heute ein beliebter Treffpunkt, besonders an Sommerabenden.
     </string>
@@ -143,7 +142,7 @@
 
     <string name="Title6">Grafeneckart</string>
     <string name="Text6">Der Grafeneckart ist ein 55 Meter hoher, romanischer Turm und der älteste Teil des Würzburger Rathauses. Der mittelalterliche Turm wurde 1180 erstmals erwähnt und nach dem Vize-Burggraf Eckart de Foro benannt, der dort wohnte und ermordet wurde.\n\n
-        Der westlich an den Turm angebauten Seitenflügel trägt den Namen Grünbaum, aufgrund einer Linde, die Jahrhunderte lang auf dem freien Platz vor dem Grafeneckart stand. Unter diesem Baum wurde im Mittelalter Gericht gehalten, die Verurteilen kamen danach ins Verlies des Grafeneckarts, das sogenannten „Loch“, bis sie zur Hinrichtung abgeholt und an dem außen am Rathaus angebrachten Stock (Pranger) zur Schau gestellt wurden.\n\n
+        Der westlich an den Turm angebauten Seitenflügel trägt den Namen Grünbaum, aufgrund einer Linde, die Jahrhunderte lang auf dem freien Platz vor dem Grafeneckart stand. Unter diesem Baum wurde im Mittelalter Gericht gehalten. Die Verurteilen kamen danach ins Verlies des Grafeneckarts, das sogenannten „Loch“, bis sie zur Hinrichtung abgeholt und an dem außen am Rathaus angebrachten Stock (Pranger) zur Schau gestellt wurden.\n\n
         Im westlichen Obergeschoss befindet sich der eindrucksvolle gotische Wenzelsaal, einer der schönsten mittelalterlichen Innenräume Würzburgs.\n\n
         1316 erwarben die Bürger den Grafeneckart als Zeichen bürgerlicher Unabhängigkeit gegenüber dem bischöflichen Landsherrn.\n\n
         Beim Bombenangriff am 16. März 1945 wurde der mittelalterliche Kern des Grafeneckarts teilweise getroffen aber Gewölbe und Fassade blieben erhalten.\n\n
