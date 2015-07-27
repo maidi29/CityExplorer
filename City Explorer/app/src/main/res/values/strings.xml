@@ -119,14 +119,14 @@
 
     <string name="Title4">Alter Kranen</string>
     <string name="Text4">Der Alte Kranen ist ein barocker Hafenkran mit Doppelausleger aus dem Jahre 1773 auf dem Kranenkai in Würzburg am rechten Mainufer. Er wurde zur Belebung des Mainhandels erbaut.\n\n
-        Das Wappen des Fürstbischofs Adam Friedrich von Seinsheim, der den Bau veranlasst hatte, flankiert von den Göttergestalten Franconia (Schutzgöttin und Personifikation Frankens) mit Rennfähnlein und Moenus (Flussgott und Fluss Main) ist in die dem Main zugewandte Kranmauer eingelassen.
+        Das Wappen des Fürstbischofs Adam Friedrich von Seinsheim, der den Bau veranlasst hatte, flankiert von den Göttergestalten Franconia (Schutzgöttin und Personifikation Frankens) mit Rennfähnlein und Moenus (Flussgott und Fluss Main), ist in die dem Main zugewandte Kranmauer eingelassen.
         Die Inschrift des Krans unter dem Wappen in Latein verspricht: „accipio trado quod libet expedio“, was übersetzt bedeutet „Ich empfange, übergebe, was beliebt, [und] befördere [es]“. Die Schrift ist in der Form: "aCCIpIo traDo qVoDL Vbet eXpeDIo" ausgeführt, um die Jahreszahl „1773“ aufzuzeigen.\n\n
         Den Zweiten Weltkrieg überstand der Alte Kranen mit seinem völlig intakten Mechanismus unbeschadet, obwohl Würzburg dabei zu mehr als 80 Prozent zerstört wurde.\n\n
         Aufgrund der günstigen zentralen Lage direkt am Main und einer Reihe von Sitzgelegenheiten ist der Alte Kranen heute ein beliebter Treffpunkt, besonders an Sommerabenden.
     </string>
     <string name="image_text_4">Würzburg, Anfang des 19. Jahrhunderts\n(Doppelt tippen um zu Zoomen)</string>
     <string name="image_source_4"></string>
-    <string name="TaskText4">Zeige anhand eines Fotos, bis wohin du beim Hochwasser am 16.1.1920 im Wasser gestanden wärst.</string>
+    <string name="TaskText4">Zeige anhand eines Fotos bis wohin du beim Hochwasser am 16.1.1920 im Wasser gestanden wärst.</string>
 
     <string name="Title5">Marienkapelle</string>
     <string name="Text5">Die Marienkapelle ist ein gotischer Kirchenbau aus dem 14. Jahrhundert. Der Bau wurde als Sühne von der Bürgerschaft errichtet und hat daher keine pfarrkirchlichen Rechte, deshalb wird er als Kapelle bezeichnet.\n\n
@@ -142,10 +142,10 @@
 
     <string name="Title6">Grafeneckart</string>
     <string name="Text6">Der Grafeneckart ist ein 55 Meter hoher, romanischer Turm und der älteste Teil des Würzburger Rathauses. Der mittelalterliche Turm wurde 1180 erstmals erwähnt und nach dem Vize-Burggraf Eckart de Foro benannt, der dort wohnte und ermordet wurde.\n\n
-        Der westlich an den Turm angebauten Seitenflügel trägt den Namen Grünbaum, aufgrund einer Linde, die Jahrhunderte lang auf dem freien Platz vor dem Grafeneckart stand. Unter diesem Baum wurde im Mittelalter Gericht gehalten. Die Verurteilen kamen danach ins Verlies des Grafeneckarts, das sogenannten „Loch“, bis sie zur Hinrichtung abgeholt und an dem außen am Rathaus angebrachten Stock (Pranger) zur Schau gestellt wurden.\n\n
+        Der westlich an den Turm angebaute Seitenflügel trägt den Namen Grünbaum, aufgrund einer Linde, die Jahrhunderte lang auf dem freien Platz vor dem Grafeneckart stand. Unter diesem Baum wurde im Mittelalter Gericht gehalten. Die Verurteilen kamen danach ins Verlies des Grafeneckarts, das sogenannten „Loch“, bis sie zur Hinrichtung abgeholt und an dem außen am Rathaus angebrachten Stock (Pranger) zur Schau gestellt wurden.\n\n
         Im westlichen Obergeschoss befindet sich der eindrucksvolle gotische Wenzelsaal, einer der schönsten mittelalterlichen Innenräume Würzburgs.\n\n
         1316 erwarben die Bürger den Grafeneckart als Zeichen bürgerlicher Unabhängigkeit gegenüber dem bischöflichen Landsherrn.\n\n
-        Beim Bombenangriff am 16. März 1945 wurde der mittelalterliche Kern des Grafeneckarts teilweise getroffen aber Gewölbe und Fassade blieben erhalten.\n\n
+        Beim Bombenangriff am 16. März 1945 wurde der mittelalterliche Kern des Grafeneckarts teilweise getroffen, aber Gewölbe und Fassade blieben erhalten.\n\n
         Eine Sonnenuhr schmückt die Südfassade des Turms, vom Vierröhrenbrunnen aus gut zu betrachten. Sie ist allerdings ungenau, selbst nach präziser Umrechnung aller genau berechenbaren jahreszeitlichen- und Längengrad-Abweichungen weicht sie, vor allem nachmittags, bis zu 40 Minuten ab.\n\n
         Im Erdgeschoss des Grafeneckarts befindet sich ein Gedenkraum für die Erinnerung an die Zerstörung Würzburgs. Die Dauerausstellung wurde 2011 modernisiert und zeigt unter anderem ein Modell des zerstörten Würzburgs. Jedoch sorgte die Verwendung des Begriffs „Terrorangriff“ auf den neuen Infotafeln für kontroverse Diskussionen.\n\n
         Vor dem Rathaus befindet sich der Vierröhrenbrunnen aus der Mitte des 18. Jahrhunderts, dessen Ausgestaltung typisch für die Zeit des Spätbarock ist.\nAm 11. April 2015 wurde von unbekannten eine Substanz in das Brunnenwasser gegeben. Das Wasser schimmerte daraufhin giftgrün und erregte viel Aufmerksamkeit. Die Substanz war zwar weder giftig noch schädlich, das Wasser wurde dennoch ausgetauscht.
@@ -208,7 +208,7 @@
     <string name="Answer8B">5</string>
     <string name="Answer8C">6</string>
     <string name="Quest9">In den bogenförmigen Laubengängen im Hofgarten hinter der Residenz befinden sich 12 der berühmten Putten von Johann Peter Wagner. Was ist wohl eine Putte?</string>
-    <string name="Answer9A">Ein plastisches Bildnis, eines Kopfes einer Person unter Hinzunahme des Halses und der Schultern</string>
+    <string name="Answer9A">Ein plastisches Bildnis eines Kopfes einer Person unter Hinzunahme des Halses und der Schultern</string>
     <string name="Answer9B">Skulptur (oder Malerei) eine Kindergestalt, die meist wenig bekleidet oder nackt ist</string>
     <string name="Answer9C">Skulptur (oder Malerei) eines Tieres</string>
     <string name="Quest10">Wie viele weiße Bänke befinden sich um den Teich im flachen rechteckigen Garten südlich neben der Residenz?</string>
@@ -245,7 +245,7 @@
     <string name="Answer17A">1846</string>
     <string name="Answer17B">1920</string>
     <string name="Answer17C">1903</string>
-    <string name="Quest18">Das Wappen des Fürstbischofs Adam Friedrich von Seinsheim, flankiert von den Göttergestalten Franconia (Schutzgöttin und Personifikation Frankens) Moenus (Flussgott und Fluss Main) ist in die dem Main zugewandte Kranmauer eingelassen. Welche Tiere sind auf dem kleinen Wappenrelief zu sehen?</string>
+    <string name="Quest18">Das Wappen des Fürstbischofs Adam Friedrich von Seinsheim, flankiert von den Göttergestalten Franconia (Schutzgöttin und Personifikation Frankens) Moenus (Flussgott und Fluss Main), ist in die dem Main zugewandte Kranmauer eingelassen. Welche Tiere sind auf dem kleinen Wappenrelief zu sehen?</string>
     <string name="Answer18A">Adler</string>
     <string name="Answer18B">Fische</string>
     <string name="Answer18C">Schweine</string>
@@ -253,7 +253,7 @@
     <string name="Answer19A">Ich empfange, übergebe, was beliebt, und befördere es.</string>
     <string name="Answer19B">Ich empfange, was der Fluss bringt.</string>
     <string name="Answer19C">Zu Ehren Franconias und Moenus</string>
-    <string name="Quest20">Welche Jahreszahl wird mit dem großgeschriebenen Buchstaben der Inschrift gebildet und ist somit das Erbauungsjahr des Krans?</string>
+    <string name="Quest20">Welche Jahreszahl wird mit den großgeschriebenen Buchstaben der Inschrift gebildet und ist somit das Erbauungsjahr des Krans?</string>
     <string name="Answer20A">1773</string>
     <string name="Answer20B">1846</string>
     <string name="Answer20C">1920</string>
