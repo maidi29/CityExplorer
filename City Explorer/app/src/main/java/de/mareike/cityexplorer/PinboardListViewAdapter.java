@@ -85,9 +85,11 @@ public class PinboardListViewAdapter extends BaseAdapter {
         //Listen-Items mit entsprechenden Elementen aus dem heruntergeladenen Array befüllen
         try {
             JSONObject jsonObject = this.dataArray.getJSONObject(position);
+
             cell.likes.setText(jsonObject.getString("likes"));
             cell.note.setText(jsonObject.getString("note"));
             cell.entryID = jsonObject.getString("id");
+            cell.likeImage.setImageResource(R.drawable.heart);
             String img = jsonObject.getString("image");
             String urlForImageInServer = baseUrlForImage + img;
 
@@ -109,7 +111,7 @@ public class PinboardListViewAdapter extends BaseAdapter {
                     if (Integer.parseInt(cursor.getString(2)) == 1) {
                         cell.likeImage.setImageResource(R.drawable.heart_filled);
                     }
-                    else if (Integer.parseInt(cursor.getString(2)) == 0) {
+                    else {
                         cell.likeImage.setImageResource(R.drawable.heart);
                     }
                 }

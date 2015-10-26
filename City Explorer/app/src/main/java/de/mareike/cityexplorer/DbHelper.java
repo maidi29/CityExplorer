@@ -13,7 +13,7 @@ import java.util.List;
 
 public class DbHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 29;
+    private static final int DATABASE_VERSION = 30;
     private static final String DATABASE_NAME = "CE";
 
     public static final String SCORE_TABLE = "score";
