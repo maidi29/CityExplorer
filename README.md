@@ -11,6 +11,7 @@ Some of the city's sights are marked on the Google Maps map. If the user is with
 For each sight, there are 2 tasks that the user can complete:
 1. a creative task where you can put a text, a painted picture or a photo on the pinboard (these can be viewed later by other users).
 2. a quiz with several single choice questions about the sight, some of which can be answered with information located at the sights. So you have to explore the surroundings while answering.
+
 When one creates a creative pinboard entry and answers all the questions correctly, the place is considered completed.
 This way you can earn badges and milestones.
 
